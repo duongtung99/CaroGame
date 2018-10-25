@@ -26,6 +26,9 @@ namespace CaroGame
             timer1.Start();
             main = new Main(soDong, soCot);
             grs = pnlChess.CreateGraphics();
+
+            // khởi tạo client
+            Client.InitClient();
         }
 
         private void pnlChess_Paint(object sender, PaintEventArgs e)
