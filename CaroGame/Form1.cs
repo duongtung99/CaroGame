@@ -12,7 +12,7 @@ namespace CaroGame
 {
     public partial class Form1 : Form
     {
-        private static Main main;
+        private static BanCo bc;
         public static Graphics grs;
 
         // xac dinh so dong so cot
@@ -24,13 +24,13 @@ namespace CaroGame
             InitializeComponent();
             this.Opacity = 0;
             timer1.Start();
-            main = new Main(soDong, soCot);
+            bc = new BanCo(soDong, soCot);
             grs = pnlChess.CreateGraphics();
         }
 
         private void pnlChess_Paint(object sender, PaintEventArgs e)
         {
-            main.vebanco(grs);
+           bc.VeBanCo(grs);
         }
 
         private void timer1_Tick(object sender, EventArgs e)

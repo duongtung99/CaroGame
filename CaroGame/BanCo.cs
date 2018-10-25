@@ -32,7 +32,7 @@ namespace CaroGame
             _SoDong = Sodong;
             _SoCot = Socot;
         }
-
+        
         public void VeBanCo(Graphics g)
         {
             for (int i = 0; i <= _SoCot; i++)
@@ -44,5 +44,6 @@ namespace CaroGame
                 g.DrawLine(Program.pen, 0, j * _ChieuCao, _SoCot * _ChieuRong, j * _ChieuCao);
             }
         }
+        
     }
 }
