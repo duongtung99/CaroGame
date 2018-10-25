@@ -15,26 +15,25 @@ namespace CaroGame
         private static string serverIp = "159.89.193.234";
         private static int serverPort = 12345;
 
-        // khai báo thông tin client
-        private static int clientPort = 22223;
-
-        // kiểm tra login
+        // kiểm tra
         public static bool checkLogin = false;
+        public static bool checkRegister = false;
+
+        // thông tin user
+        public static string user_id = "";
+        //public static string user_session = "";
         
         // khai báo kết nối
-        private static UdpClient sendingClient = null;
-        private static UdpClient receivingClient = null;
+        private static UdpClient client = null;
+        private static IPEndPoint serverEP = null;
 
         // khai báo worker
         public static BackgroundWorker workerListener = null;
 
         public static void InitClient()
         {
-            //tạo kết nối đến server
-            sendingClient = new UdpClient(serverIp, serverPort);
-
-            // tạo listener lắng nghe response từ server
-            receivingClient = new UdpClient(clientPort);
+            // tạo udpclient
+            client = new UdpClient();
 
             // cho phép cancel worker
             workerListener = new BackgroundWorker
@@ -58,9 +57,9 @@ namespace CaroGame
             SendData(message);
         }
 
-        public static void Play(string session, string user_id, int x, int y)
+        public static void Play(string user_session, string user_id, int x, int y)
         {
-            string message = "play:" + session + ":" + user_id + ":" + x + ":" + y;
+            string message = "play:" + user_session + ":" + user_id + ":" + x + ":" + y;
             SendData(message);
         }
 
@@ -68,13 +67,13 @@ namespace CaroGame
         {
             // gửi api lên server
             byte[] messageEncode = Encoding.ASCII.GetBytes(message);
-            sendingClient.Send(messageEncode, messageEncode.Length);
+            client.Send(messageEncode, messageEncode.Length, serverEP);
         }
 
         private static void DoReceiver(object sender, DoWorkEventArgs e)
         {
             // tạo endpoint(điểm cuối giao tiếp) gồm ip và port của server
-            IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(serverIp), serverPort);
+            serverEP = new IPEndPoint(IPAddress.Parse(serverIp), serverPort);
 
             while (true)
             {
@@ -86,14 +85,13 @@ namespace CaroGame
                 }
 
                 // xử lý data nhận được từ server
-                byte[] data = receivingClient.Receive(ref endPoint);
+                byte[] data = client.Receive(ref serverEP);
                 string response = Encoding.ASCII.GetString(data);
                 string[] rp = response.Split(':');
 
 
                 /// <summary>
                 /// play:user_session:user_id:x:y
-                /// 
                 /// login:user_id:user_pass
                 /// register:user_id:user_pass
                 /// </summary>
@@ -108,7 +106,10 @@ namespace CaroGame
                         }
                         break;
                     case "register":
-
+                        if (rp[1].Equals("true"))
+                        {
+                            checkRegister = true;
+                        }
                         break;
                 }
 
