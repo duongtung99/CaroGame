@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace CaroGameServer
 {
@@ -23,6 +24,35 @@ namespace CaroGameServer
             server.Send(data, data.Length, clientEP);
         }
 
+        private static void GetUser()
+        {
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlCommand MyCommand;
+            MyCommand = conn.CreateCommand();
+            MyCommand.CommandText = "SELECT * FROM `user`;";
+            conn.Open();
+            try
+            {
+                MySqlDataReader reader;
+                reader = MyCommand.ExecuteReader();
+                while (reader.Read())
+                {
+                    Console.WriteLine(reader["name"]);
+                    Console.WriteLine(reader["iduser"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            Console.Read();
+        }
+
         private static void Login(string user_id, string user_pass)
         {
             bool validate()
@@ -30,6 +60,7 @@ namespace CaroGameServer
                 // code  lấy user_id, user_pass trong csdl ra so sánh ở đây
                 // nếu user_id và user_pass chuẩn thì return true
                 // nếu không chuẩn return false
+                
                 return false;
             }
 
@@ -66,7 +97,7 @@ namespace CaroGameServer
         static void Main(string[] args)
         {
             Console.WriteLine("Server start listening on port 12345...");
-
+            GetUser();
             while (true)
             {
                 // xử lý data gửi từ client
