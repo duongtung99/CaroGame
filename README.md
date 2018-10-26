@@ -5,7 +5,7 @@
 - [ ] Xử lý thắng thua Caro
 
 ### 2. Nguyễn Đức Mạnh
-- [ ] Server database
+- [x] Server database
 - [ ] Server nhận và trả lời Client
 
 ### 3. Nguyễn Văn Tùng Dương
