@@ -10,10 +10,12 @@ namespace CaroGameServer
     class Program
     {
         // mở port listen
-        private static UdpClient server = new UdpClient(12345);
+        private const int serverPort = 12345;
+        private static UdpClient server = new UdpClient(serverPort);
 
-        // nhận dữ liệu từ tất cả các ip
-        private static IPEndPoint clientEP = new IPEndPoint(IPAddress.Any, 0);
+        // nhận dữ liệu từ tất cả các client
+        private const int clientPort = 12121;
+        private static IPEndPoint clientEP = new IPEndPoint(IPAddress.Any, clientPort);
 
         private static void SendData(string message)
         {

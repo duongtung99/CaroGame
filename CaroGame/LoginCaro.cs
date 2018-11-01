@@ -13,11 +13,9 @@ namespace CaroGame
 {
     public partial class LoginCaro : Form
     {
-        bool Hided;
         public LoginCaro()
         {
             InitializeComponent();
-            Hided = false;
             txt3.PasswordChar = 'd';
             txt_Log2.PasswordChar = '*';
 
@@ -32,13 +30,23 @@ namespace CaroGame
             Thread.Sleep(100);
             if (Client.checkLogin)
             {
-                Form1 f1 = new Form1();
+                Home home = new Home();
+                home.FormClosed += new FormClosedEventHandler(home_FormClosed); // thêm handle khi đóng form home
                 this.Hide();
-                f1.ShowDialog();
-                this.Show();
+                home.ShowDialog();
+            } else
+            {
+                label6.Text = "Sai user/password";
             }
         }
-     
+
+        // form Home đóng sẽ mở lại form Login
+        private void home_FormClosed(object sender, FormClosedEventArgs e)
+        { 
+            this.Show();
+        }
+
+
 
         private void linkSignup(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -53,6 +61,14 @@ namespace CaroGame
             linkLabel2.Visible = false;
         }
 
-        
+        private void txt_Log1_Enter(object sender, EventArgs e)
+        {
+            label6.Text = "";
+        }
+
+        private void txt_Log2_Enter(object sender, EventArgs e)
+        {
+            label6.Text = "";
+        }
     }
 }

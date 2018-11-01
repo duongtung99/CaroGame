@@ -15,6 +15,8 @@ namespace CaroGame
         // khai báo thông tin server
         private static string serverIp = "127.0.0.1";
         private static int serverPort = 12345;
+
+        // tạo endpoint(điểm cuối giao tiếp) gồm ip và port của server
         private static IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(serverIp), serverPort);
 
         // kiểm tra
@@ -34,8 +36,8 @@ namespace CaroGame
 
         public static void InitClient()
         {
-            // tạo udpclient
-            client = new UdpClient();
+            // tạo udpclient lắng nghe port 12121
+            client = new UdpClient(12121);
 
             // cho phép cancel worker
             workerListener = new BackgroundWorker
@@ -45,12 +47,22 @@ namespace CaroGame
 
             // thêm công việc cho worker
             workerListener.DoWork += DoReceiver;
+
+            // start worker
+            workerListener.RunWorkerAsync();
         }
 
         public static void Login(string user_id, string user_pass)
         {
             string message = "login:" + user_id + ":" + user_pass;
-            SendData(message);
+            try
+            {
+                SendData(message);
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Cant connect to server");
+            } 
+            
         }
 
         public static void Register(string user_id, string user_pass)
@@ -80,10 +92,6 @@ namespace CaroGame
 
         private static void DoReceiver(object sender, DoWorkEventArgs e)
         {
-            // tạo endpoint(điểm cuối giao tiếp) gồm ip và port của server
-            
-            
-
             while (true)
             {
                 // cancel worker nếu có tín hiệu cancel gửi đến
@@ -98,7 +106,6 @@ namespace CaroGame
                 string response = Encoding.ASCII.GetString(data);
                 string[] rp = response.Split(':');
 
-
                 /// <summary>
                 /// play:user_session:user_id:x:y
                 /// login:user_id:user_pass
@@ -112,7 +119,6 @@ namespace CaroGame
                     case "login":
                         if (rp[1].Equals("true")) {
                             checkLogin = true;
-                            MessageBox.Show("true");
                         }
                         break;
                     case "register":
