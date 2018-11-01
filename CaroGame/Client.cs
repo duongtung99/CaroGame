@@ -6,14 +6,16 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CaroGame
 {
     class Client
     {
         // khai báo thông tin server
-        private static string serverIp = "159.89.193.234";
+        private static string serverIp = "127.0.0.1";
         private static int serverPort = 12345;
+        private static IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(serverIp), serverPort);
 
         // kiểm tra
         public static bool checkLogin = false;
@@ -25,7 +27,7 @@ namespace CaroGame
         
         // khai báo kết nối
         private static UdpClient client = null;
-        private static IPEndPoint serverEP = null;
+        //private static IPEndPoint serverEP = null;
 
         // khai báo worker
         public static BackgroundWorker workerListener = null;
@@ -67,13 +69,20 @@ namespace CaroGame
         {
             // gửi api lên server
             byte[] messageEncode = Encoding.ASCII.GetBytes(message);
-            client.Send(messageEncode, messageEncode.Length, serverEP);
+            //try
+            //{
+                client.Send(messageEncode, messageEncode.Length, serverEP);
+            //} catch (Exception ex)
+            //{
+            //    MessageBox.Show("cant connect to server");
+            //}
         }
 
         private static void DoReceiver(object sender, DoWorkEventArgs e)
         {
             // tạo endpoint(điểm cuối giao tiếp) gồm ip và port của server
-            serverEP = new IPEndPoint(IPAddress.Parse(serverIp), serverPort);
+            
+            
 
             while (true)
             {
@@ -103,6 +112,7 @@ namespace CaroGame
                     case "login":
                         if (rp[1].Equals("true")) {
                             checkLogin = true;
+                            MessageBox.Show("true");
                         }
                         break;
                     case "register":

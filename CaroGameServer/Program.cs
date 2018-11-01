@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace CaroGameServer
@@ -24,6 +21,7 @@ namespace CaroGameServer
             byte[] data = Encoding.ASCII.GetBytes(message);
             server.Send(data, data.Length, clientEP);
         }
+
         // Thay đổi user đăng nhập từ offline thành online 
         // Chạy hàm khi CheckUser() return true
         private static void Status(string userName)
@@ -35,7 +33,7 @@ namespace CaroGameServer
             try
             {
                 MyCommand.CommandText = "UPDATE friendlist SET status = @status WHERE name = '" + userName + "';";
-                MyCommand.Parameters.Add("@status", SqlDbType.Int).Value = 1;
+                MyCommand.Parameters.AddWithValue("@status", SqlDbType.Int).Value = 1;
                 MyCommand.ExecuteNonQuery();
             }
             catch(Exception ex)
@@ -132,24 +130,22 @@ namespace CaroGameServer
             return false;
         }
 
+
+        // chạy hàm cho login
         private static void Login(string user_id, string user_pass)
         {
-            bool validate()
-            {
-                // code  lấy user_id, user_pass trong csdl ra so sánh ở đây
-                // nếu user_id và user_pass chuẩn thì return true
-                // nếu không chuẩn return false
-                
-                return false;
-            }
+            // kiểm tra username và pass có trong db
+            bool validate = CheckUser(user_id, user_pass);
 
-            if (validate())
+            if (validate)
             {
                 SendData("login:true");
+                Console.WriteLine("dung");
             }
             else
             {
                 SendData("login:false");
+                Console.WriteLine("sai");
             }
         }
 
@@ -176,16 +172,16 @@ namespace CaroGameServer
         static void Main(string[] args)
         {
             Console.WriteLine("Server start listening on port 12345...");
-            GetUser();
-            if (CheckUser("user1","123456"))
-            {
-                Console.WriteLine("dung");
-                Status("user1");
-            }
-            else
-            {
-                Console.WriteLine("sai");
-            }
+            //GetUser();
+            //if (CheckUser("user1","123456"))
+            //{
+            //    Console.WriteLine("dung");
+            //    Status("user1");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("sai");
+            //}
             while (true)
             {
                 // xử lý data gửi từ client

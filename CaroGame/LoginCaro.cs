@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,14 +20,23 @@ namespace CaroGame
             Hided = false;
             txt3.PasswordChar = 'd';
             txt_Log2.PasswordChar = '*';
+
+            Client.InitClient();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
-            this.Hide();
-            f1.ShowDialog();
-            this.Show();
+            string user_id = txt_Log1.Text;
+            string user_pass = txt_Log2.Text;
+            Client.Login(user_id, user_pass);
+            Thread.Sleep(100);
+            if (Client.checkLogin)
+            {
+                Form1 f1 = new Form1();
+                this.Hide();
+                f1.ShowDialog();
+                this.Show();
+            }
         }
      
 
