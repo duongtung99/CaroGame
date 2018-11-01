@@ -42,7 +42,5 @@ namespace CaroGame
             panel2.Visible = true;
             linkLabel2.Visible = false;
         }
-
-        
     }
 }

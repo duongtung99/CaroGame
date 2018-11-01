@@ -30,6 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginCaro));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txt_Log2 = new System.Windows.Forms.TextBox();
+            this.txt_Log1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.btnSignup = new System.Windows.Forms.Button();
             this.txt3 = new System.Windows.Forms.TextBox();
@@ -38,13 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txt_Log2 = new System.Windows.Forms.TextBox();
-            this.txt_Log1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -66,76 +66,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(323, 288);
             this.panel1.TabIndex = 0;
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(165, 222);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(79, 13);
-            this.linkLabel2.TabIndex = 4;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Back to Sign in";
-            this.linkLabel2.Visible = false;
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSignin);
-            // 
-            // btnSignup
-            // 
-            this.btnSignup.Location = new System.Drawing.Point(39, 207);
-            this.btnSignup.Name = "btnSignup";
-            this.btnSignup.Size = new System.Drawing.Size(95, 43);
-            this.btnSignup.TabIndex = 3;
-            this.btnSignup.Text = "Sign up";
-            this.btnSignup.UseVisualStyleBackColor = true;
-            this.btnSignup.Visible = false;
-            // 
-            // txt3
-            // 
-            this.txt3.Location = new System.Drawing.Point(109, 127);
-            this.txt3.Name = "txt3";
-            this.txt3.Size = new System.Drawing.Size(166, 20);
-            this.txt3.TabIndex = 2;
-            // 
-            // txt2
-            // 
-            this.txt2.Location = new System.Drawing.Point(109, 74);
-            this.txt2.Name = "txt2";
-            this.txt2.Size = new System.Drawing.Size(166, 20);
-            this.txt2.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 127);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Password";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Nickname";
-            // 
-            // txt1
-            // 
-            this.txt1.Location = new System.Drawing.Point(109, 35);
-            this.txt1.Name = "txt1";
-            this.txt1.Size = new System.Drawing.Size(166, 20);
-            this.txt1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Username";
             // 
             // panel2
             // 
@@ -209,6 +139,76 @@
             this.btnLogin.Text = "Sign in";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(165, 222);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(79, 13);
+            this.linkLabel2.TabIndex = 4;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Back to Sign in";
+            this.linkLabel2.Visible = false;
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSignin);
+            // 
+            // btnSignup
+            // 
+            this.btnSignup.Location = new System.Drawing.Point(39, 207);
+            this.btnSignup.Name = "btnSignup";
+            this.btnSignup.Size = new System.Drawing.Size(95, 43);
+            this.btnSignup.TabIndex = 3;
+            this.btnSignup.Text = "Sign up";
+            this.btnSignup.UseVisualStyleBackColor = true;
+            this.btnSignup.Visible = false;
+            // 
+            // txt3
+            // 
+            this.txt3.Location = new System.Drawing.Point(109, 127);
+            this.txt3.Name = "txt3";
+            this.txt3.Size = new System.Drawing.Size(166, 20);
+            this.txt3.TabIndex = 2;
+            // 
+            // txt2
+            // 
+            this.txt2.Location = new System.Drawing.Point(109, 74);
+            this.txt2.Name = "txt2";
+            this.txt2.Size = new System.Drawing.Size(166, 20);
+            this.txt2.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(36, 127);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Password";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(36, 87);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Nickname";
+            // 
+            // txt1
+            // 
+            this.txt1.Location = new System.Drawing.Point(109, 35);
+            this.txt1.Name = "txt1";
+            this.txt1.Size = new System.Drawing.Size(166, 20);
+            this.txt1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(34, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Username";
             // 
             // LoginCaro
             // 

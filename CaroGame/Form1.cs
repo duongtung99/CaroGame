@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace CaroGame
 {
@@ -23,11 +24,17 @@ namespace CaroGame
         public static int turn = 0;
         public List<int> KeHuyDiet = new List<int>();
 
+        //nhacnen
+        System.Media.SoundPlayer sound = new SoundPlayer(Properties.Resources.NhacNen);
+        System.Media.SoundPlayer soundwin = new SoundPlayer(Properties.Resources.WinSound);
+        System.Media.SoundPlayer soundlose = new SoundPlayer(Properties.Resources.LoseSound);
         public Form1()
         {
             InitializeComponent();
+            //hiệu úng mở bàn cờ
             this.Opacity = 0;
             timer1.Start();
+            //vẽ bàn cờ
             bc = new BanCo(soDong, soCot);
             grs = pnlChess.CreateGraphics();
 
@@ -38,14 +45,13 @@ namespace CaroGame
         private void pnlChess_Paint(object sender, PaintEventArgs e)
         {
            bc.VeBanCo(grs);
-
-           // gán số 1 cho tất cả các ô khi bắt đầu game
-           bc.check(soDong, soCot);
+            // gán số 1 cho tất cả các ô khi bắt đầu game
+            bc.check(soDong, soCot);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.Opacity = this.Opacity +0.1;
+            this.Opacity = this.Opacity +0.05;
             if (this.Opacity == 1 )
             {
                 timer1.Stop();
@@ -83,8 +89,8 @@ namespace CaroGame
                         //LAN.SendData("set:win:" + FormLogin.player);
 
                         // hiển thị nếu mày là người chiến thắng
-                        MessageBox.Show("Player " + 1 + " won");
-
+                        soundwin.Play();
+                        timer2.Enabled = true;
                         // tạo game mới
                         //caro.NewGame(grs);
                         //caro.vebanco(grs);
@@ -111,8 +117,9 @@ namespace CaroGame
                         //LAN.SendData("set:win:" + FormLogin.player);
 
                         // hiển thị nếu mày là người chiến thắng
-                        MessageBox.Show("Player " + 2 + " won");
-
+                        //MessageBox.Show("Player " + 2 + " won");
+                        soundwin.Play();
+                        timer2.Enabled = true;
                         //caro.NewGame(grs);
                         //caro.vebanco(grs);
                         //caro.check(soDong, soCot);
@@ -120,5 +127,18 @@ namespace CaroGame
                 }
             }
         }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            grs.DrawImage(Properties.Resources.Logo_You_Win, 200, 200, 400, 120);
+            grs.DrawString("Nhấn Enter để tiếp tục", new Font("Arial", 16, FontStyle.Bold), new SolidBrush(Color.White), 200, 200);
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+                
+                    
+        }
+       
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using CaroGame.Properties;
+using System.Media;
 
 namespace CaroGame
 {
@@ -61,7 +62,7 @@ namespace CaroGame
             // lấy ảnh từ Resources
             Bitmap player_x = Resources.x;
             Bitmap player_o = Resources.o;
-
+            System.Media.SoundPlayer sound = new SoundPlayer(Properties.Resources.DanhCoSound);
             // tính toán vị trí đặt ảnh theo vị trí click chuột
             int new_x = 0;
             int new_y = 0;
@@ -116,10 +117,12 @@ namespace CaroGame
             if (player == 1)
             {
                 playerX.Add(vi_tri);
+                sound.Play();
             }
             else if (player == 2)
             {
                 playerO.Add(vi_tri);
+                sound.Play();
             }
 
             return vi_tri;

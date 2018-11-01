@@ -111,6 +111,15 @@ namespace CaroGame.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream DanhCoSound {
+            get {
+                return ResourceManager.GetStream("DanhCoSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap desert_background_simple_game_level_location_concept_hd_looping_animation_rfgqov0se_thumbnail_full01 {
@@ -144,10 +153,38 @@ namespace CaroGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap download__1_ {
+        internal static System.Drawing.Bitmap GameOver {
             get {
-                object obj = ResourceManager.GetObject("download__1_", resourceCulture);
+                object obj = ResourceManager.GetObject("GameOver", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_You_Win {
+            get {
+                object obj = ResourceManager.GetObject("Logo_You_Win", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream LoseSound {
+            get {
+                return ResourceManager.GetStream("LoseSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream NhacNen {
+            get {
+                return ResourceManager.GetStream("NhacNen", resourceCulture);
             }
         }
         
@@ -158,6 +195,15 @@ namespace CaroGame.Properties {
             get {
                 object obj = ResourceManager.GetObject("o", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream WinSound {
+            get {
+                return ResourceManager.GetStream("WinSound", resourceCulture);
             }
         }
         
