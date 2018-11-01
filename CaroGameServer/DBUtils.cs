@@ -15,7 +15,7 @@ namespace CaroGameServer
             int port = 3306;
             string database = "caro";
             string username = "root";
-            string password = "123456";
+            string password = "quang123$%";
 
             return DBMySQLUtils.GetDBConnection(host, port, database, username, password);
         }

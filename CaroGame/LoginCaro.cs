@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,23 +13,40 @@ namespace CaroGame
 {
     public partial class LoginCaro : Form
     {
-        bool Hided;
         public LoginCaro()
         {
             InitializeComponent();
-            Hided = false;
             txt3.PasswordChar = 'd';
             txt_Log2.PasswordChar = '*';
+
+            Client.InitClient();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
-            this.Hide();
-            f1.ShowDialog();
+            string user_id = txt_Log1.Text;
+            string user_pass = txt_Log2.Text;
+            Client.Login(user_id, user_pass);
+            Thread.Sleep(100);
+            if (Client.checkLogin)
+            {
+                Home home = new Home();
+                home.FormClosed += new FormClosedEventHandler(home_FormClosed); // thêm handle khi đóng form home
+                this.Hide();
+                home.ShowDialog();
+            } else
+            {
+                label6.Text = "Sai user/password";
+            }
+        }
+
+        // form Home đóng sẽ mở lại form Login
+        private void home_FormClosed(object sender, FormClosedEventArgs e)
+        { 
             this.Show();
         }
-     
+
+
 
         private void linkSignup(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -42,5 +60,18 @@ namespace CaroGame
             panel2.Visible = true;
             linkLabel2.Visible = false;
         }
+<<<<<<< HEAD
+=======
+
+        private void txt_Log1_Enter(object sender, EventArgs e)
+        {
+            label6.Text = "";
+        }
+
+        private void txt_Log2_Enter(object sender, EventArgs e)
+        {
+            label6.Text = "";
+        }
+>>>>>>> 8ee82a2fabd5c0262de72ad40e5594bb67645823
     }
 }

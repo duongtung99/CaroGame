@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Data;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace CaroGameServer
@@ -12,16 +10,89 @@ namespace CaroGameServer
     class Program
     {
         // mở port listen
-        private static UdpClient server = new UdpClient(12345);
+        private const int serverPort = 12345;
+        private static UdpClient server = new UdpClient(serverPort);
 
-        // nhận dữ liệu từ tất cả các ip
-        private static IPEndPoint clientEP = new IPEndPoint(IPAddress.Any, 0);
+        // nhận dữ liệu từ tất cả các client
+        private const int clientPort = 12121;
+        private static IPEndPoint clientEP = new IPEndPoint(IPAddress.Any, clientPort);
 
         private static void SendData(string message)
         {
             // gửi response về client
             byte[] data = Encoding.ASCII.GetBytes(message);
             server.Send(data, data.Length, clientEP);
+        }
+
+        // Thay đổi user đăng nhập từ offline thành online 
+        // Chạy hàm khi CheckUser() return true
+        private static void Status(string userName)
+        {
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlCommand MyCommand;
+            MyCommand = conn.CreateCommand();
+            conn.Open();
+            try
+            {
+                MyCommand.CommandText = "UPDATE friendlist SET status = @status WHERE name = '" + userName + "';";
+                MyCommand.Parameters.AddWithValue("@status", SqlDbType.Int).Value = 1;
+                MyCommand.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Dispose();
+                conn.Close();
+            }
+        }
+
+        //Kiểm tra UserName và Password
+        private static bool CheckUser(string userName, string password)
+        {
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlCommand MyCommand, MyCommand1;
+            MyCommand = conn.CreateCommand();
+            MyCommand1 = conn.CreateCommand();
+            MyCommand.CommandText = "SELECT * FROM user WHERE user.userName = '" + userName + "';";
+            conn.Open();
+            try
+            {
+                MySqlDataReader reader;
+                reader = MyCommand.ExecuteReader();
+                if (reader.Read())
+                {
+                    if (reader["password"].ToString() == password)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        conn.Dispose();
+                        conn.Close();
+                        return false;
+                    }
+                }
+                else
+                {
+                    conn.Dispose();
+                    conn.Close();
+                    return false;
+                }
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Dispose();
+                conn.Close();
+            }
+            return false;
         }
 
         private static void GetUser()
@@ -53,24 +124,30 @@ namespace CaroGameServer
             Console.Read();
         }
 
+        // tim ten doi thu 
+        private static bool SearchUser(string userName)
+        {
+
+
+            return false;
+        }
+
+
+        // chạy hàm cho login
         private static void Login(string user_id, string user_pass)
         {
-            bool validate()
-            {
-                // code  lấy user_id, user_pass trong csdl ra so sánh ở đây
-                // nếu user_id và user_pass chuẩn thì return true
-                // nếu không chuẩn return false
-                
-                return false;
-            }
+            // kiểm tra username và pass có trong db
+            bool validate = CheckUser(user_id, user_pass);
 
-            if (validate())
+            if (validate)
             {
                 SendData("login:true");
+                Console.WriteLine("dung");
             }
             else
             {
                 SendData("login:false");
+                Console.WriteLine("sai");
             }
         }
 
@@ -97,7 +174,16 @@ namespace CaroGameServer
         static void Main(string[] args)
         {
             Console.WriteLine("Server start listening on port 12345...");
-            GetUser();
+            //GetUser();
+            //if (CheckUser("user1","123456"))
+            //{
+            //    Console.WriteLine("dung");
+            //    Status("user1");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("sai");
+            //}
             while (true)
             {
                 // xử lý data gửi từ client

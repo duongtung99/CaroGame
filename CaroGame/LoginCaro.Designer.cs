@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginCaro));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
+=======
+            this.label6 = new System.Windows.Forms.Label();
+>>>>>>> 8ee82a2fabd5c0262de72ad40e5594bb67645823
             this.txt_Log2 = new System.Windows.Forms.TextBox();
             this.txt_Log1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -72,6 +76,10 @@
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BackColor = System.Drawing.SystemColors.Window;
             this.panel2.BackgroundImage = global::CaroGame.Properties.Resources.desert_background_simple_game_level_location_concept_hd_looping_animation_rfgqov0se_thumbnail_full01;
+<<<<<<< HEAD
+=======
+            this.panel2.Controls.Add(this.label6);
+>>>>>>> 8ee82a2fabd5c0262de72ad40e5594bb67645823
             this.panel2.Controls.Add(this.txt_Log2);
             this.panel2.Controls.Add(this.txt_Log1);
             this.panel2.Controls.Add(this.label5);
@@ -83,12 +91,28 @@
             this.panel2.Size = new System.Drawing.Size(323, 246);
             this.panel2.TabIndex = 2;
             // 
+<<<<<<< HEAD
+=======
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(146, 115);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 13);
+            this.label6.TabIndex = 9;
+            // 
+>>>>>>> 8ee82a2fabd5c0262de72ad40e5594bb67645823
             // txt_Log2
             // 
             this.txt_Log2.Location = new System.Drawing.Point(114, 73);
             this.txt_Log2.Name = "txt_Log2";
             this.txt_Log2.Size = new System.Drawing.Size(166, 20);
             this.txt_Log2.TabIndex = 6;
+<<<<<<< HEAD
+=======
+            this.txt_Log2.Enter += new System.EventHandler(this.txt_Log2_Enter);
+>>>>>>> 8ee82a2fabd5c0262de72ad40e5594bb67645823
             // 
             // txt_Log1
             // 
@@ -96,15 +120,26 @@
             this.txt_Log1.Name = "txt_Log1";
             this.txt_Log1.Size = new System.Drawing.Size(166, 20);
             this.txt_Log1.TabIndex = 5;
+<<<<<<< HEAD
+=======
+            this.txt_Log1.Enter += new System.EventHandler(this.txt_Log1_Enter);
+>>>>>>> 8ee82a2fabd5c0262de72ad40e5594bb67645823
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.Control;
+<<<<<<< HEAD
             this.label5.Font = new System.Drawing.Font("High Tower Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(34, 78);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 15);
+=======
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(34, 78);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 16);
+>>>>>>> 8ee82a2fabd5c0262de72ad40e5594bb67645823
             this.label5.TabIndex = 4;
             this.label5.Text = "Password";
             // 
@@ -112,10 +147,17 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+<<<<<<< HEAD
             this.label4.Font = new System.Drawing.Font("High Tower Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(36, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 15);
+=======
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(36, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 16);
+>>>>>>> 8ee82a2fabd5c0262de72ad40e5594bb67645823
             this.label4.TabIndex = 3;
             this.label4.Text = "Username";
             // 
@@ -251,5 +293,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -37,9 +37,6 @@ namespace CaroGame
             //vẽ bàn cờ
             bc = new BanCo(soDong, soCot);
             grs = pnlChess.CreateGraphics();
-
-            // khởi tạo client
-            Client.InitClient();
         }
 
         private void pnlChess_Paint(object sender, PaintEventArgs e)
