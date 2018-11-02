@@ -71,7 +71,7 @@ namespace CaroGame
         private void btnTao_Click(object sender, EventArgs e)
         {
             Client.CreateRoom(Client.user_id);
-            Thread.Sleep(1000);
+            Thread.Sleep(200);
             if (Client.checkCreateRoom)
             {
                 Form1 f = new Form1();
