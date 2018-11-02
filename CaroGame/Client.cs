@@ -13,7 +13,10 @@ namespace CaroGame
     class Client
     {
         // khai báo thông tin server
-        private static string serverIp = "127.0.0.1";
+        //debug
+        //private static string serverIp = "127.0.0.1";
+        // real server
+        private static string serverIp = "159.89.193.234";
         private static int serverPort = 12345;
 
         // tạo endpoint(điểm cuối giao tiếp) gồm ip và port của server
