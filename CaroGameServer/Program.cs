@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Net;
 using System.Net.Sockets;
@@ -16,6 +17,9 @@ namespace CaroGameServer
         // nhận dữ liệu từ tất cả các client
         private const int clientPort = 12121;
         private static IPEndPoint clientEP = new IPEndPoint(IPAddress.Any, clientPort);
+
+        // danh sách phòng chơi
+        private static List<Room> roomList = new List<Room>();
 
         private static void SendData(string message)
         {
@@ -142,7 +146,7 @@ namespace CaroGameServer
             if (validate)
             {
                 SendData("login:true");
-                Console.WriteLine("dung");
+                Console.WriteLine("User " + user_id + " online");
             }
             else
             {
@@ -171,19 +175,31 @@ namespace CaroGameServer
             }
         }
 
+        private static void CreateRoom(string user_id, string room_no)
+        {
+            Room room = new Room
+            {
+                host_id = user_id,
+                host_ip = clientEP.Address,
+                room_no = room_no
+            };
+
+            // thêm vào danh sách room
+            roomList.Add(room);
+
+            // allow create room
+            SendData("create:true");
+
+            // log
+            Console.WriteLine("User " + user_id + " create room");
+        }
+
+
+
         static void Main(string[] args)
         {
             Console.WriteLine("Server start listening on port 12345...");
-            //GetUser();
-            //if (CheckUser("user1","123456"))
-            //{
-            //    Console.WriteLine("dung");
-            //    Status("user1");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("sai");
-            //}
+
             while (true)
             {
                 // xử lý data gửi từ client
@@ -204,7 +220,9 @@ namespace CaroGameServer
                     case "register":
                         Register(code[1], code[2]);
                         break;
-
+                    case "create":
+                        CreateRoom(code[1], code[2]);
+                        break;
                 }
             }
         }

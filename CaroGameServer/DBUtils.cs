@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 
 namespace CaroGameServer
 {
@@ -15,7 +10,7 @@ namespace CaroGameServer
             int port = 3306;
             string database = "caro";
             string username = "root";
-            string password = "quang123$%";
+            string password = "manh1234.";
 
             return DBMySQLUtils.GetDBConnection(host, port, database, username, password);
         }

@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
-using System.IO;
 
 namespace CaroGame
 {
@@ -71,6 +65,17 @@ namespace CaroGame
             if (openfile.ShowDialog() == DialogResult.OK)
             {
                 pictureBox3.Image = Image.FromFile(openfile.FileName);
+            }
+        }
+
+        private void btnTao_Click(object sender, EventArgs e)
+        {
+            Client.CreateRoom(Client.user_id);
+            Thread.Sleep(1000);
+            if (Client.checkCreateRoom)
+            {
+                Form1 f = new Form1();
+                f.ShowDialog();
             }
         }
     }

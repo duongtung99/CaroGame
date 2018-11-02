@@ -24,9 +24,9 @@ namespace CaroGame
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string user_id = txt_Log1.Text;
+            Client.user_id = txt_Log1.Text;
             string user_pass = txt_Log2.Text;
-            Client.Login(user_id, user_pass);
+            Client.Login(Client.user_id, user_pass);
             Thread.Sleep(100);
             if (Client.checkLogin)
             {
@@ -60,8 +60,6 @@ namespace CaroGame
             panel2.Visible = true;
             linkLabel2.Visible = false;
         }
-<<<<<<< HEAD
-=======
 
         private void txt_Log1_Enter(object sender, EventArgs e)
         {
@@ -72,6 +70,5 @@ namespace CaroGame
         {
             label6.Text = "";
         }
->>>>>>> 8ee82a2fabd5c0262de72ad40e5594bb67645823
     }
 }

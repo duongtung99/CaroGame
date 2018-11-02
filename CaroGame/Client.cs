@@ -22,9 +22,12 @@ namespace CaroGame
         // kiểm tra
         public static bool checkLogin = false;
         public static bool checkRegister = false;
+        public static bool checkCreateRoom = false;
+
 
         // thông tin user
-        public static string user_id = "";
+        public static string user_id;
+        public static string room_no;
         //public static string user_session = "";
         
         // khai báo kết nối
@@ -77,6 +80,14 @@ namespace CaroGame
             SendData(message);
         }
 
+        public static void CreateRoom(string user_id)
+        {
+            Random random = new Random();
+            room_no = Convert.ToString(random.Next(1, 10000));
+            string message = "create:" + user_id + ":" + room_no;
+            SendData(message);    
+        }
+
         private static void SendData(string message)
         {
             // gửi api lên server
@@ -125,6 +136,12 @@ namespace CaroGame
                         if (rp[1].Equals("true"))
                         {
                             checkRegister = true;
+                        }
+                        break;
+                    case "create":
+                        if (rp[1].Equals("true"))
+                        {
+                            checkCreateRoom = true;
                         }
                         break;
                 }

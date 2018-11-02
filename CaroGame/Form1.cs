@@ -136,6 +136,10 @@ namespace CaroGame
                 
                     
         }
-       
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            label2.Text = Client.room_no;
+        }
     }
 }
