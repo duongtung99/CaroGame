@@ -27,7 +27,7 @@ namespace CaroGame
             Client.user_id = txt_Log1.Text;
             string user_pass = txt_Log2.Text;
             Client.Login(Client.user_id, user_pass);
-            Thread.Sleep(100);
+            Thread.Sleep(1000);
             if (Client.checkLogin)
             {
                 Home home = new Home();
