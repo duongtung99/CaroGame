@@ -28,6 +28,7 @@ namespace CaroGameServer
             server.Send(data, data.Length, clientEP);
         }
 
+        #region Login
         // Thay đổi user đăng nhập từ offline thành online 
         // Chạy hàm khi CheckUser() return true
         private static void Status(string userName)
@@ -98,7 +99,8 @@ namespace CaroGameServer
             }
             return false;
         }
-
+        #endregion
+        #region Test
         private static void GetUser()
         {
             MySqlConnection conn = DBUtils.GetDBConnection();
@@ -128,6 +130,7 @@ namespace CaroGameServer
             Console.Read();
         }
 
+        #endregion
         // tim ten doi thu 
         private static bool SearchUser(string userName)
         {
@@ -145,6 +148,7 @@ namespace CaroGameServer
 
             if (validate)
             {
+                Status(user_id);
                 SendData("login:true");
                 Console.WriteLine("User " + user_id + " online");
             }
