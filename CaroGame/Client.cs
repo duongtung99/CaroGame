@@ -26,6 +26,7 @@ namespace CaroGame
         public static bool checkLogin = false;
         public static bool checkRegister = false;
         public static bool checkCreateRoom = false;
+        public static bool checkJoinRoom = false;
 
 
         // thông tin user
@@ -34,6 +35,9 @@ namespace CaroGame
         public static string join_id;
         public static string room_no;
         //public static string user_session = "";
+
+        public static Label join_label;
+        public static Label waiting_label;
         
         // khai báo kết nối
         private static UdpClient client = null;
@@ -41,6 +45,7 @@ namespace CaroGame
 
         // khai báo worker
         public static BackgroundWorker workerListener = null;
+        public static BackgroundWorker workerWaitForPlayer = null;
 
         public static void InitClient()
         {
@@ -53,8 +58,14 @@ namespace CaroGame
                 WorkerSupportsCancellation = true
             };
 
+            workerWaitForPlayer = new BackgroundWorker
+            {
+                WorkerSupportsCancellation = true
+            };
+
             // thêm công việc cho worker
             workerListener.DoWork += DoReceiver;
+            workerWaitForPlayer.DoWork += DoWaitForPlayer;
 
             // start worker
             workerListener.RunWorkerAsync();
@@ -159,6 +170,7 @@ namespace CaroGame
                         if (rp[1].Equals("true"))
                         {
                             host_id = rp[2];
+                            checkJoinRoom = true;
                         } else
                         {
                             MessageBox.Show("Phòng không tồn tại");
@@ -171,8 +183,40 @@ namespace CaroGame
                         }
                         break;
                 }
+            }
+        }
 
+        private static void DoWaitForPlayer(object sender, DoWorkEventArgs e)
+        {
+            while (true)
+            {
+                // cancel worker nếu có tín hiệu cancel gửi đến
+                if (workerWaitForPlayer.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
 
+                if (join_id != null)
+                {
+                    // xóa dòng "Chờ người chơi"
+                    waiting_label.Invoke((Action)delegate
+                    {
+                        waiting_label.Text = "";
+                    });
+
+                    // hiện tên người chơi vào phòng
+                    join_label.Invoke((Action)delegate
+                    {
+                        join_label.Text = join_id;
+                    });
+
+                    // set turn = 0 (bắt đầu game)
+                    Form1.turn = 0;
+
+                    // dừng worker
+                    workerWaitForPlayer.CancelAsync();
+                }
             }
         }
     }

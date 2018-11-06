@@ -83,12 +83,18 @@ namespace CaroGame
 
         private void btnVao_Click(object sender, EventArgs e)
         {
+
             Client.join_id = Client.user_id;
 
             string room_no = textBox1.Text;
             Client.JoinRoom(Client.user_id, room_no);
             Thread.Sleep(1000);
 
+            if (Client.checkJoinRoom)
+            {
+                Form1 f = new Form1();
+                f.ShowDialog();
+            }
         }
     }
 }
