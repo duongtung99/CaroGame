@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -37,6 +38,7 @@ namespace CaroGame
         //public static string user_session = "";
 
         public static Label join_label;
+        public static Label host_label;
         public static Label waiting_label;
         
         // khai báo kết nối
@@ -46,6 +48,7 @@ namespace CaroGame
         // khai báo worker
         public static BackgroundWorker workerListener = null;
         public static BackgroundWorker workerWaitForPlayer = null;
+        public static BackgroundWorker workerChangeTurn = null;
 
         public static void InitClient()
         {
@@ -63,9 +66,15 @@ namespace CaroGame
                 WorkerSupportsCancellation = true
             };
 
+            workerChangeTurn = new BackgroundWorker
+            {
+                WorkerSupportsCancellation = true
+            };
+
             // thêm công việc cho worker
             workerListener.DoWork += DoReceiver;
             workerWaitForPlayer.DoWork += DoWaitForPlayer;
+            workerChangeTurn.DoWork += DoChangeTurn;
 
             // start worker
             workerListener.RunWorkerAsync();
@@ -172,6 +181,13 @@ namespace CaroGame
                         if (rp[1].Equals("true"))
                         {
                             host_id = rp[2];
+
+                            // set player turn
+                            Form1.player_turn = Convert.ToInt32(rp[3]);
+
+                            // set turn = 0 (bắt đầu game)
+                            Form1.turn = 0;
+
                             checkJoinRoom = true;
                         } else
                         {
@@ -182,6 +198,9 @@ namespace CaroGame
                         if (rp[1].Equals(user_id))
                         {
                             join_id = rp[2];
+
+                            // set player turn
+                            Form1.player_turn = Convert.ToInt32(rp[3]);
                         }
                         break;
                 }
@@ -219,6 +238,82 @@ namespace CaroGame
                     // dừng worker
                     workerWaitForPlayer.CancelAsync();
                 }
+            }
+        }
+
+        private static void DoChangeTurn(object sender, DoWorkEventArgs e)
+        {
+            while (true)
+            {
+                // cancel worker nếu có tín hiệu cancel gửi đến
+                if (workerChangeTurn.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+
+                if (((Form1.player_turn == 1) && (Form1.turn % 2 == 0)) ||
+                    ((Form1.player_turn == 2) && (Form1.turn % 2 > 0)))
+                {
+                    if (user_id.Equals(host_id))
+                    {
+                        // đổi màu nền tên người chơi
+                        host_label.Invoke((Action)delegate
+                        {
+                            host_label.BackColor = Color.Green;
+                        });
+
+                        join_label.Invoke((Action)delegate
+                        {
+                            join_label.BackColor = Color.Transparent;
+                        });
+                    }
+
+                    if (user_id.Equals(join_id))
+                    {
+                        // đổi màu nền tên người chơi
+                        join_label.Invoke((Action)delegate
+                        {
+                            join_label.BackColor = Color.Green;
+                        });
+
+                        host_label.Invoke((Action)delegate
+                        {
+                            host_label.BackColor = Color.Transparent;
+                        });
+                    }
+                    
+                } else
+                {
+                    if (user_id.Equals(host_id))
+                    {
+                        // đổi màu nền tên người chơi
+                        host_label.Invoke((Action)delegate
+                        {
+                            host_label.BackColor = Color.Transparent;
+                        });
+
+                        join_label.Invoke((Action)delegate
+                        {
+                            join_label.BackColor = Color.Red;
+                        });
+                    }
+
+                    if (user_id.Equals(join_id))
+                    {
+                        // đổi màu nền tên người chơi
+                        join_label.Invoke((Action)delegate
+                        {
+                            join_label.BackColor = Color.Transparent;
+                        });
+
+                        host_label.Invoke((Action)delegate
+                        {
+                            host_label.BackColor = Color.Red;
+                        });
+                    }
+                }
+
             }
         }
     }

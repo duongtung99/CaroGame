@@ -263,12 +263,16 @@ namespace CaroGameServer
                     room.join_id = user_id;
                     room.joinEP = userEP;
 
-                    // gửi join thông tin của host
-                    Server.SendData("join:true:" + room.host_id);
+                    Random random = new Random();
+                    int player_turn = random.Next(1, 2);
 
-                    // gửi host thông tin của join
-                    string host_message = "host:" + room.host_id + ":" + room.join_id;
-                    Server.SendData(host_message, room.hostEP);
+                    // gửi thông tin của host cho join
+                    string message_to_join = "join:true:" + room.host_id + ":" + player_turn;
+                    Server.SendData(message_to_join);
+
+                    // gửi thông tin của join cho host
+                    string message_to_host = "host:" + room.host_id + ":" + room.join_id + ":" + player_turn;
+                    Server.SendData(message_to_host, room.hostEP);
 
                     check_room = true;
                     break;

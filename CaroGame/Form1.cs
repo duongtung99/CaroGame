@@ -22,6 +22,7 @@ namespace CaroGame
 
         // player turn
         public static int turn = -1;
+        public static int player_turn = 0;
         public List<int> KeHuyDiet = new List<int>();
 
         //nhacnen
@@ -39,6 +40,7 @@ namespace CaroGame
             grs = pnlChess.CreateGraphics();
 
             //
+            Client.host_label = label5;
             Client.join_label = label6;
             Client.waiting_label = label7;
         }
@@ -99,7 +101,7 @@ namespace CaroGame
                     }
                 }
             }
-            else if ((turn % 2 != 0) && (turn % 2 > 0))
+            else if (turn % 2 > 0)
             {
                 Point point = e.Location;
                 int vi_tri = BanCo.DanhCo(point.X, point.Y, 2, grs);
@@ -146,6 +148,9 @@ namespace CaroGame
                 label7.Text = "Chờ người chơi...";
                 Client.workerWaitForPlayer.RunWorkerAsync();
             }
+
+            Client.workerChangeTurn.RunWorkerAsync();
         }
+
     }
 }
