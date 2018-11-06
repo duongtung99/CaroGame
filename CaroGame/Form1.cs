@@ -21,13 +21,13 @@ namespace CaroGame
         private int soCot = 30;
 
         // player turn
-        public static int turn = 0;
+        public static int turn = -1;
         public List<int> KeHuyDiet = new List<int>();
 
         //nhacnen
-        System.Media.SoundPlayer sound = new SoundPlayer(Properties.Resources.NhacNen);
-        System.Media.SoundPlayer soundwin = new SoundPlayer(Properties.Resources.WinSound);
-        System.Media.SoundPlayer soundlose = new SoundPlayer(Properties.Resources.LoseSound);
+        SoundPlayer sound = new SoundPlayer(Properties.Resources.NhacNen);
+        SoundPlayer soundwin = new SoundPlayer(Properties.Resources.WinSound);
+        SoundPlayer soundlose = new SoundPlayer(Properties.Resources.LoseSound);
         public Form1()
         {
             InitializeComponent();
@@ -37,6 +37,10 @@ namespace CaroGame
             //vẽ bàn cờ
             bc = new BanCo(soDong, soCot);
             grs = pnlChess.CreateGraphics();
+
+            //
+            Client.join_label = label6;
+            Client.waiting_label = label7;
         }
 
         private void pnlChess_Paint(object sender, PaintEventArgs e)
@@ -95,7 +99,7 @@ namespace CaroGame
                     }
                 }
             }
-            else if (turn % 2 != 0)
+            else if ((turn % 2 != 0) && (turn % 2 > 0))
             {
                 Point point = e.Location;
                 int vi_tri = BanCo.DanhCo(point.X, point.Y, 2, grs);
@@ -134,9 +138,17 @@ namespace CaroGame
         private void Form1_Load(object sender, EventArgs e)
         {
             label2.Text = Client.room_no;
-
             label5.Text = Client.host_id;
             label6.Text = Client.join_id;
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            if (Client.host_id.Equals(Client.user_id))
+            {
+                label7.Text = "Chờ người chơi...";
+                Client.workerWaitForPlayer.RunWorkerAsync();
+            }
         }
     }
 }

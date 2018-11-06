@@ -45,6 +45,8 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pnlChess.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -55,6 +57,7 @@
             this.pnlChess.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlChess.Controls.Add(this.label7);
             this.pnlChess.Location = new System.Drawing.Point(247, 15);
             this.pnlChess.Name = "pnlChess";
             this.pnlChess.Size = new System.Drawing.Size(654, 567);
@@ -192,6 +195,17 @@
             this.label6.Size = new System.Drawing.Size(0, 25);
             this.label6.TabIndex = 14;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Coral;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(279, 229);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 25);
+            this.label7.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,6 +231,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Caro";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Shown += new System.EventHandler(this.Form1_Shown);
+            this.pnlChess.ResumeLayout(false);
+            this.pnlChess.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -242,6 +259,7 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
 
