@@ -131,15 +131,12 @@ namespace CaroGame
             grs.DrawString("Nhấn Enter để tiếp tục", new Font("Arial", 16, FontStyle.Bold), new SolidBrush(Color.White), 200, 200);
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-                
-                    
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             label2.Text = Client.room_no;
+
+            label5.Text = Client.host_id;
+            label6.Text = Client.join_id;
         }
     }
 }

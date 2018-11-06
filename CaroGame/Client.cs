@@ -30,6 +30,8 @@ namespace CaroGame
 
         // thông tin user
         public static string user_id;
+        public static string host_id;
+        public static string join_id;
         public static string room_no;
         //public static string user_session = "";
         
@@ -91,6 +93,12 @@ namespace CaroGame
             SendData(message);    
         }
 
+        public static void JoinRoom(string user_id, string room_no)
+        {
+            string message = "join:" + user_id + ":" + room_no;
+            SendData(message);
+        }
+
         private static void SendData(string message)
         {
             // gửi api lên server
@@ -145,6 +153,21 @@ namespace CaroGame
                         if (rp[1].Equals("true"))
                         {
                             checkCreateRoom = true;
+                        }
+                        break;
+                    case "join":
+                        if (rp[1].Equals("true"))
+                        {
+                            host_id = rp[2];
+                        } else
+                        {
+                            MessageBox.Show("Phòng không tồn tại");
+                        }
+                        break;
+                    case "host":
+                        if (rp[1].Equals(user_id))
+                        {
+                            join_id = rp[2];
                         }
                         break;
                 }

@@ -84,7 +84,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(323, 246);
             this.panel2.TabIndex = 2;
-            //
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -93,7 +93,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(0, 13);
             this.label6.TabIndex = 9;
-            //
+            // 
             // txt_Log2
             // 
             this.txt_Log2.Location = new System.Drawing.Point(114, 73);
@@ -114,10 +114,6 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.Control;
-            this.label5.Font = new System.Drawing.Font("High Tower Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(34, 78);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 15);
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(34, 78);
             this.label5.Name = "label5";
@@ -129,10 +125,6 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label4.Font = new System.Drawing.Font("High Tower Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(36, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 15);
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(36, 31);
             this.label4.Name = "label4";
@@ -233,6 +225,7 @@
             // 
             // LoginCaro
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
