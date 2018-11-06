@@ -160,6 +160,7 @@ namespace CaroGame
                     case "play":
                         int x = Convert.ToInt32(rp[1]);
                         int y = Convert.ToInt32(rp[2]);
+                        
                         if (Form1.player_turn == 1)
                         {
                             BanCo.DanhCo(x, y, 2, Form1.grs);
@@ -167,6 +168,7 @@ namespace CaroGame
                         {
                             BanCo.DanhCo(x, y, 1, Form1.grs);
                         }
+
                         Form1.turn++;
                         break;
                     case "login":
@@ -218,7 +220,7 @@ namespace CaroGame
 
         private static void DoWaitForPlayer(object sender, DoWorkEventArgs e)
         {
-            while (true)
+            while (join_id == null)
             {
                 // cancel worker nếu có tín hiệu cancel gửi đến
                 if (workerWaitForPlayer.CancellationPending)
@@ -227,26 +229,23 @@ namespace CaroGame
                     return;
                 }
 
-                if (join_id != null)
+                // xóa dòng "Chờ người chơi"
+                waiting_label.Invoke((Action)delegate
                 {
-                    // xóa dòng "Chờ người chơi"
-                    waiting_label.Invoke((Action)delegate
-                    {
-                        waiting_label.Text = "";
-                    });
+                    waiting_label.Text = "";
+                });
 
-                    // hiện tên người chơi vào phòng
-                    join_label.Invoke((Action)delegate
-                    {
-                        join_label.Text = join_id;
-                    });
+                // hiện tên người chơi vào phòng
+                join_label.Invoke((Action)delegate
+                {
+                    join_label.Text = join_id;
+                });
 
-                    // set turn = 0 (bắt đầu game)
-                    Form1.turn = 0;
+                // set turn = 0 (bắt đầu game)
+                Form1.turn = 0;
 
-                    // dừng worker
-                    workerWaitForPlayer.CancelAsync();
-                }
+                // dừng worker
+                workerWaitForPlayer.CancelAsync();
             }
         }
 
