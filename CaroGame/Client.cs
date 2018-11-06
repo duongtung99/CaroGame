@@ -49,8 +49,8 @@ namespace CaroGame
 
         public static void InitClient()
         {
-            // tạo udpclient lắng nghe port 12121
-            client = new UdpClient(12121);
+            // tạo udpclient
+            client = new UdpClient();
 
             // cho phép cancel worker
             workerListener = new BackgroundWorker
@@ -74,13 +74,13 @@ namespace CaroGame
         public static void Login(string user_id, string user_pass)
         {
             string message = "login:" + user_id + ":" + user_pass;
-            try
-            {
+            //try
+            //{
                 SendData(message);
-            } catch (Exception ex)
-            {
-                MessageBox.Show("Cant connect to server");
-            } 
+            //} catch (Exception ex)
+            //{
+            //    MessageBox.Show("Cant connect to server");
+            //} 
             
         }
 
@@ -116,7 +116,7 @@ namespace CaroGame
             byte[] messageEncode = Encoding.ASCII.GetBytes(message);
             //try
             //{
-                client.Send(messageEncode, messageEncode.Length, serverEP);
+                client.Send(messageEncode, messageEncode.Length);
             //} catch (Exception ex)
             //{
             //    MessageBox.Show("cant connect to server");
@@ -125,6 +125,8 @@ namespace CaroGame
 
         private static void DoReceiver(object sender, DoWorkEventArgs e)
         {
+            client.Connect(serverEP);
+
             while (true)
             {
                 // cancel worker nếu có tín hiệu cancel gửi đến

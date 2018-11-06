@@ -170,12 +170,12 @@ namespace CaroGameServer
 
 
 
-        public static void CreateRoom(string user_id, string room_no, IPAddress user_ip)
+        public static void CreateRoom(string user_id, string room_no, IPEndPoint userEP)
         {
             Room room = new Room
             {
                 host_id = user_id,
-                host_ip = user_ip,
+                hostEP = userEP,
                 room_no = room_no
             };
 
@@ -189,7 +189,7 @@ namespace CaroGameServer
             Console.WriteLine("User " + user_id + " create room");
         }
 
-        public static void JoinRoom(string user_id, string room_no, IPAddress user_ip)
+        public static void JoinRoom(string user_id, string room_no, IPEndPoint userEP)
         {
             bool check_room = false;
 
@@ -198,14 +198,14 @@ namespace CaroGameServer
                 if (room.room_no.Equals(room_no))
                 {
                     room.join_id = user_id;
-                    room.join_ip = user_ip;
+                    room.joinEP = userEP;
 
                     // gửi join thông tin của host
                     Server.SendData("join:true:" + room.host_id);
 
                     // gửi host thông tin của join
                     string host_message = "host:" + room.host_id + ":" + room.join_id;
-                    Server.SendDataToPlayer(host_message, room.host_ip);
+                    Server.SendData(host_message, room.hostEP);
 
                     check_room = true;
                     break;

@@ -11,8 +11,7 @@ namespace CaroGameServer
         private static UdpClient server = new UdpClient(serverPort);
 
         // nhận dữ liệu từ tất cả các client
-        private const int clientPort = 12121;
-        private static IPEndPoint clientEP = new IPEndPoint(IPAddress.Any, clientPort);
+        private static IPEndPoint clientEP = new IPEndPoint(IPAddress.Any, 0);
 
         public static void SendData(string message)
         {
@@ -21,14 +20,13 @@ namespace CaroGameServer
             server.Send(data, data.Length, clientEP);
         }
 
-        public static void SendDataToPlayer(string message, IPAddress user_ip)
+        public static void SendData(string message, IPEndPoint userEP)
         {
-            IPEndPoint userEP = new IPEndPoint(user_ip, clientPort);
-
             // gửi response về client
             byte[] data = Encoding.ASCII.GetBytes(message);
             server.Send(data, data.Length, userEP);
         }
+
 
         public static void Listener()
         {
@@ -53,10 +51,10 @@ namespace CaroGameServer
                         HandleClient.Register(code[1], code[2]);
                         break;
                     case "create":
-                        HandleClient.CreateRoom(code[1], code[2], clientEP.Address);
+                        HandleClient.CreateRoom(code[1], code[2], clientEP);
                         break;
                     case "join":
-                        HandleClient.JoinRoom(code[1], code[2], clientEP.Address);
+                        HandleClient.JoinRoom(code[1], code[2], clientEP);
 
                         break;
                 }

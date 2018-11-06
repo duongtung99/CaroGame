@@ -231,7 +231,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Caro";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.pnlChess.ResumeLayout(false);
             this.pnlChess.PerformLayout();
             this.panel1.ResumeLayout(false);

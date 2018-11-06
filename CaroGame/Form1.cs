@@ -140,10 +140,7 @@ namespace CaroGame
             label2.Text = Client.room_no;
             label5.Text = Client.host_id;
             label6.Text = Client.join_id;
-        }
 
-        private void Form1_Shown(object sender, EventArgs e)
-        {
             if (Client.host_id.Equals(Client.user_id))
             {
                 label7.Text = "Chờ người chơi...";
