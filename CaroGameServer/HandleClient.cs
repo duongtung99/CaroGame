@@ -12,6 +12,7 @@ namespace CaroGameServer
         private static List<Room> roomList = new List<Room>();
 
 
+        #region Login
 
         // Thay đổi user đăng nhập từ offline thành online 
         // Chạy hàm khi CheckUser() return true
@@ -85,7 +86,9 @@ namespace CaroGameServer
             }
             return false;
         }
+      
 
+        #endregion
 
 
         private static void GetUser()
@@ -116,9 +119,74 @@ namespace CaroGameServer
             }
             Console.Read();
         }
+        #region SingIn
 
+        // Kiểm tra tên đăng nhập trong hệ thống
+        private static bool KiemTraUser(string userName)
+        {
+            MySqlConnection conn = DBUtils.GetDBConnection();
+            MySqlCommand MyCommand;
+            MyCommand = conn.CreateCommand();
+            MyCommand.CommandText = "SELECT * FROM user WHERE user.userName = '" + userName + "';";
+            conn.Open();
+            try
+            {
+                MySqlDataReader reader;
+                reader = MyCommand.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    conn.Close();
+                    conn.Dispose();
+                    return true;
+                }
 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+            }
+            return false;
+        }
 
+        // Đăng ký tài khoản
+        internal static bool DangKy(string userName, string name, string password)
+        {
+            if (!KiemTraUser(userName))
+            {
+                MySqlConnection conn = DBUtils.GetDBConnection();
+                MySqlCommand MyCommand;
+                MyCommand = conn.CreateCommand();
+                conn.Open();
+                try
+                {
+                    MyCommand.CommandText = "INSERT INTO user (userName, name, password)  VALUES (@userName, @name, @password) ";
+                    MyCommand.Parameters.AddWithValue("@userName", userName);
+                    MyCommand.Parameters.AddWithValue("@name", name);
+                    MyCommand.Parameters.AddWithValue("@password", password);
+                    MyCommand.ExecuteNonQuery();
+                    conn.Dispose();
+                    conn.Close();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    conn.Dispose();
+                    conn.Close();
+                }
+
+            }
+            return false;
+        }
+        #endregion
         // tim ten doi thu 
         private static bool SearchUser(string userName)
         {
@@ -137,6 +205,7 @@ namespace CaroGameServer
             if (validate)
             {
                 Server.SendData("login:true");
+                Status(user_id);
                 Console.WriteLine("User " + user_id + " online");
             }
             else
@@ -148,17 +217,11 @@ namespace CaroGameServer
 
 
 
-        public static void Register(string user_id, string user_pass)
+        public static void Register(string user_id,string user_name, string user_pass)
         {
-            bool validate()
-            {
-                // code  lấy user_id, user_pass trong csdl ra so sánh ở đây
-                // nếu user_id chưa tồn tại thì lưu vào csdl rồi return true
-                // nếu user_id tồn tại thì return false
-                return false;
-            }
+            bool validate = DangKy(user_id, user_name, user_pass);
 
-            if (validate())
+            if (validate)
             {
                 Server.SendData("register:true");
             }

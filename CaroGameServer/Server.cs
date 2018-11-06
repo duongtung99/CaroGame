@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
@@ -50,7 +51,7 @@ namespace CaroGameServer
                         HandleClient.Login(code[1], code[2]);
                         break;
                     case "register":
-                        HandleClient.Register(code[1], code[2]);
+                        HandleClient.Register(code[1], code[2], code[3]);
                         break;
                     case "create":
                         HandleClient.CreateRoom(code[1], code[2], clientEP.Address);
