@@ -36,7 +36,7 @@ namespace CaroGameServer
                 // xử lý data gửi từ client
                 byte[] data = server.Receive(ref clientEP);
                 string message = Encoding.ASCII.GetString(data);
-                //Console.WriteLine(message);
+                Console.WriteLine(message);
 
                 string[] code = message.Split(':');
 

@@ -77,7 +77,7 @@ namespace CaroGame
                     // gửi thông tin cho người chơi còn lại biết mày vừa đánh ở đâu
                     Client.Play(Client.user_id, Client.room_no, point.X, point.Y);
 
-                    bool win = BanCo.CheckWin(1, vi_tri);
+                    bool win = BanCo.CheckWin(player_turn, vi_tri);
                     KeHuyDiet.Add(vi_tri);
                     turn++;
 
@@ -96,7 +96,7 @@ namespace CaroGame
                     }
                 }
             }
-            else if ((turn % 2 > 0) && (player_turn == 2))
+            else if ((turn % 2 != 0) && (player_turn == 2))
             {
                 Point point = e.Location;
                 int vi_tri = BanCo.DanhCo(point.X, point.Y, player_turn, grs);
@@ -106,7 +106,7 @@ namespace CaroGame
                     // gửi thông tin cho người chơi còn lại biết mày vừa đánh ở đâu
                     Client.Play(Client.user_id, Client.room_no, point.X, point.Y);
 
-                    bool win = BanCo.CheckWin(2, vi_tri);
+                    bool win = BanCo.CheckWin(player_turn, vi_tri);
                     KeHuyDiet.Add(vi_tri);
                     turn++;
 

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -134,6 +135,8 @@ namespace CaroGame
 
         private static void DoReceiver(object sender, DoWorkEventArgs e)
         {
+            // connect to server
+            // try catch to check server on/off
             client.Connect(serverEP);
 
             while (true)
@@ -168,8 +171,8 @@ namespace CaroGame
                         {
                             BanCo.DanhCo(x, y, 1, Form1.grs);
                         }
-
                         Form1.turn++;
+                        //MessageBox.Show(Convert.ToString(Form1.turn));
                         break;
                     case "login":
                         if (rp[1].Equals("true")) {
@@ -220,7 +223,7 @@ namespace CaroGame
 
         private static void DoWaitForPlayer(object sender, DoWorkEventArgs e)
         {
-            while (join_id == null)
+            while (true)
             {
                 // cancel worker nếu có tín hiệu cancel gửi đến
                 if (workerWaitForPlayer.CancellationPending)
@@ -229,23 +232,29 @@ namespace CaroGame
                     return;
                 }
 
-                // xóa dòng "Chờ người chơi"
-                waiting_label.Invoke((Action)delegate
+
+                if (join_id != null)
                 {
-                    waiting_label.Text = "";
-                });
+                    // xóa dòng "Chờ người chơi"
+                    waiting_label.Invoke((Action)delegate
+                    {
+                        waiting_label.Text = "";
+                    });
 
-                // hiện tên người chơi vào phòng
-                join_label.Invoke((Action)delegate
-                {
-                    join_label.Text = join_id;
-                });
+                    // hiện tên người chơi vào phòng
+                    join_label.Invoke((Action)delegate
+                    {
+                        join_label.Text = join_id;
+                    });
 
-                // set turn = 0 (bắt đầu game)
-                Form1.turn = 0;
+                    // set turn = 0 (bắt đầu game)
+                    Form1.turn = 0;
 
-                // dừng worker
-                workerWaitForPlayer.CancelAsync();
+                    // dừng worker
+                    workerWaitForPlayer.CancelAsync();
+                }
+
+                Thread.Sleep(100);
             }
         }
 
@@ -323,6 +332,7 @@ namespace CaroGame
                     }
                 }
 
+                Thread.Sleep(100);
             }
         }
     }

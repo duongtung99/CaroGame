@@ -86,8 +86,8 @@ namespace CaroGame
 
             Client.join_id = Client.user_id;
 
-            string room_no = textBox1.Text;
-            Client.JoinRoom(Client.user_id, room_no);
+            Client.room_no = textBox1.Text;
+            Client.JoinRoom(Client.user_id, Client.room_no);
             Thread.Sleep(1000);
 
             if (Client.checkJoinRoom)
