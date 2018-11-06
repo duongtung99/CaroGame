@@ -99,9 +99,9 @@ namespace CaroGame
             SendData(message);
         }
 
-        public static void Play(string user_session, string user_id, int x, int y)
+        public static void Play(string user_id, string room_no, int x, int y)
         {
-            string message = "play:" + user_session + ":" + user_id + ":" + x + ":" + y;
+            string message = "play:" + user_id + ":" + room_no + ":" + x + ":" + y;
             SendData(message);
         }
 
@@ -158,7 +158,16 @@ namespace CaroGame
                 switch (rp[0])
                 {
                     case "play":
-
+                        int x = Convert.ToInt32(rp[1]);
+                        int y = Convert.ToInt32(rp[2]);
+                        if (Form1.player_turn == 1)
+                        {
+                            BanCo.DanhCo(x, y, 2, Form1.grs);
+                        } else if (Form1.player_turn == 2)
+                        {
+                            BanCo.DanhCo(x, y, 1, Form1.grs);
+                        }
+                        Form1.turn++;
                         break;
                     case "login":
                         if (rp[1].Equals("true")) {
@@ -283,7 +292,8 @@ namespace CaroGame
                         });
                     }
                     
-                } else
+                } else if (((Form1.player_turn == 1) && (Form1.turn % 2 > 0)) ||
+                    ((Form1.player_turn == 2) && (Form1.turn % 2 == 0)))
                 {
                     if (user_id.Equals(host_id))
                     {

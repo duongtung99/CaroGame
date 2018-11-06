@@ -217,7 +217,7 @@ namespace CaroGameServer
 
 
 
-        public static void Register(string user_id,string user_name, string user_pass)
+        public static void Register(string user_id, string user_name, string user_pass)
         {
             bool validate = DangKy(user_id, user_name, user_pass);
 
@@ -231,6 +231,24 @@ namespace CaroGameServer
             }
         }
 
+        
+        public static void Play(string user_id, string room_no, int x, int y)
+        {
+            foreach (Room room in roomList)
+            {
+                if (room.room_no == room_no)
+                {
+                    string message_to_player = "play:" + x + ":" + y;
+                    if (user_id.Equals(room.host_id))
+                    {
+                        Server.SendData(message_to_player, room.joinEP);
+                    } else if (user_id.Equals(room.join_id))
+                    {
+                        Server.SendData(message_to_player, room.hostEP);
+                    }
+                }
+            }
+        }
 
 
         public static void CreateRoom(string user_id, string room_no, IPEndPoint userEP)
@@ -264,14 +282,23 @@ namespace CaroGameServer
                     room.joinEP = userEP;
 
                     Random random = new Random();
-                    int player_turn = random.Next(1, 2);
+                    int host_turn = random.Next(1, 3);
+                    int join_turn = 0;
+                    if (host_turn == 1)
+                    {
+                        join_turn = 2;
+                    }
+                    else
+                    {
+                        join_turn = 1;
+                    }
 
                     // gửi thông tin của host cho join
-                    string message_to_join = "join:true:" + room.host_id + ":" + player_turn;
+                    string message_to_join = "join:true:" + room.host_id + ":" + join_turn;
                     Server.SendData(message_to_join);
 
                     // gửi thông tin của join cho host
-                    string message_to_host = "host:" + room.host_id + ":" + room.join_id + ":" + player_turn;
+                    string message_to_host = "host:" + room.host_id + ":" + room.join_id + ":" + host_turn;
                     Server.SendData(message_to_host, room.hostEP);
 
                     check_room = true;

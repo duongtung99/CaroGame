@@ -33,8 +33,8 @@ namespace CaroGame
         {
             InitializeComponent();
             //hiệu úng mở bàn cờ
-            this.Opacity = 0;
-            timer1.Start();
+            //this.Opacity = 0;
+            //timer1.Start();
             //vẽ bàn cờ
             bc = new BanCo(soDong, soCot);
             grs = pnlChess.CreateGraphics();
@@ -62,25 +62,20 @@ namespace CaroGame
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pnlChess_MouseClick(object sender, MouseEventArgs e)
         {
             // Debug
-            if (turn % 2 == 0) //if turn is even
+            if ((turn % 2 == 0) && (player_turn == 1)) //if turn is even
             {
                 // hiển thị nước đánh
                 Point point = e.Location;
-                int vi_tri = BanCo.DanhCo(point.X, point.Y, 1, grs);
+                int vi_tri = BanCo.DanhCo(point.X, point.Y, player_turn, grs);
 
                 // kiểm tra win
                 if (vi_tri != 0)
                 {
                     // gửi thông tin cho người chơi còn lại biết mày vừa đánh ở đâu
-                    //LAN.SendData("set:play:" + FormLogin.player + ":" + point.X + ":" + point.Y);
+                    Client.Play(Client.user_id, Client.room_no, point.X, point.Y);
 
                     bool win = BanCo.CheckWin(1, vi_tri);
                     KeHuyDiet.Add(vi_tri);
@@ -101,14 +96,15 @@ namespace CaroGame
                     }
                 }
             }
-            else if (turn % 2 > 0)
+            else if ((turn % 2 > 0) && (player_turn == 2))
             {
                 Point point = e.Location;
-                int vi_tri = BanCo.DanhCo(point.X, point.Y, 2, grs);
+                int vi_tri = BanCo.DanhCo(point.X, point.Y, player_turn, grs);
 
                 if (vi_tri != 0)
                 {
-                    //LAN.SendData("set:play:" + FormLogin.player + ":" + point.X + ":" + point.Y);
+                    // gửi thông tin cho người chơi còn lại biết mày vừa đánh ở đâu
+                    Client.Play(Client.user_id, Client.room_no, point.X, point.Y);
 
                     bool win = BanCo.CheckWin(2, vi_tri);
                     KeHuyDiet.Add(vi_tri);

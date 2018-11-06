@@ -43,7 +43,11 @@ namespace CaroGameServer
                 switch (code[0])
                 {
                     case "play":
-
+                        string user_id = code[1];
+                        string room_no = code[2];
+                        int x = Convert.ToInt32(code[3]);
+                        int y = Convert.ToInt32(code[4]);
+                        HandleClient.Play(user_id, room_no, x, y);
                         break;
                     case "login":
                         HandleClient.Login(code[1], code[2]);
