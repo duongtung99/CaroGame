@@ -1,8 +1,12 @@
+﻿# TODO
+- Server nhận biết được khi người chơi out giữa trận (thông báo cho người chơi còn lại, xóa room)
+- Chuyển giao thức sang TCP Async hoặc REST API
+
 # Công việc
 ### 1. Phạm Minh Quang
-- [ ] Giao tiếp giữa Client và Server
+- [x] Giao tiếp giữa Client và Server
 - [ ] API
-- [ ] Xử lý thắng thua Caro
+- [x] Xử lý thắng thua Caro
 
 ### 2. Nguyễn Đức Mạnh
 - [x] Server database

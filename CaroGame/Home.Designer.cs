@@ -123,6 +123,7 @@
             this.btnVao.TabIndex = 10;
             this.btnVao.Text = "Vào phòng";
             this.btnVao.UseVisualStyleBackColor = true;
+            this.btnVao.Click += new System.EventHandler(this.btnVao_Click);
             // 
             // Home
             // 

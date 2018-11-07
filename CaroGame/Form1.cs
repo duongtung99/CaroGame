@@ -21,23 +21,32 @@ namespace CaroGame
         private int soCot = 30;
 
         // player turn
-        public static int turn = 0;
+        public static int turn = -1;
+        public static int player_turn = 0;
         public List<int> KeHuyDiet = new List<int>();
 
         //nhacnen
-        System.Media.SoundPlayer sound = new SoundPlayer(Properties.Resources.NhacNen);
-        System.Media.SoundPlayer soundwin = new SoundPlayer(Properties.Resources.WinSound);
-        System.Media.SoundPlayer soundlose = new SoundPlayer(Properties.Resources.LoseSound);
+        SoundPlayer sound = new SoundPlayer(Properties.Resources.NhacNen);
+        SoundPlayer soundwin = new SoundPlayer(Properties.Resources.WinSound);
+        SoundPlayer soundlose = new SoundPlayer(Properties.Resources.LoseSound);
         public Form1()
         {
             InitializeComponent();
             //hiệu úng mở bàn cờ
-            this.Opacity = 0;
-            timer1.Start();
+            //this.Opacity = 0;
+            //timer1.Start();
             //vẽ bàn cờ
             bc = new BanCo(soDong, soCot);
             grs = pnlChess.CreateGraphics();
+<<<<<<< HEAD
             label5.Text = Client.user_id;
+=======
+
+            //
+            Client.host_label = label5;
+            Client.join_label = label6;
+            Client.waiting_label = label7;
+>>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
         }
 
         private void pnlChess_Paint(object sender, PaintEventArgs e)
@@ -57,27 +66,22 @@ namespace CaroGame
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pnlChess_MouseClick(object sender, MouseEventArgs e)
         {
             // Debug
-            if (turn % 2 == 0) //if turn is even
+            if ((turn % 2 == 0) && (player_turn == 1)) //if turn is even
             {
                 // hiển thị nước đánh
                 Point point = e.Location;
-                int vi_tri = BanCo.DanhCo(point.X, point.Y, 1, grs);
+                int vi_tri = BanCo.DanhCo(point.X, point.Y, player_turn, grs);
 
                 // kiểm tra win
                 if (vi_tri != 0)
                 {
                     // gửi thông tin cho người chơi còn lại biết mày vừa đánh ở đâu
-                    //LAN.SendData("set:play:" + FormLogin.player + ":" + point.X + ":" + point.Y);
+                    Client.Play(Client.user_id, Client.room_no, point.X, point.Y);
 
-                    bool win = BanCo.CheckWin(1, vi_tri);
+                    bool win = BanCo.CheckWin(player_turn, vi_tri);
                     KeHuyDiet.Add(vi_tri);
                     turn++;
 
@@ -96,16 +100,17 @@ namespace CaroGame
                     }
                 }
             }
-            else if (turn % 2 != 0)
+            else if ((turn % 2 != 0) && (player_turn == 2))
             {
                 Point point = e.Location;
-                int vi_tri = BanCo.DanhCo(point.X, point.Y, 2, grs);
+                int vi_tri = BanCo.DanhCo(point.X, point.Y, player_turn, grs);
 
                 if (vi_tri != 0)
                 {
-                    //LAN.SendData("set:play:" + FormLogin.player + ":" + point.X + ":" + point.Y);
+                    // gửi thông tin cho người chơi còn lại biết mày vừa đánh ở đâu
+                    Client.Play(Client.user_id, Client.room_no, point.X, point.Y);
 
-                    bool win = BanCo.CheckWin(2, vi_tri);
+                    bool win = BanCo.CheckWin(player_turn, vi_tri);
                     KeHuyDiet.Add(vi_tri);
                     turn++;
 
@@ -133,16 +138,32 @@ namespace CaroGame
             grs.DrawString("Nhấn Enter để tiếp tục", new Font("Arial", 16, FontStyle.Bold), new SolidBrush(Color.White), 200, 200);
         }
 
+<<<<<<< HEAD
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
               
         }
 
+=======
+>>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
         private void Form1_Load(object sender, EventArgs e)
         {
             label2.Text = Client.room_no;
+            label5.Text = Client.host_id;
+            label6.Text = Client.join_id;
+
+            if (Client.host_id.Equals(Client.user_id))
+            {
+                label7.Text = "Chờ người chơi...";
+                Client.workerWaitForPlayer.RunWorkerAsync();
+            }
+
+            Client.workerChangeTurn.RunWorkerAsync();
         }
 
+<<<<<<< HEAD
         
+=======
+>>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
     }
 }

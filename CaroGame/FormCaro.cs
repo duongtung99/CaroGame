@@ -29,7 +29,6 @@ namespace CaroGame
         //tạo map
         private void btntao_Click(object sender, EventArgs e)
         {
-            soundlogin.Play();
             Client.host_id = Client.user_id;
             Client.CreateRoom(Client.user_id);
             Thread.Sleep(200);
