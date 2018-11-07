@@ -48,6 +48,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.pnlChess.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -57,6 +59,7 @@
             this.pnlChess.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            //this.pnlChess.Controls.Add(this.label7);
             this.pnlChess.Location = new System.Drawing.Point(247, 15);
             this.pnlChess.Name = "pnlChess";
             this.pnlChess.Size = new System.Drawing.Size(654, 567);
@@ -109,7 +112,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(18, 483);
+            this.label1.Location = new System.Drawing.Point(18, 477);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 25);
             this.label1.TabIndex = 9;
@@ -129,6 +132,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            //this.panel1.BackgroundImage = global::CaroGame.Properties.Resources.c73ab19f8b5c19653933586d5e2d88f6;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Location = new System.Drawing.Point(921, 15);
             this.panel1.Name = "panel1";
@@ -212,7 +216,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Maroon;
-            this.label8.Location = new System.Drawing.Point(18, 535);
+            this.label8.Location = new System.Drawing.Point(12, 316);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(73, 25);
             this.label8.TabIndex = 15;
@@ -255,6 +259,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Caro";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.pnlChess.ResumeLayout(false);
+            this.pnlChess.PerformLayout();
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
