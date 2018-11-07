@@ -33,7 +33,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lb1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.pnlChess = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.Phong = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -47,10 +46,13 @@
             this.lblJoin = new System.Windows.Forms.Label();
             this.lblHost = new System.Windows.Forms.Label();
             this.lblSophong = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pnlChess = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnlChess.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
@@ -76,18 +78,6 @@
             this.button1.TabIndex = 28;
             this.button1.Text = "Send";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // pnlChess
-            // 
-            this.pnlChess.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlChess.Location = new System.Drawing.Point(220, 56);
-            this.pnlChess.Name = "pnlChess";
-            this.pnlChess.Size = new System.Drawing.Size(724, 570);
-            this.pnlChess.TabIndex = 27;
-            this.pnlChess.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlChess_Paint);
-            this.pnlChess.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlChess_MouseClick);
             // 
             // label2
             // 
@@ -227,6 +217,28 @@
             this.lblSophong.TabIndex = 39;
             this.lblSophong.Text = "3";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(277, 172);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "label1";
+            // 
+            // pnlChess
+            // 
+            this.pnlChess.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlChess.Controls.Add(this.label7);
+            this.pnlChess.Location = new System.Drawing.Point(220, 56);
+            this.pnlChess.Name = "pnlChess";
+            this.pnlChess.Size = new System.Drawing.Size(724, 570);
+            this.pnlChess.TabIndex = 27;
+            this.pnlChess.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlChess_Paint);
+            this.pnlChess.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlChess_MouseClick);
+            // 
             // Map
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -253,6 +265,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnlChess.ResumeLayout(false);
+            this.pnlChess.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,7 +277,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ListBox lb1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel pnlChess;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label Phong;
         private System.Windows.Forms.Timer timer1;
@@ -277,5 +290,7 @@
         private System.Windows.Forms.Label lblJoin;
         private System.Windows.Forms.Label lblHost;
         private System.Windows.Forms.Label lblSophong;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel pnlChess;
     }
 }
