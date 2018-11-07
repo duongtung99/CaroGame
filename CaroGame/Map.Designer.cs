@@ -47,6 +47,8 @@
             this.lblJoin = new System.Windows.Forms.Label();
             this.lblHost = new System.Windows.Forms.Label();
             this.lblSophong = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pnlChess.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -82,6 +84,7 @@
             this.pnlChess.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlChess.Controls.Add(this.label7);
             this.pnlChess.Location = new System.Drawing.Point(220, 56);
             this.pnlChess.Name = "pnlChess";
             this.pnlChess.Size = new System.Drawing.Size(724, 570);
@@ -227,6 +230,15 @@
             this.lblSophong.TabIndex = 39;
             this.lblSophong.Text = "3";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(235, 121);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "label1";
+            // 
             // Map
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +261,8 @@
             this.Name = "Map";
             this.Size = new System.Drawing.Size(1170, 734);
             this.Load += new System.EventHandler(this.Map_Load);
+            this.pnlChess.ResumeLayout(false);
+            this.pnlChess.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -277,5 +291,6 @@
         private System.Windows.Forms.Label lblJoin;
         private System.Windows.Forms.Label lblHost;
         private System.Windows.Forms.Label lblSophong;
+        private System.Windows.Forms.Label label7;
     }
 }

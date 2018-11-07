@@ -64,6 +64,7 @@ namespace CaroGame
                 if (vi_tri != 0)
                 {
                     // gửi thông tin cho người chơi còn lại biết mày vừa đánh ở đâu
+                    Client.Play(Client.user_id, Client.room_no, point.X, point.Y);
                     //LAN.SendData("set:play:" + FormLogin.player + ":" + point.X + ":" + point.Y);
 
                     bool win = BanCo.CheckWin(1, vi_tri);
@@ -106,6 +107,7 @@ namespace CaroGame
                         // hiển thị nếu mày là người chiến thắng
                         //MessageBox.Show("Player " + 2 + " won");
                         soundwin.Play();
+                        pnlChess.Enabled = false;
                         timer1.Stop();
                         //caro.NewGame(grs);
                         //caro.vebanco(grs);
@@ -120,6 +122,15 @@ namespace CaroGame
             lblSophong.Text = Client.room_no;
             lblHost.Text = Client.host_id;
             lblJoin.Text = Client.join_id;
+
+            if (Client.host_id.Equals(Client.user_id))
+            {
+                label7.Text = "Chờ người chơi...";
+                Client.workerWaitForPlayer.RunWorkerAsync();
+                pnlChess.Enabled = false;
+            }
+
+            Client.workerChangeTurn.RunWorkerAsync();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
