@@ -38,13 +38,11 @@ namespace CaroGame
         public static string room_no;
         //public static string user_session = "";
 
-<<<<<<< HEAD
-=======
+
         public static Label join_label;
         public static Label host_label;
         public static Label waiting_label;
         
->>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
         // khai báo kết nối
         private static UdpClient client = null;
         //private static IPEndPoint serverEP = null;
@@ -90,20 +88,11 @@ namespace CaroGame
             //try
             //{
                 SendData(message);
-<<<<<<< HEAD
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Cant connect to server");
-            }
-
-=======
             //} catch (Exception ex)
             //{
             //    MessageBox.Show("Cant connect to server");
             //} 
             
->>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
         }
 
         public static void Register(string user_id, string user_pass)
@@ -132,23 +121,13 @@ namespace CaroGame
             SendData(message);
         }
 
-        public static void JoinRoom(string user_id, string room_no)
-        {
-            string message = "join:" + user_id + ":" + room_no;
-            SendData(message);
-        }
-
         private static void SendData(string message)
         {
             // gửi api lên server
             byte[] messageEncode = Encoding.ASCII.GetBytes(message);
             //try
             //{
-<<<<<<< HEAD
-            client.Send(messageEncode, messageEncode.Length, serverEP);
-=======
                 client.Send(messageEncode, messageEncode.Length);
->>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
             //} catch (Exception ex)
             //{
             //    MessageBox.Show("cant connect to server");
@@ -218,10 +197,6 @@ namespace CaroGame
                         if (rp[1].Equals("true"))
                         {
                             host_id = rp[2];
-<<<<<<< HEAD
-                        }
-                        else
-=======
 
                             // set player turn
                             Form1.player_turn = Convert.ToInt32(rp[3]);
@@ -231,7 +206,6 @@ namespace CaroGame
 
                             checkJoinRoom = true;
                         } else
->>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
                         {
                             MessageBox.Show("Phòng không tồn tại");
                         }
@@ -240,12 +214,9 @@ namespace CaroGame
                         if (rp[1].Equals(user_id))
                         {
                             join_id = rp[2];
-<<<<<<< HEAD
-=======
 
                             // set player turn
                             Form1.player_turn = Convert.ToInt32(rp[3]);
->>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
                         }
                         break;
                 }

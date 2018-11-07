@@ -45,14 +45,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.label5 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
-=======
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pnlChess.SuspendLayout();
             this.panel1.SuspendLayout();
->>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +59,7 @@
             this.pnlChess.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlChess.Controls.Add(this.label7);
+            //this.pnlChess.Controls.Add(this.label7);
             this.pnlChess.Location = new System.Drawing.Point(247, 15);
             this.pnlChess.Name = "pnlChess";
             this.pnlChess.Size = new System.Drawing.Size(654, 567);
@@ -183,11 +180,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Maroon;
-<<<<<<< HEAD
-            this.label4.Location = new System.Drawing.Point(939, 346);
-=======
             this.label4.Location = new System.Drawing.Point(937, 316);
->>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 25);
             this.label4.TabIndex = 12;
@@ -200,13 +193,6 @@
             // label5
             // 
             this.label5.AutoSize = true;
-<<<<<<< HEAD
-            this.label5.Location = new System.Drawing.Point(45, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "label5";
-=======
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Maroon;
             this.label5.Location = new System.Drawing.Point(1025, 270);
@@ -245,7 +231,6 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(0, 25);
             this.label9.TabIndex = 16;
->>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
             // 
             // Form1
             // 
@@ -253,17 +238,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(1156, 705);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.pictureBox1);
-=======
             this.ClientSize = new System.Drawing.Size(1146, 705);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
->>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -280,13 +259,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Caro";
             this.Load += new System.EventHandler(this.Form1_Load);
-<<<<<<< HEAD
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-=======
             this.pnlChess.ResumeLayout(false);
             this.pnlChess.PerformLayout();
             this.panel1.ResumeLayout(false);
->>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -310,13 +285,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label label5;
-<<<<<<< HEAD
-=======
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
->>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
     }
 }
 

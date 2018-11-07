@@ -38,15 +38,11 @@ namespace CaroGame
             //vẽ bàn cờ
             bc = new BanCo(soDong, soCot);
             grs = pnlChess.CreateGraphics();
-<<<<<<< HEAD
-            label5.Text = Client.user_id;
-=======
 
             //
             Client.host_label = label5;
             Client.join_label = label6;
             Client.waiting_label = label7;
->>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
         }
 
         private void pnlChess_Paint(object sender, PaintEventArgs e)
@@ -138,14 +134,8 @@ namespace CaroGame
             grs.DrawString("Nhấn Enter để tiếp tục", new Font("Arial", 16, FontStyle.Bold), new SolidBrush(Color.White), 200, 200);
         }
 
-<<<<<<< HEAD
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-              
-        }
 
-=======
->>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
+
         private void Form1_Load(object sender, EventArgs e)
         {
             label2.Text = Client.room_no;
@@ -161,9 +151,5 @@ namespace CaroGame
             Client.workerChangeTurn.RunWorkerAsync();
         }
 
-<<<<<<< HEAD
-        
-=======
->>>>>>> 2deabcceacb1e40db089c3ed199b6b750bb3536d
     }
 }
