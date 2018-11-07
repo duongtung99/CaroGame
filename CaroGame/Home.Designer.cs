@@ -45,7 +45,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(520, 132);
+            this.linkLabel1.Location = new System.Drawing.Point(169, 219);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(56, 20);
             this.linkLabel1.TabIndex = 1;
@@ -93,9 +93,9 @@
             // FormControl
             // 
             this.FormControl.BackColor = System.Drawing.Color.Transparent;
-            this.FormControl.Location = new System.Drawing.Point(20, 195);
+            this.FormControl.Location = new System.Drawing.Point(20, 191);
             this.FormControl.Name = "FormControl";
-            this.FormControl.Size = new System.Drawing.Size(911, 347);
+            this.FormControl.Size = new System.Drawing.Size(911, 351);
             this.FormControl.TabIndex = 7;
             // 
             // btnTao
@@ -128,7 +128,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::CaroGame.Properties.Resources.desert_background_simple_game_level_location_concept_hd_looping_animation_rfgqov0se_thumbnail_full01;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(941, 560);
             this.Controls.Add(this.btnVao);

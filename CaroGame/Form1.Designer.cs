@@ -43,7 +43,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.panel1.SuspendLayout();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -94,7 +94,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(12, 270);
+            this.label1.Location = new System.Drawing.Point(18, 477);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 25);
             this.label1.TabIndex = 9;
@@ -114,31 +114,34 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            //this.panel1.BackgroundImage = global::CaroGame.Properties.Resources.c73ab19f8b5c19653933586d5e2d88f6;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(920, 15);
+            this.panel1.Location = new System.Drawing.Point(921, 15);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(210, 234);
+            this.panel1.Size = new System.Drawing.Size(223, 280);
             this.panel1.TabIndex = 8;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Image = global::CaroGame.Properties.Resources._37725208_1897723226915374_5593628633076858880_n;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 24);
+            this.pictureBox1.Location = new System.Drawing.Point(45, 165);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(184, 194);
+            this.pictureBox1.Size = new System.Drawing.Size(149, 164);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 15);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 145);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(210, 234);
+            this.pictureBox2.Size = new System.Drawing.Size(210, 293);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
             // 
@@ -148,7 +151,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Maroon;
-            this.label3.Location = new System.Drawing.Point(937, 270);
+            this.label3.Location = new System.Drawing.Point(939, 383);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 25);
             this.label3.TabIndex = 11;
@@ -160,7 +163,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Maroon;
-            this.label4.Location = new System.Drawing.Point(939, 316);
+            this.label4.Location = new System.Drawing.Point(939, 346);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 25);
             this.label4.TabIndex = 12;
@@ -170,13 +173,24 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(45, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "label5";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::CaroGame.Properties.Resources._3281093ab45ded7b7ad91ac591ed0854;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1146, 705);
+            this.ClientSize = new System.Drawing.Size(1156, 705);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -194,7 +208,6 @@
             this.Text = "Caro";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -217,6 +230,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label label5;
     }
 }
 

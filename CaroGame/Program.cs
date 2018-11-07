@@ -19,7 +19,7 @@ namespace CaroGame
             pen = new Pen(Color.White);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginCaro());
+            Application.Run(new FormCaro());
         }
     }
 }

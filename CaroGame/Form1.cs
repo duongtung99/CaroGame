@@ -37,6 +37,7 @@ namespace CaroGame
             //vẽ bàn cờ
             bc = new BanCo(soDong, soCot);
             grs = pnlChess.CreateGraphics();
+            label5.Text = Client.user_id;
         }
 
         private void pnlChess_Paint(object sender, PaintEventArgs e)
@@ -116,6 +117,7 @@ namespace CaroGame
                         // hiển thị nếu mày là người chiến thắng
                         //MessageBox.Show("Player " + 2 + " won");
                         soundwin.Play();
+                        panel1.Enabled = false;
                         timer2.Enabled = true;
                         //caro.NewGame(grs);
                         //caro.vebanco(grs);
@@ -133,13 +135,14 @@ namespace CaroGame
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-                
-                    
+              
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             label2.Text = Client.room_no;
         }
+
+        
     }
 }

@@ -22,7 +22,7 @@ namespace CaroGame
             Controls.Remove(FormControl);
             FormControl.Visible = false;
 
-            var panel1 = new Profile();
+            var panel1 = new Profile1();
             panel1.Size = FormControl.Size;
             panel1.Location = FormControl.Location;
             Controls.Add(panel1);
@@ -31,15 +31,8 @@ namespace CaroGame
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Controls.Remove(FormControl);
-            FormControl.Visible = false;
 
-            var panel1 = new Profile();
-            panel1.Size = FormControl.Size;
-            panel1.Location = FormControl.Location;
-            Controls.Add(panel1);
-
-            FormControl = panel1;
+            //FormControl = panel1;
         }
 
 
@@ -47,7 +40,7 @@ namespace CaroGame
         {
             Controls.Remove(FormControl);
             FormControl.Visible = false;
-            var panel1 = new History();
+            var panel1 = new Map();
             panel1.Size = FormControl.Size;
             panel1.Location = FormControl.Location;
             Controls.Add(panel1);

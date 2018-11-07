@@ -121,9 +121,6 @@
   <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="division_4_bronze_tier_league_of_legends_emblem_by_narishm_d6u3akd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\division_4_bronze_tier_league_of_legends_emblem_by_narishm-d6u3akd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="_37725208_1897723226915374_5593628633076858880_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\37725208_1897723226915374_5593628633076858880_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,18 +132,6 @@
   </data>
   <data name="ab8e8f78e61033dfa2f1699b1494f089" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ab8e8f78e61033dfa2f1699b1494f089.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clipboard_clipart_horizontal_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clipboard-clipart-horizontal-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="desert_background_simple_game_level_location_concept_hd_looping_animation_rfgqov0se_thumbnail_full01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\desert-background-simple-game-level-location-concept-hd-looping-animation_rfgqov0se_thumbnail-full01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_3281093ab45ded7b7ad91ac591ed0854" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3281093ab45ded7b7ad91ac591ed0854.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DanhCoSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DanhCoSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -165,5 +150,56 @@
   </data>
   <data name="Logo_You_Win" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo_You_Win.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="a8c4820c57e78471010321ac3cac6cbd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\a8c4820c57e78471010321ac3cac6cbd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ajax_loader" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ajax-loader.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bgmap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bgmap.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="db171808d8370ed7ea37796357c68d81" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\db171808d8370ed7ea37796357c68d81.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="khung1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\khung1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_2ebf58bda0b882dbb031563fe5b89f67" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2ebf58bda0b882dbb031563fe5b89f67.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_815ba08053b87f66c89c12ac754abef2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\815ba08053b87f66c89c12ac754abef2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="backgroundhome" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backgroundhome.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="backgroundhome__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backgroundhome (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bronze" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bronze.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="goldtext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\goldtext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silvertext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silvertext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bgLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bgLogin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bglogin__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bglogin (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

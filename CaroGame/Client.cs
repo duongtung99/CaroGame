@@ -30,9 +30,11 @@ namespace CaroGame
 
         // thông tin user
         public static string user_id;
+        public static string host_id;
+        public static string join_id;
         public static string room_no;
         //public static string user_session = "";
-        
+
         // khai báo kết nối
         private static UdpClient client = null;
         //private static IPEndPoint serverEP = null;
@@ -64,11 +66,12 @@ namespace CaroGame
             try
             {
                 SendData(message);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Cant connect to server");
-            } 
-            
+            }
+
         }
 
         public static void Register(string user_id, string user_pass)
@@ -88,7 +91,13 @@ namespace CaroGame
             Random random = new Random();
             room_no = Convert.ToString(random.Next(1, 10000));
             string message = "create:" + user_id + ":" + room_no;
-            SendData(message);    
+            SendData(message);
+        }
+
+        public static void JoinRoom(string user_id, string room_no)
+        {
+            string message = "join:" + user_id + ":" + room_no;
+            SendData(message);
         }
 
         private static void SendData(string message)
@@ -97,7 +106,7 @@ namespace CaroGame
             byte[] messageEncode = Encoding.ASCII.GetBytes(message);
             //try
             //{
-                client.Send(messageEncode, messageEncode.Length, serverEP);
+            client.Send(messageEncode, messageEncode.Length, serverEP);
             //} catch (Exception ex)
             //{
             //    MessageBox.Show("cant connect to server");
@@ -131,7 +140,8 @@ namespace CaroGame
 
                         break;
                     case "login":
-                        if (rp[1].Equals("true")) {
+                        if (rp[1].Equals("true"))
+                        {
                             checkLogin = true;
                         }
                         break;
@@ -145,6 +155,22 @@ namespace CaroGame
                         if (rp[1].Equals("true"))
                         {
                             checkCreateRoom = true;
+                        }
+                        break;
+                    case "join":
+                        if (rp[1].Equals("true"))
+                        {
+                            host_id = rp[2];
+                        }
+                        else
+                        {
+                            MessageBox.Show("Phòng không tồn tại");
+                        }
+                        break;
+                    case "host":
+                        if (rp[1].Equals(user_id))
+                        {
+                            join_id = rp[2];
                         }
                         break;
                 }
