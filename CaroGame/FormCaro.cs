@@ -52,9 +52,20 @@ namespace CaroGame
         private void btnVao_Click(object sender, EventArgs e)
         {
             Client.join_id = Client.user_id;
-            string room_no = txtSophong.Text;
-            Client.JoinRoom(Client.user_id, room_no);
+            Client.room_no = txtSophong.Text;
+            Client.JoinRoom(Client.user_id, Client.room_no);
             Thread.Sleep(1000);
+
+            if (Client.checkJoinRoom)
+            {
+                Controls.Remove(FormControl1);
+                FormControl1.Visible = false;
+                var panel1 = new Map();
+                panel1.Size = FormControl1.Size;
+                panel1.Location = FormControl1.Location;
+                Controls.Add(panel1);
+                FormControl1 = panel1;
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
