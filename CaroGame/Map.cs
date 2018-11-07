@@ -43,6 +43,10 @@ namespace CaroGame
             //đếm giờ
             da = DateTime.Now;
             timer1.Start();
+
+            Client.host_label = lblHost;
+            Client.join_label = lblJoin;
+            Client.waiting_label = label7;
         }
 
         private void pnlChess_Paint(object sender, PaintEventArgs e)
