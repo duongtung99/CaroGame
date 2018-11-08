@@ -50,23 +50,11 @@
   <ItemGroup>
     <Compile Include="BanCo.cs" />
     <Compile Include="Client.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormCaro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCaro.Designer.cs">
       <DependentUpon>FormCaro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Home.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Home.Designer.cs">
-      <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>UserControl</SubType>
@@ -88,14 +76,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormCaro.resx">
       <DependentUpon>FormCaro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home.resx">
-      <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -250,13 +232,22 @@
     <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Nhạc-nền-đánh-cờ-tướng-Phần-2.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Nhạc-nền-đánh-cờ-tướng-Phần-21.mp3" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Nhacnencotuong.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avata.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phaohoa.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

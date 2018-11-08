@@ -11,8 +11,8 @@ namespace CaroGame
 {
     class BanCo
     {
-        public const int _ChieuRong = 30;
-        public const int _ChieuCao = 30;
+        public const int _ChieuRong = 24;
+        public const int _ChieuCao = 24;
 
         private int _SoDong;
         private int _SoCot;

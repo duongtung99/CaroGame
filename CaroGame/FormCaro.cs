@@ -9,68 +9,25 @@ namespace CaroGame
 {
     public partial class FormCaro : Form
     {
+        //nhạc nền đăng nhập
         SoundPlayer soundlogin = new SoundPlayer(Properties.Resources.NhacNen);
+        //khai báo usercontrol
+        Map map = new Map();
+        Profile1 profile1 = new Profile1();
         public FormCaro()
         {
             InitializeComponent();
-            //mở trang home
-            this.Size = new Size(340, 280);
+            //hiệu úng mở bàn cờ
+            this.Opacity = 0;
+            opacityform.Start();
+
             Client.InitClient();
             soundlogin.Play();
         }
 
-        private void FormControl1_Load(object sender, EventArgs e)
-        {
-            
-            txtChecklog.Visible = false;
-            progressBar1.Visible = false;
-        }
-
-        //tạo map
-        private void btntao_Click(object sender, EventArgs e)
-        {
-            Client.host_id = Client.user_id;
-            Client.CreateRoom(Client.user_id);
-            Thread.Sleep(200);
-            if (Client.checkCreateRoom)
-            {
-                Controls.Remove(FormControl1);
-                FormControl1.Visible = false;
-                var panel1 = new Map();
-                panel1.Size = FormControl1.Size;
-                panel1.Location = FormControl1.Location;
-                Controls.Add(panel1);
-                FormControl1 = panel1;
-            }
-            
-            //ẩn ko liên quan
-            btnTao.Visible = false;
-            btnVao.Visible = false;
-            txtSophong.Visible = false;
-        }
-
-        private void btnVao_Click(object sender, EventArgs e)
-        {
-            Client.join_id = Client.user_id;
-            Client.room_no = txtSophong.Text;
-            Client.JoinRoom(Client.user_id, Client.room_no);
-            Thread.Sleep(1000);
-
-            if (Client.checkJoinRoom)
-            {
-                Controls.Remove(FormControl1);
-                FormControl1.Visible = false;
-                var panel1 = new Map();
-                panel1.Size = FormControl1.Size;
-                panel1.Location = FormControl1.Location;
-                Controls.Add(panel1);
-                FormControl1 = panel1;
-            }
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
+            processbartime.Enabled = true;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -105,25 +62,32 @@ namespace CaroGame
                 txt_Log2.Enabled = false;
                 linkSignup.Enabled = false;
                 btnLogin.Enabled = false;
-                progressBar1.Value = progressBar1.Value + 20;
-                if(progressBar1.Value > 99)
+                progressBar1.Value = progressBar1.Value + 50;
+                if(progressBar1.Value == 100)
                 {
-                    timer1.Enabled = false;
-                    txtSophong.Visible = true;
+                    processbartime.Enabled = false;
                     panelLogin.Visible = false;
-                    Controls.Remove(FormControl1);
-                    FormControl1.Visible = false;
-                    this.Size = new Size(1169, 760);
-                    var panel1 = new Profile1();
-                    panel1.Size = FormControl1.Size;
-                    panel1.Location = FormControl1.Location;
-                    Controls.Add(panel1);
-                    FormControl1 = panel1;
+                    Controls.Add(profile1);
                 }
             }
             else
             {
                 txtChecklog.Text = "*Sai user/password";
+            }
+        }
+
+        private void FormCaro_Load(object sender, EventArgs e)
+        {
+            txtChecklog.Visible = false;
+            progressBar1.Visible = false;
+        }
+
+        private void opacityform_Tick(object sender, EventArgs e)
+        {
+            this.Opacity = this.Opacity + 0.05;
+            if (this.Opacity == 1)
+            {
+                opacityform.Stop();
             }
         }
     }

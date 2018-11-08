@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 
@@ -17,8 +12,8 @@ namespace CaroGame
         public static Graphics grs;
 
         // xac dinh so dong so cot
-        private int soDong = 30;
-        private int soCot = 30;
+        private int soDong = 28;
+        private int soCot = 22;
 
         // player turn
         public static int turn = -1;
@@ -36,13 +31,10 @@ namespace CaroGame
             InitializeComponent();
             bc = new BanCo(soDong, soCot);
             grs = pnlChess.CreateGraphics();
-
-
-            timer1.Start();
+            
             button1.Text = "Start";
             //đếm giờ
             da = DateTime.Now;
-            timer1.Start();
 
             Client.host_label = lblHost;
             Client.join_label = lblJoin;
@@ -77,15 +69,8 @@ namespace CaroGame
 
                     if (win)
                     {
-                        // gửi cho thằng chơi cùng biết mày là người chiến thắng
-                        //LAN.SendData("set:win:" + FormLogin.player);
-
                         // hiển thị nếu mày là người chiến thắng
                         soundwin.Play();
-                        // tạo game mới
-                        //caro.NewGame(grs);
-                        //caro.vebanco(grs);
-                        //caro.check(soDong, soCot);
                     }
                 }
             }
@@ -105,16 +90,10 @@ namespace CaroGame
 
                     if (win)
                     {
-                        // gửi cho thằng chơi cùng biết mày là người chiến thắng
-                        //LAN.SendData("set:win:" + FormLogin.player);
-
                         // hiển thị nếu mày là người chiến thắng
-                        //MessageBox.Show("Player " + 2 + " won");
                         soundwin.Play();
                         panel1.Enabled = false;
-                        //caro.NewGame(grs);
-                        //caro.vebanco(grs);
-                        //caro.check(soDong, soCot);
+                        MessageBox.Show("wwin");
                     }
                 }
             }
@@ -140,6 +119,12 @@ namespace CaroGame
         {
             TimeSpan span = DateTime.Now.Subtract(da);
             Time.Text = span.Minutes.ToString() + " : " + span.Seconds.ToString();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            grs.DrawImage(Properties.Resources.phaohoa, 200, 200, 400, 120);
+            //grs.DrawString("Nhấn Enter để tiếp tục", new Font("Arial", 16, FontStyle.Bold), new SolidBrush(Color.White), 200, 200);
         }
     }
 }

@@ -38,9 +38,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Time = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Avt1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.Avt2 = new System.Windows.Forms.PictureBox();
             this.Join = new System.Windows.Forms.Label();
             this.Host = new System.Windows.Forms.Label();
             this.lblJoin = new System.Windows.Forms.Label();
@@ -48,31 +48,38 @@
             this.lblSophong = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pnlChess = new System.Windows.Forms.Panel();
+            this.TenPhong = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Avt1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Avt2)).BeginInit();
             this.pnlChess.SuspendLayout();
+            this.TenPhong.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(220, 691);
+            this.textBox1.Location = new System.Drawing.Point(248, 688);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(548, 20);
             this.textBox1.TabIndex = 29;
             // 
             // lb1
             // 
+            this.lb1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.lb1.FormattingEnabled = true;
-            this.lb1.Location = new System.Drawing.Point(220, 632);
+            this.lb1.Location = new System.Drawing.Point(248, 587);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(724, 56);
+            this.lb1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lb1.Size = new System.Drawing.Size(672, 95);
             this.lb1.TabIndex = 26;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(820, 691);
+            this.button1.Location = new System.Drawing.Point(796, 688);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(124, 23);
             this.button1.TabIndex = 28;
@@ -96,7 +103,7 @@
             this.Phong.BackColor = System.Drawing.Color.Transparent;
             this.Phong.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Phong.ForeColor = System.Drawing.Color.Maroon;
-            this.Phong.Location = new System.Drawing.Point(20, 542);
+            this.Phong.Location = new System.Drawing.Point(29, 23);
             this.Phong.Name = "Phong";
             this.Phong.Size = new System.Drawing.Size(93, 25);
             this.Phong.TabIndex = 31;
@@ -121,45 +128,45 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BackgroundImage = global::CaroGame.Properties.Resources.khung1;
+            this.panel2.BackgroundImage = global::CaroGame.Properties.Resources.avata;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.Avt1);
             this.panel2.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.panel2.Location = new System.Drawing.Point(12, 19);
+            this.panel2.Location = new System.Drawing.Point(6, 111);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(192, 297);
+            this.panel2.Size = new System.Drawing.Size(225, 189);
             this.panel2.TabIndex = 33;
             // 
-            // pictureBox1
+            // Avt1
             // 
-            this.pictureBox1.Image = global::CaroGame.Properties.Resources._37725208_1897723226915374_5593628633076858880_n;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 90);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(163, 191);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.Avt1.Image = global::CaroGame.Properties.Resources._37725208_1897723226915374_5593628633076858880_n;
+            this.Avt1.Location = new System.Drawing.Point(58, 28);
+            this.Avt1.Name = "Avt1";
+            this.Avt1.Size = new System.Drawing.Size(111, 133);
+            this.Avt1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Avt1.TabIndex = 0;
+            this.Avt1.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImage = global::CaroGame.Properties.Resources.khung1;
+            this.panel1.BackgroundImage = global::CaroGame.Properties.Resources.avata;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Location = new System.Drawing.Point(960, 19);
+            this.panel1.Controls.Add(this.Avt2);
+            this.panel1.Location = new System.Drawing.Point(939, 111);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(192, 297);
+            this.panel1.Size = new System.Drawing.Size(225, 189);
             this.panel1.TabIndex = 30;
             // 
-            // pictureBox2
+            // Avt2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(18, 90);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(161, 191);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.Avt2.Image = ((System.Drawing.Image)(resources.GetObject("Avt2.Image")));
+            this.Avt2.Location = new System.Drawing.Point(57, 28);
+            this.Avt2.Name = "Avt2";
+            this.Avt2.Size = new System.Drawing.Size(118, 133);
+            this.Avt2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Avt2.TabIndex = 0;
+            this.Avt2.TabStop = false;
             // 
             // Join
             // 
@@ -167,7 +174,7 @@
             this.Join.BackColor = System.Drawing.Color.Transparent;
             this.Join.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.Join.ForeColor = System.Drawing.Color.Maroon;
-            this.Join.Location = new System.Drawing.Point(967, 433);
+            this.Join.Location = new System.Drawing.Point(985, 626);
             this.Join.Name = "Join";
             this.Join.Size = new System.Drawing.Size(66, 25);
             this.Join.TabIndex = 36;
@@ -179,7 +186,7 @@
             this.Host.BackColor = System.Drawing.Color.Transparent;
             this.Host.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Host.ForeColor = System.Drawing.Color.Maroon;
-            this.Host.Location = new System.Drawing.Point(964, 378);
+            this.Host.Location = new System.Drawing.Point(982, 571);
             this.Host.Name = "Host";
             this.Host.Size = new System.Drawing.Size(69, 25);
             this.Host.TabIndex = 35;
@@ -190,7 +197,7 @@
             this.lblJoin.AutoSize = true;
             this.lblJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJoin.ForeColor = System.Drawing.Color.Maroon;
-            this.lblJoin.Location = new System.Drawing.Point(1052, 433);
+            this.lblJoin.Location = new System.Drawing.Point(1070, 626);
             this.lblJoin.Name = "lblJoin";
             this.lblJoin.Size = new System.Drawing.Size(24, 25);
             this.lblJoin.TabIndex = 37;
@@ -199,7 +206,7 @@
             // lblHost
             // 
             this.lblHost.AutoSize = true;
-            this.lblHost.Location = new System.Drawing.Point(1039, 387);
+            this.lblHost.Location = new System.Drawing.Point(1057, 580);
             this.lblHost.Name = "lblHost";
             this.lblHost.Size = new System.Drawing.Size(35, 13);
             this.lblHost.TabIndex = 38;
@@ -211,16 +218,16 @@
             this.lblSophong.BackColor = System.Drawing.Color.Transparent;
             this.lblSophong.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.lblSophong.ForeColor = System.Drawing.Color.Maroon;
-            this.lblSophong.Location = new System.Drawing.Point(113, 542);
+            this.lblSophong.Location = new System.Drawing.Point(137, 23);
             this.lblSophong.Name = "lblSophong";
-            this.lblSophong.Size = new System.Drawing.Size(24, 25);
+            this.lblSophong.Size = new System.Drawing.Size(60, 25);
             this.lblSophong.TabIndex = 39;
-            this.lblSophong.Text = "3";
+            this.lblSophong.Text = "3567";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(277, 172);
+            this.label7.Location = new System.Drawing.Point(320, 191);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 0;
@@ -232,19 +239,57 @@
             this.pnlChess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlChess.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlChess.Controls.Add(this.label7);
-            this.pnlChess.Location = new System.Drawing.Point(220, 56);
+            this.pnlChess.Location = new System.Drawing.Point(248, 54);
             this.pnlChess.Name = "pnlChess";
-            this.pnlChess.Size = new System.Drawing.Size(724, 570);
+            this.pnlChess.Size = new System.Drawing.Size(672, 528);
             this.pnlChess.TabIndex = 27;
             this.pnlChess.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlChess_Paint);
             this.pnlChess.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlChess_MouseClick);
+            // 
+            // TenPhong
+            // 
+            this.TenPhong.BackColor = System.Drawing.Color.Transparent;
+            this.TenPhong.BackgroundImage = global::CaroGame.Properties.Resources.room;
+            this.TenPhong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.TenPhong.Controls.Add(this.Phong);
+            this.TenPhong.Controls.Add(this.lblSophong);
+            this.TenPhong.Location = new System.Drawing.Point(6, 3);
+            this.TenPhong.Name = "TenPhong";
+            this.TenPhong.Size = new System.Drawing.Size(236, 69);
+            this.TenPhong.TabIndex = 39;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.BackgroundImage = global::CaroGame.Properties.Resources.level;
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Location = new System.Drawing.Point(0, 293);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(217, 109);
+            this.panel3.TabIndex = 40;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Transparent;
+            this.panel4.BackgroundImage = global::CaroGame.Properties.Resources.level__2_;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Location = new System.Drawing.Point(950, 293);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(217, 109);
+            this.panel4.TabIndex = 41;
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // Map
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CaroGame.Properties.Resources.bgmap;
-            this.Controls.Add(this.lblSophong);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.TenPhong);
             this.Controls.Add(this.lblHost);
             this.Controls.Add(this.lblJoin);
             this.Controls.Add(this.Join);
@@ -254,7 +299,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlChess);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.Phong);
             this.Controls.Add(this.Time);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -262,11 +306,13 @@
             this.Size = new System.Drawing.Size(1170, 734);
             this.Load += new System.EventHandler(this.Map_Load);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Avt1)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Avt2)).EndInit();
             this.pnlChess.ResumeLayout(false);
             this.pnlChess.PerformLayout();
+            this.TenPhong.ResumeLayout(false);
+            this.TenPhong.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,9 +328,9 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label Time;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Avt1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox Avt2;
         private System.Windows.Forms.Label Join;
         private System.Windows.Forms.Label Host;
         private System.Windows.Forms.Label lblJoin;
@@ -292,5 +338,9 @@
         private System.Windows.Forms.Label lblSophong;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel pnlChess;
+        private System.Windows.Forms.Panel TenPhong;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Timer timer2;
     }
 }

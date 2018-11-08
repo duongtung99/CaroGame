@@ -165,15 +165,15 @@ namespace CaroGame
                         int x = Convert.ToInt32(rp[1]);
                         int y = Convert.ToInt32(rp[2]);
                         
-                        if (Form1.player_turn == 1)
+                        if (Map.player_turn == 1)
                         {
-                            BanCo.DanhCo(x, y, 2, Form1.grs);
-                        } else if (Form1.player_turn == 2)
+                            BanCo.DanhCo(x, y, 2, Map.grs);
+                        } else if (Map.player_turn == 2)
                         {
-                            BanCo.DanhCo(x, y, 1, Form1.grs);
+                            BanCo.DanhCo(x, y, 1, Map.grs);
                         }
-                        Form1.turn++;
-                        //MessageBox.Show(Convert.ToString(Form1.turn));
+                        Map.turn++;
+                        //MessageBox.Show(Convert.ToString(Map.turn));
                         break;
                     case "login":
                         if (rp[1].Equals("true"))
@@ -199,10 +199,10 @@ namespace CaroGame
                             host_id = rp[2];
 
                             // set player turn
-                            Form1.player_turn = Convert.ToInt32(rp[3]);
+                            Map.player_turn = Convert.ToInt32(rp[3]);
 
                             // set turn = 0 (bắt đầu game)
-                            Form1.turn = 0;
+                            Map.turn = 0;
 
                             checkJoinRoom = true;
                         } else
@@ -216,7 +216,7 @@ namespace CaroGame
                             join_id = rp[2];
 
                             // set player turn
-                            Form1.player_turn = Convert.ToInt32(rp[3]);
+                            Map.player_turn = Convert.ToInt32(rp[3]);
                         }
                         break;
                 }
@@ -250,7 +250,7 @@ namespace CaroGame
                     });
 
                     // set turn = 0 (bắt đầu game)
-                    Form1.turn = 0;
+                    Map.turn = 0;
 
                     // dừng worker
                     workerWaitForPlayer.CancelAsync();
@@ -271,8 +271,8 @@ namespace CaroGame
                     return;
                 }
 
-                if (((Form1.player_turn == 1) && (Form1.turn % 2 == 0)) ||
-                    ((Form1.player_turn == 2) && (Form1.turn % 2 > 0)))
+                if (((Map.player_turn == 1) && (Map.turn % 2 == 0)) ||
+                    ((Map.player_turn == 2) && (Map.turn % 2 > 0)))
                 {
                     if (user_id.Equals(host_id))
                     {
@@ -302,8 +302,8 @@ namespace CaroGame
                         });
                     }
                     
-                } else if (((Form1.player_turn == 1) && (Form1.turn % 2 > 0)) ||
-                    ((Form1.player_turn == 2) && (Form1.turn % 2 == 0)))
+                } else if (((Map.player_turn == 1) && (Map.turn % 2 > 0)) ||
+                    ((Map.player_turn == 2) && (Map.turn % 2 == 0)))
                 {
                     if (user_id.Equals(host_id))
                     {
