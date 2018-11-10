@@ -38,8 +38,8 @@
             this.btnVao = new System.Windows.Forms.Button();
             this.txtSophong = new System.Windows.Forms.TextBox();
             this.panelhome = new System.Windows.Forms.Panel();
-            this.btnChat = new System.Windows.Forms.Button();
             this.txtChat = new System.Windows.Forms.TextBox();
+            this.btnChat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listfriend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -88,7 +88,7 @@
             // chat
             // 
             this.chat.FormattingEnabled = true;
-            this.chat.Location = new System.Drawing.Point(-1, 490);
+            this.chat.Location = new System.Drawing.Point(15, 449);
             this.chat.Name = "chat";
             this.chat.Size = new System.Drawing.Size(327, 238);
             this.chat.TabIndex = 10;
@@ -107,7 +107,7 @@
             // btnTao
             // 
             this.btnTao.BackColor = System.Drawing.Color.Brown;
-            this.btnTao.Font = new System.Drawing.Font("Imprint MT Shadow", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnTao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnTao.ForeColor = System.Drawing.Color.White;
             this.btnTao.Location = new System.Drawing.Point(3, 22);
             this.btnTao.Name = "btnTao";
@@ -120,7 +120,7 @@
             // btnVao
             // 
             this.btnVao.BackColor = System.Drawing.Color.Brown;
-            this.btnVao.Font = new System.Drawing.Font("Imprint MT Shadow", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnVao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnVao.ForeColor = System.Drawing.Color.White;
             this.btnVao.Location = new System.Drawing.Point(134, 22);
             this.btnVao.Name = "btnVao";
@@ -151,22 +151,22 @@
             this.panelhome.Size = new System.Drawing.Size(1182, 731);
             this.panelhome.TabIndex = 17;
             // 
+            // txtChat
+            // 
+            this.txtChat.Location = new System.Drawing.Point(357, 621);
+            this.txtChat.Name = "txtChat";
+            this.txtChat.Size = new System.Drawing.Size(100, 20);
+            this.txtChat.TabIndex = 18;
+            // 
             // btnChat
             // 
             this.btnChat.ForeColor = System.Drawing.Color.Black;
-            this.btnChat.Location = new System.Drawing.Point(357, 675);
+            this.btnChat.Location = new System.Drawing.Point(357, 664);
             this.btnChat.Name = "btnChat";
             this.btnChat.Size = new System.Drawing.Size(75, 23);
             this.btnChat.TabIndex = 17;
             this.btnChat.Text = "Chat";
             this.btnChat.UseVisualStyleBackColor = true;
-            // 
-            // txtChat
-            // 
-            this.txtChat.Location = new System.Drawing.Point(332, 649);
-            this.txtChat.Name = "txtChat";
-            this.txtChat.Size = new System.Drawing.Size(100, 20);
-            this.txtChat.TabIndex = 18;
             // 
             // Profile1
             // 

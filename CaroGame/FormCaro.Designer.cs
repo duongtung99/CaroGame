@@ -1,4 +1,6 @@
-﻿namespace CaroGame
+﻿using System.Windows.Forms;
+
+namespace CaroGame
 {
     partial class FormCaro
     {
@@ -61,6 +63,12 @@
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(689, 275);
             this.panelLogin.TabIndex = 13;
+
+            //this.SetStyle(
+            //    ControlStyles.AllPaintingInWmPaint |
+            //    ControlStyles.UserPaint |
+            //    System.Windows.Forms.ControlStyles.OptimizedDoubleBuffer,
+            //    true);
             // 
             // formName
             // 
@@ -141,10 +149,6 @@
             this.txt_Log1.TabIndex = 1;
             this.txt_Log1.Enter += new System.EventHandler(this.txt_Log1_Enter);
             // 
-            // opacityform
-            // 
-            this.opacityform.Tick += new System.EventHandler(this.opacityform_Tick);
-            // 
             // FormCaro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,6 +160,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormCaro";
             this.Text = "FormCaro";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCaro_FormClosing);
             this.Load += new System.EventHandler(this.FormCaro_Load);
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();

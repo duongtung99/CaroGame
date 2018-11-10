@@ -44,7 +44,7 @@ namespace CaroGame
         public static Label waiting_label;
         
         // khai báo kết nối
-        private static UdpClient client = null;
+        public static UdpClient client = null;
         //private static IPEndPoint serverEP = null;
 
         // khai báo worker
@@ -172,6 +172,7 @@ namespace CaroGame
                         {
                             BanCo.DanhCo(x, y, 1, Map.grs);
                         }
+
                         Map.turn++;
                         //MessageBox.Show(Convert.ToString(Map.turn));
                         break;
@@ -238,13 +239,13 @@ namespace CaroGame
                 if (join_id != null)
                 {
                     // xóa dòng "Chờ người chơi"
-                    waiting_label.Invoke((Action)delegate
+                    waiting_label.Invoke((Action) delegate
                     {
                         waiting_label.Text = "";
                     });
 
                     // hiện tên người chơi vào phòng
-                    join_label.Invoke((Action)delegate
+                    join_label.Invoke((Action) delegate
                     {
                         join_label.Text = join_id;
                     });
