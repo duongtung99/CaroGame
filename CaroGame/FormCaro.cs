@@ -14,12 +14,34 @@ namespace CaroGame
         //khai báo usercontrol
         Map map = new Map();
         Profile1 profile1 = new Profile1();
+
+        #region force dublebuffer (giảm chớp nháy khi load ảnh)
+        private const int WS_EX_COMPOSITED = 0x02000000;
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= WS_EX_COMPOSITED;
+                return cp;
+            }
+        }
+        #endregion
+
+
         public FormCaro()
         {
             InitializeComponent();
+
+            // tinh chỉnh để load background không chớp giật
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+                              ControlStyles.UserPaint |
+                              ControlStyles.OptimizedDoubleBuffer,
+                              true);
             //hiệu úng mở bàn cờ
-            this.Opacity = 0;
-            opacityform.Start();
+            //this.Opacity = 0;
+            //opacityform.Start();
 
             Client.InitClient();
             soundlogin.Play();
@@ -89,5 +111,28 @@ namespace CaroGame
                 txtChecklog.Text = "*Sai user/password";
             }
         }
+<<<<<<< HEAD
+=======
+
+        private void FormCaro_Load(object sender, EventArgs e)
+        {
+            txtChecklog.Visible = false;
+            progressBar1.Visible = false;
+        }
+
+        //private void opacityform_Tick(object sender, EventArgs e)
+        //{
+        //    this.Opacity = this.Opacity + 0.05;
+        //    if (this.Opacity == 1)
+        //    {
+        //        opacityform.Stop();
+        //    }
+        //}
+
+        private void FormCaro_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Client.client.Close();
+        }
+>>>>>>> 510451f20589257261aadf596ce13744ace4f0b7
     }
 }
