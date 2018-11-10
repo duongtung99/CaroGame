@@ -32,34 +32,34 @@
             this.processbartime = new System.Windows.Forms.Timer(this.components);
             this.panelLogin = new System.Windows.Forms.Panel();
             this.formName = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.txtChecklog = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txt_Log2 = new System.Windows.Forms.TextBox();
             this.linkSignup = new System.Windows.Forms.LinkLabel();
             this.txt_Log1 = new System.Windows.Forms.TextBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.opacityform = new System.Windows.Forms.Timer(this.components);
             this.panelLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // processbartime
             // 
-            this.processbartime.Tick += new System.EventHandler(this.timer1_Tick);
+            this.processbartime.Tick += new System.EventHandler(this.processbar_Tick);
             // 
             // panelLogin
             // 
             this.panelLogin.BackColor = System.Drawing.Color.Transparent;
             this.panelLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelLogin.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelLogin.Controls.Add(this.formName);
-            this.panelLogin.Controls.Add(this.progressBar1);
             this.panelLogin.Controls.Add(this.txtChecklog);
             this.panelLogin.Controls.Add(this.btnLogin);
             this.panelLogin.Controls.Add(this.txt_Log2);
             this.panelLogin.Controls.Add(this.linkSignup);
             this.panelLogin.Controls.Add(this.txt_Log1);
-            this.panelLogin.Location = new System.Drawing.Point(238, 227);
+            this.panelLogin.Location = new System.Drawing.Point(329, 211);
             this.panelLogin.Name = "panelLogin";
-            this.panelLogin.Size = new System.Drawing.Size(689, 275);
+            this.panelLogin.Size = new System.Drawing.Size(493, 275);
             this.panelLogin.TabIndex = 13;
             // 
             // formName
@@ -68,21 +68,11 @@
             this.formName.BackColor = System.Drawing.Color.Transparent;
             this.formName.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.formName.ForeColor = System.Drawing.Color.Red;
-            this.formName.Location = new System.Drawing.Point(298, 24);
+            this.formName.Location = new System.Drawing.Point(179, 16);
             this.formName.Name = "formName";
             this.formName.Size = new System.Drawing.Size(91, 33);
             this.formName.TabIndex = 32;
             this.formName.Text = "Login";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.BackColor = System.Drawing.Color.Red;
-            this.progressBar1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.progressBar1.Location = new System.Drawing.Point(3, 151);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(683, 23);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.progressBar1.TabIndex = 31;
             // 
             // txtChecklog
             // 
@@ -100,7 +90,7 @@
             this.btnLogin.BackColor = System.Drawing.Color.Brown;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(226, 194);
+            this.btnLogin.Location = new System.Drawing.Point(119, 180);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(121, 45);
             this.btnLogin.TabIndex = 3;
@@ -112,7 +102,7 @@
             // 
             this.txt_Log2.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txt_Log2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Log2.Location = new System.Drawing.Point(226, 110);
+            this.txt_Log2.Location = new System.Drawing.Point(110, 111);
             this.txt_Log2.Name = "txt_Log2";
             this.txt_Log2.Size = new System.Drawing.Size(237, 26);
             this.txt_Log2.TabIndex = 2;
@@ -123,7 +113,7 @@
             this.linkSignup.AutoSize = true;
             this.linkSignup.BackColor = System.Drawing.Color.Transparent;
             this.linkSignup.LinkColor = System.Drawing.Color.Yellow;
-            this.linkSignup.Location = new System.Drawing.Point(420, 212);
+            this.linkSignup.Location = new System.Drawing.Point(304, 212);
             this.linkSignup.Name = "linkSignup";
             this.linkSignup.Size = new System.Drawing.Size(43, 13);
             this.linkSignup.TabIndex = 4;
@@ -135,11 +125,21 @@
             // 
             this.txt_Log1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.txt_Log1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Log1.Location = new System.Drawing.Point(226, 69);
+            this.txt_Log1.Location = new System.Drawing.Point(110, 62);
             this.txt_Log1.Name = "txt_Log1";
             this.txt_Log1.Size = new System.Drawing.Size(237, 26);
             this.txt_Log1.TabIndex = 1;
             this.txt_Log1.Enter += new System.EventHandler(this.txt_Log1_Enter);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.BackColor = System.Drawing.Color.Red;
+            this.progressBar1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.progressBar1.Location = new System.Drawing.Point(50, 544);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(1072, 23);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar1.TabIndex = 31;
             // 
             // opacityform
             // 
@@ -153,6 +153,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1155, 740);
             this.Controls.Add(this.panelLogin);
+            this.Controls.Add(this.progressBar1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormCaro";
             this.Text = "FormCaro";

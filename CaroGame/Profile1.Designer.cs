@@ -38,8 +38,8 @@
             this.btnVao = new System.Windows.Forms.Button();
             this.txtSophong = new System.Windows.Forms.TextBox();
             this.panelhome = new System.Windows.Forms.Panel();
-            this.btnChat = new System.Windows.Forms.Button();
             this.txtChat = new System.Windows.Forms.TextBox();
+            this.btnChat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listfriend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -151,6 +151,13 @@
             this.panelhome.Size = new System.Drawing.Size(1182, 731);
             this.panelhome.TabIndex = 17;
             // 
+            // txtChat
+            // 
+            this.txtChat.Location = new System.Drawing.Point(332, 649);
+            this.txtChat.Name = "txtChat";
+            this.txtChat.Size = new System.Drawing.Size(100, 20);
+            this.txtChat.TabIndex = 18;
+            // 
             // btnChat
             // 
             this.btnChat.ForeColor = System.Drawing.Color.Black;
@@ -160,13 +167,6 @@
             this.btnChat.TabIndex = 17;
             this.btnChat.Text = "Chat";
             this.btnChat.UseVisualStyleBackColor = true;
-            // 
-            // txtChat
-            // 
-            this.txtChat.Location = new System.Drawing.Point(332, 649);
-            this.txtChat.Name = "txtChat";
-            this.txtChat.Size = new System.Drawing.Size(100, 20);
-            this.txtChat.TabIndex = 18;
             // 
             // Profile1
             // 
