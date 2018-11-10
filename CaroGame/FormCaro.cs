@@ -111,14 +111,13 @@ namespace CaroGame
                 txtChecklog.Text = "*Sai user/password";
             }
         }
-<<<<<<< HEAD
-=======
 
-        private void FormCaro_Load(object sender, EventArgs e)
-        {
-            txtChecklog.Visible = false;
-            progressBar1.Visible = false;
-        }
+
+        //private void FormCaro_Load(object sender, EventArgs e)
+        //{
+        //    txtChecklog.Visible = false;
+        //    progressBar1.Visible = false;
+        //}
 
         //private void opacityform_Tick(object sender, EventArgs e)
         //{
@@ -133,6 +132,5 @@ namespace CaroGame
         {
             //Client.client.Close();
         }
->>>>>>> 510451f20589257261aadf596ce13744ace4f0b7
     }
 }

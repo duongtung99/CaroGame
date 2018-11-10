@@ -63,12 +63,6 @@ namespace CaroGame
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(493, 275);
             this.panelLogin.TabIndex = 13;
-
-            //this.SetStyle(
-            //    ControlStyles.AllPaintingInWmPaint |
-            //    ControlStyles.UserPaint |
-            //    System.Windows.Forms.ControlStyles.OptimizedDoubleBuffer,
-            //    true);
             // 
             // formName
             // 
@@ -139,7 +133,6 @@ namespace CaroGame
             this.txt_Log1.TabIndex = 1;
             this.txt_Log1.Enter += new System.EventHandler(this.txt_Log1_Enter);
             // 
-<<<<<<< HEAD
             // progressBar1
             // 
             this.progressBar1.BackColor = System.Drawing.Color.Red;
@@ -154,8 +147,6 @@ namespace CaroGame
             // 
             this.opacityform.Tick += new System.EventHandler(this.opacityform_Tick);
             // 
-=======
->>>>>>> 510451f20589257261aadf596ce13744ace4f0b7
             // FormCaro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
