@@ -63,29 +63,9 @@ namespace CaroGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _2ebf58bda0b882dbb031563fe5b89f67 {
-            get {
-                object obj = ResourceManager.GetObject("_2ebf58bda0b882dbb031563fe5b89f67", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap _37725208_1897723226915374_5593628633076858880_n {
             get {
                 object obj = ResourceManager.GetObject("_37725208_1897723226915374_5593628633076858880_n", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _815ba08053b87f66c89c12ac754abef2 {
-            get {
-                object obj = ResourceManager.GetObject("_815ba08053b87f66c89c12ac754abef2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +123,9 @@ namespace CaroGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bgLogin {
+        internal static System.Drawing.Bitmap bghome {
             get {
-                object obj = ResourceManager.GetObject("bgLogin", resourceCulture);
+                object obj = ResourceManager.GetObject("bghome", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -171,41 +151,11 @@ namespace CaroGame.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bronze {
-            get {
-                object obj = ResourceManager.GetObject("bronze", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap button {
-            get {
-                object obj = ResourceManager.GetObject("button", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream DanhCoSound {
             get {
                 return ResourceManager.GetStream("DanhCoSound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap db171808d8370ed7ea37796357c68d81 {
-            get {
-                object obj = ResourceManager.GetObject("db171808d8370ed7ea37796357c68d81", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -225,36 +175,6 @@ namespace CaroGame.Properties {
         internal static System.Drawing.Bitmap GameOver {
             get {
                 object obj = ResourceManager.GetObject("GameOver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap gold {
-            get {
-                object obj = ResourceManager.GetObject("gold", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap goldtext {
-            get {
-                object obj = ResourceManager.GetObject("goldtext", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap khung1 {
-            get {
-                object obj = ResourceManager.GetObject("khung1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -299,6 +219,16 @@ namespace CaroGame.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nameuser {
+            get {
+                object obj = ResourceManager.GetObject("nameuser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream NhacNen {
@@ -333,26 +263,6 @@ namespace CaroGame.Properties {
         internal static System.Drawing.Bitmap room {
             get {
                 object obj = ResourceManager.GetObject("room", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap silver {
-            get {
-                object obj = ResourceManager.GetObject("silver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap silvertext {
-            get {
-                object obj = ResourceManager.GetObject("silvertext", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

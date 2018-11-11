@@ -157,44 +157,11 @@
   <data name="bgmap" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bgmap.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="db171808d8370ed7ea37796357c68d81" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\db171808d8370ed7ea37796357c68d81.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="khung1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\khung1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_2ebf58bda0b882dbb031563fe5b89f67" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2ebf58bda0b882dbb031563fe5b89f67.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_815ba08053b87f66c89c12ac754abef2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\815ba08053b87f66c89c12ac754abef2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="backgroundhome" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backgroundhome.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="backgroundhome__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backgroundhome (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bronze" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bronze.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gold" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="goldtext" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\goldtext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="silver" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="silvertext" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silvertext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bgLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bgLogin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bglogin__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bglogin (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -213,5 +180,11 @@
   </data>
   <data name="room" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\room.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bghome" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bghome.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="nameuser" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nameuser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

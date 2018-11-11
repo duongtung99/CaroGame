@@ -50,6 +50,12 @@
   <ItemGroup>
     <Compile Include="BanCo.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCaro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCaro.resx">
       <DependentUpon>FormCaro.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,37 +112,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\2png.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\download.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\division_4_bronze_tier_league_of_legends_emblem_by_narishm-d6u3akd.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\37725208_1897723226915374_5593628633076858880_n.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\images.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\o.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\play_by_dg_cream.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\2057677fc761af3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\clipboard-clipart-horizontal-2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\download.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ab8e8f78e61033dfa2f1699b1494f089.jpg" />
@@ -145,34 +133,10 @@
     <None Include="Resources\GameOver.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\c73ab19f8b5c19653933586d5e2d88f6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\2ebf58bda0b882dbb031563fe5b89f67.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\815ba08053b87f66c89c12ac754abef2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\a8c4820c57e78471010321ac3cac6cbd.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\background.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bc7bdec5f0a45e2fed86f73810defea2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\bgmap.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\db171808d8370ed7ea37796357c68d81.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-cancel-64.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\khung1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ajax-loader.gif" />
@@ -181,46 +145,10 @@
     <None Include="Resources\backgroundhome.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\2ebf58bda0b882dbb031563fe5b89f67 %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\2ebf58bda0b882dbb031563fe5b89f67 %283%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\2ebf58bda0b882dbb031563fe5b89f67 %284%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\gold.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\silver.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bronze.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\backgroundhome %282%29.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\goldtext.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\silvertext.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\button.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bgLogin.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\bglogin %282%29.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\password.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Nhacnencotuong.wav" />
@@ -239,6 +167,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\phaohoa.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bghome.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nameuser.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
