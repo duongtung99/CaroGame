@@ -227,8 +227,13 @@
             // 
             // txtChat
             // 
+<<<<<<< HEAD
             this.txtChat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChat.Location = new System.Drawing.Point(12, 186);
+=======
+            this.txtChat.Location = new System.Drawing.Point(332, 649);
+            this.txtChat.Location = new System.Drawing.Point(357, 621);
+>>>>>>> bf863c1a4de91eab4b06d5e46a5df837469ed3b7
             this.txtChat.Name = "txtChat";
             this.txtChat.Size = new System.Drawing.Size(742, 24);
             this.txtChat.TabIndex = 21;
