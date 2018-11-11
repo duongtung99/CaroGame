@@ -153,11 +153,8 @@
             // 
             // txtChat
             // 
-<<<<<<< HEAD
             this.txtChat.Location = new System.Drawing.Point(332, 649);
-=======
             this.txtChat.Location = new System.Drawing.Point(357, 621);
->>>>>>> 510451f20589257261aadf596ce13744ace4f0b7
             this.txtChat.Name = "txtChat";
             this.txtChat.Size = new System.Drawing.Size(100, 20);
             this.txtChat.TabIndex = 18;

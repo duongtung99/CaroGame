@@ -85,10 +85,9 @@ namespace CaroGame
         {
             Client.user_id = txt_Log1.Text;
             string user_pass = txt_Log2.Text;
-            Client.Login(Client.user_id, user_pass);
-            Thread.Sleep(1000);
+            CaroAPI.Login(txt_Log1.Text, txt_Log2.Text);
 
-            if (Client.checkLogin)
+            if (CaroAPI.user != null)
             {
                 soundlogin.Stop();
                 //không cho hành động khi load form 
@@ -131,6 +130,11 @@ namespace CaroGame
         private void FormCaro_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Client.client.Close();
+        }
+
+        private void txt_Log1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

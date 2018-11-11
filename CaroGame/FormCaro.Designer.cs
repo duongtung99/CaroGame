@@ -131,6 +131,7 @@ namespace CaroGame
             this.txt_Log1.Name = "txt_Log1";
             this.txt_Log1.Size = new System.Drawing.Size(237, 26);
             this.txt_Log1.TabIndex = 1;
+            this.txt_Log1.TextChanged += new System.EventHandler(this.txt_Log1_TextChanged);
             this.txt_Log1.Enter += new System.EventHandler(this.txt_Log1_Enter);
             // 
             // progressBar1
