@@ -35,6 +35,7 @@ namespace CaroGame
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.opacityform = new System.Windows.Forms.Timer(this.components);
             this.panelLogin = new System.Windows.Forms.Panel();
+            this.txtSignup = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.password = new System.Windows.Forms.Label();
             this.username = new System.Windows.Forms.Label();
@@ -43,8 +44,8 @@ namespace CaroGame
             this.btnLogin = new System.Windows.Forms.Button();
             this.txt_Log2 = new System.Windows.Forms.TextBox();
             this.txt_Log1 = new System.Windows.Forms.TextBox();
-            this.txtSignup = new System.Windows.Forms.Label();
             this.panelSignup = new System.Windows.Forms.Panel();
+            this.lblCheck = new System.Windows.Forms.Label();
             this.txtSignin = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -59,7 +60,6 @@ namespace CaroGame
             this.btnSignup = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.lblCheck = new System.Windows.Forms.Label();
             this.panelLogin.SuspendLayout();
             this.panelSignup.SuspendLayout();
             this.SuspendLayout();
@@ -100,6 +100,17 @@ namespace CaroGame
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(468, 318);
             this.panelLogin.TabIndex = 45;
+            // 
+            // txtSignup
+            // 
+            this.txtSignup.AutoSize = true;
+            this.txtSignup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtSignup.Location = new System.Drawing.Point(125, 281);
+            this.txtSignup.Name = "txtSignup";
+            this.txtSignup.Size = new System.Drawing.Size(163, 13);
+            this.txtSignup.TabIndex = 36;
+            this.txtSignup.Text = "click here to create new account";
+            this.txtSignup.Click += new System.EventHandler(this.txtSignup_Click);
             // 
             // btnCancel
             // 
@@ -195,17 +206,6 @@ namespace CaroGame
             this.txt_Log1.TextChanged += new System.EventHandler(this.txt_Log1_TextChanged);
             this.txt_Log1.Enter += new System.EventHandler(this.txt_Log1_Enter);
             // 
-            // txtSignup
-            // 
-            this.txtSignup.AutoSize = true;
-            this.txtSignup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtSignup.Location = new System.Drawing.Point(125, 281);
-            this.txtSignup.Name = "txtSignup";
-            this.txtSignup.Size = new System.Drawing.Size(163, 13);
-            this.txtSignup.TabIndex = 36;
-            this.txtSignup.Text = "click here to create new account";
-            this.txtSignup.Click += new System.EventHandler(this.txtSignup_Click);
-            // 
             // panelSignup
             // 
             this.panelSignup.BackColor = System.Drawing.Color.Transparent;
@@ -230,6 +230,17 @@ namespace CaroGame
             this.panelSignup.Name = "panelSignup";
             this.panelSignup.Size = new System.Drawing.Size(468, 476);
             this.panelSignup.TabIndex = 47;
+            // 
+            // lblCheck
+            // 
+            this.lblCheck.AutoSize = true;
+            this.lblCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblCheck.Location = new System.Drawing.Point(129, 365);
+            this.lblCheck.Name = "lblCheck";
+            this.lblCheck.Size = new System.Drawing.Size(41, 13);
+            this.lblCheck.TabIndex = 45;
+            this.lblCheck.Text = "label1";
             // 
             // txtSignin
             // 
@@ -297,6 +308,7 @@ namespace CaroGame
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(261, 26);
             this.textBox1.TabIndex = 39;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtFullname
             // 
@@ -385,17 +397,6 @@ namespace CaroGame
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(259, 26);
             this.txtUsername.TabIndex = 1;
-            // 
-            // lblCheck
-            // 
-            this.lblCheck.AutoSize = true;
-            this.lblCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblCheck.Location = new System.Drawing.Point(129, 365);
-            this.lblCheck.Name = "lblCheck";
-            this.lblCheck.Size = new System.Drawing.Size(41, 13);
-            this.lblCheck.TabIndex = 45;
-            this.lblCheck.Text = "label1";
             // 
             // FormCaro
             // 
