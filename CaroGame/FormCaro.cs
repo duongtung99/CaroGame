@@ -100,7 +100,6 @@ namespace CaroGame
                 soundlogin.Stop();
                 //không cho hành động khi load form 
                 progressBar1.Visible = true;
-                txtChecklog.Enabled = false;
                 txt_Log1.Enabled = false;
                 txt_Log2.Enabled = false;
                 btnLogin.Enabled = false;
@@ -129,7 +128,6 @@ namespace CaroGame
         {
             //Client.client.Close();
         }
-<<<<<<< HEAD
         
 
         //Form đăng ký
@@ -164,12 +162,11 @@ namespace CaroGame
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-=======
+        }
 
         private void txt_Log1_TextChanged(object sender, EventArgs e)
         {
-
->>>>>>> bf863c1a4de91eab4b06d5e46a5df837469ed3b7
+            
         }
     }
 }
