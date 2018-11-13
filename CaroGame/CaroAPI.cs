@@ -131,5 +131,56 @@ namespace CaroGame
 
         #endregion
 
+        #region signup
+
+        public static async Task<bool> SignUpAsync(UserSignUp userSignUp, HttpClient client)
+        {
+            HttpResponseMessage response = await client.PostAsJsonAsync(
+       "api/signup", userSignUp);
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+
+        }
+
+        public static async Task<bool> SignUp(string username, string name, string password)
+        {
+            var client = new HttpClient();
+            SetupClientDefaults(client);
+            client.BaseAddress = new Uri(baseAddress);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+
+            try
+            {
+                UserSignUp userSignUp = new UserSignUp
+                {
+                    username = username,
+                    name = name,
+                    password = password,
+                };
+                bool check = await SignUpAsync(userSignUp, client);
+                if (check)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            finally
+            {
+            }
+
+        }
+        #endregion
     }
 }

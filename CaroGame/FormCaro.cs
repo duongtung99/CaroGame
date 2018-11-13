@@ -146,9 +146,19 @@ namespace CaroGame
             }
         }
 
-        private void btnSignup_Click(object sender, EventArgs e)
+        private async void btnSignup_Click(object sender, EventArgs e)
         {
+
+            bool check = await CaroAPI.SignUp(txtUsername.Text, txtFullname.Text, txtPassword.Text);
             if (txtFullname.Text != "") Clipboard.SetText(txtFullname.Text);
+            if (check)
+            {
+                MessageBox.Show("thanh cong");
+            }
+            else
+            {
+                MessageBox.Show("username trung");
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -162,6 +172,16 @@ namespace CaroGame
         }
 
         private void txtFullname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
         }

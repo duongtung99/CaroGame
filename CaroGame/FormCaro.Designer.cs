@@ -384,6 +384,7 @@ namespace CaroGame
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(259, 26);
             this.txtPassword.TabIndex = 40;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // txtUsername
             // 
@@ -394,6 +395,7 @@ namespace CaroGame
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(259, 26);
             this.txtUsername.TabIndex = 1;
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // FormCaro
             // 
