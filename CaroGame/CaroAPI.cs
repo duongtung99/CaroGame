@@ -45,6 +45,7 @@ namespace CaroGame
         public string username { get; set; }
         public string name { get; set; }
         public string password { get; set; }
+        public string email { get; set; }
     }
     public class UserModel
     {
@@ -86,11 +87,15 @@ namespace CaroGame
 
         }
 
+
+
         protected static void SetupClientDefaults(HttpClient client)
         {
             client.Timeout = TimeSpan.FromSeconds(30); //set your own timeout.
             client.BaseAddress = new Uri(baseAddress);
         }
+
+
 
         public static async Task<bool> Login(string username, string password)
         {
@@ -145,14 +150,13 @@ namespace CaroGame
 
         }
 
-        public static async Task<bool> SignUp(string username, string name, string password)
+        public static async Task<bool> SignUp(string username, string name, string password, string email)
         {
             var client = new HttpClient();
             SetupClientDefaults(client);
             client.BaseAddress = new Uri(baseAddress);
             client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             try
             {
@@ -161,6 +165,7 @@ namespace CaroGame
                     username = username,
                     name = name,
                     password = password,
+                    email = email,
                 };
                 bool check = await SignUpAsync(userSignUp, client);
                 if (check)

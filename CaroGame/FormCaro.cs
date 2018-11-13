@@ -15,6 +15,7 @@ namespace CaroGame
         //khai báo usercontrol
         Map map = new Map();
         Profile1 profile1 = new Profile1();
+        Regex reg = new Regex(@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$", RegexOptions.IgnoreCase);
 
 
 
@@ -64,6 +65,7 @@ namespace CaroGame
             {
                 //check login và chạy hàm load
                 processbartime.Enabled = true;
+                Client.UserOnline(Client.user_id);
             }
             else
             {
@@ -106,6 +108,7 @@ namespace CaroGame
         private void FormCaro_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Client.client.Close();
+            Client.UserOffline(Client.user_id);
         }
 
 
@@ -118,6 +121,7 @@ namespace CaroGame
 
         private async void btnSignup_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             //if (txtFullname.Text == "")
             //{
             //    MessageBox.Show("Chưa có full name");
@@ -151,6 +155,41 @@ namespace CaroGame
             //    }
 
             //}
+=======
+            if (txtFullname.Text == "")
+            {
+                MessageBox.Show("Chưa có full name");
+            }
+            else if (txtUsername.Text == "")
+            {
+                MessageBox.Show("Chưa có username");
+            }
+            else if (txtPassword.Text == "")
+            {
+                MessageBox.Show("Chưa có password");
+            }
+            else if (txtPassword.Text != password2.Text)
+            {
+                MessageBox.Show("Mật khẩu không trùng nhau");
+            }
+            else if(!reg.IsMatch(textBox1.Text))
+            {
+                MessageBox.Show("Email chưa đúng định dạng");
+            }
+            else
+            {
+                bool check = await CaroAPI.SignUp(txtUsername.Text, txtFullname.Text, txtPassword.Text, textBox1.Text);
+                if (check)
+                {
+                    MessageBox.Show("Thành Công");
+                }
+                else
+                {
+                    MessageBox.Show("username hoặc email đã tồn tại");
+                }
+
+            }
+>>>>>>> b3cbfc889299cce587f8038d7c4f251dda1dea9e
         }
 
         private void btnExit_Click(object sender, EventArgs e)

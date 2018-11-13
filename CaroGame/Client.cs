@@ -121,6 +121,22 @@ namespace CaroGame
             SendData(message);
         }
 
+
+        public static void UserOnline(string user_id)
+        {
+            string message = "online:" + user_id;
+            SendData(message);
+        }
+
+
+        public static void UserOffline(string user_id)
+        {
+            string message = "offline:" + user_id;
+            SendData(message);
+        }
+
+
+
         private static void SendData(string message)
         {
             // gửi api lên server
@@ -133,6 +149,7 @@ namespace CaroGame
             //    MessageBox.Show("cant connect to server");
             //}
         }
+
 
         private static void DoReceiver(object sender, DoWorkEventArgs e)
         {
@@ -224,6 +241,9 @@ namespace CaroGame
             }
         }
 
+
+
+
         private static void DoWaitForPlayer(object sender, DoWorkEventArgs e)
         {
             while (true)
@@ -254,12 +274,15 @@ namespace CaroGame
                     Map.turn = 0;
 
                     // dừng worker
-                    workerWaitForPlayer.CancelAsync();
+                    break;
                 }
 
                 Thread.Sleep(100);
             }
         }
+
+
+
 
         private static void DoChangeTurn(object sender, DoWorkEventArgs e)
         {
@@ -338,5 +361,6 @@ namespace CaroGame
                 Thread.Sleep(100);
             }
         }
+
     }
 }

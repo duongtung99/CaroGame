@@ -112,14 +112,23 @@ namespace CaroGame
             lblHost.Text = Client.host_id;
             lblJoin.Text = Client.join_id;
 
+            // thực thi nếu người chơi là host
             if (Client.host_id.Equals(Client.user_id))
             {
                 label7.Text = "Chờ người chơi...";
-                Client.workerWaitForPlayer.RunWorkerAsync();
-                //pnlChess.Enabled = false;
+
+                // chạy thread chờ người chơi join
+                if (!Client.workerWaitForPlayer.IsBusy)
+                {
+                    Client.workerWaitForPlayer.RunWorkerAsync();
+                }
             }
 
-            Client.workerChangeTurn.RunWorkerAsync();
+            // chạy thread đổi màu tên người chơi khi đến lượt
+            if (!Client.workerChangeTurn.IsBusy)
+            {
+                Client.workerChangeTurn.RunWorkerAsync();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
