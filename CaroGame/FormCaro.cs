@@ -4,6 +4,7 @@ using System.Threading;
 using Microsoft.VisualBasic;
 using System.Drawing;
 using System.Media;
+using System.Text.RegularExpressions;
 
 namespace CaroGame
 {
@@ -14,6 +15,7 @@ namespace CaroGame
         //khai báo usercontrol
         Map map = new Map();
         Profile1 profile1 = new Profile1();
+        Regex reg = new Regex(@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$", RegexOptions.IgnoreCase);
 
         #region force dublebuffer (giảm chớp nháy khi load ảnh)
         private const int WS_EX_COMPOSITED = 0x02000000;
@@ -130,21 +132,38 @@ namespace CaroGame
 
         private async void btnSignup_Click(object sender, EventArgs e)
         {
-            if(txtPassword.Text == password2.Text)
+            if (txtFullname.Text == "")
             {
-                bool check = await CaroAPI.SignUp(txtUsername.Text, txtFullname.Text, txtPassword.Text);
+                MessageBox.Show("Chưa có full name");
+            }
+            else if (txtUsername.Text == "")
+            {
+                MessageBox.Show("Chưa có username");
+            }
+            else if (txtPassword.Text == "")
+            {
+                MessageBox.Show("Chưa có password");
+            }
+            else if (txtPassword.Text != password2.Text)
+            {
+                MessageBox.Show("Mật khẩu không trùng nhau");
+            }
+            else if(!reg.IsMatch(textBox1.Text))
+            {
+                MessageBox.Show("Email chưa đúng định dạng");
+            }
+            else
+            {
+                bool check = await CaroAPI.SignUp(txtUsername.Text, txtFullname.Text, txtPassword.Text, textBox1.Text);
                 if (check)
                 {
                     MessageBox.Show("Thành Công");
                 }
                 else
                 {
-                    MessageBox.Show("username đã tồn tại");
+                    MessageBox.Show("username hoặc email đã tồn tại");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Mật khẩu không trùng nhau");
+
             }
         }
 
@@ -174,6 +193,16 @@ namespace CaroGame
         }
 
         private void password2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

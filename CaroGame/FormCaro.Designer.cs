@@ -44,6 +44,7 @@ namespace CaroGame
             this.txt_Log2 = new System.Windows.Forms.TextBox();
             this.txt_Log1 = new System.Windows.Forms.TextBox();
             this.panelSignup = new System.Windows.Forms.Panel();
+            this.Email = new System.Windows.Forms.Label();
             this.txtSignin = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.repassword = new System.Windows.Forms.Label();
@@ -56,6 +57,7 @@ namespace CaroGame
             this.btnSignup = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panelLogin.SuspendLayout();
             this.panelSignup.SuspendLayout();
             this.SuspendLayout();
@@ -205,6 +207,8 @@ namespace CaroGame
             this.panelSignup.BackColor = System.Drawing.Color.Transparent;
             this.panelSignup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelSignup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSignup.Controls.Add(this.textBox1);
+            this.panelSignup.Controls.Add(this.Email);
             this.panelSignup.Controls.Add(this.txtSignin);
             this.panelSignup.Controls.Add(this.btnExit);
             this.panelSignup.Controls.Add(this.repassword);
@@ -222,11 +226,23 @@ namespace CaroGame
             this.panelSignup.Size = new System.Drawing.Size(468, 473);
             this.panelSignup.TabIndex = 47;
             // 
+            // Email
+            // 
+            this.Email.AutoSize = true;
+            this.Email.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold);
+            this.Email.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Email.Location = new System.Drawing.Point(101, 294);
+            this.Email.Name = "Email";
+            this.Email.Size = new System.Drawing.Size(42, 17);
+            this.Email.TabIndex = 47;
+            this.Email.Text = "Email";
+            this.Email.Click += new System.EventHandler(this.label2_Click);
+            // 
             // txtSignin
             // 
             this.txtSignin.AutoSize = true;
             this.txtSignin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtSignin.Location = new System.Drawing.Point(189, 380);
+            this.txtSignin.Location = new System.Drawing.Point(189, 414);
             this.txtSignin.Name = "txtSignin";
             this.txtSignin.Size = new System.Drawing.Size(90, 13);
             this.txtSignin.TabIndex = 44;
@@ -238,7 +254,7 @@ namespace CaroGame
             this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(244, 310);
+            this.btnExit.Location = new System.Drawing.Point(242, 351);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(121, 45);
             this.btnExit.TabIndex = 44;
@@ -329,7 +345,7 @@ namespace CaroGame
             this.btnSignup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnSignup.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignup.ForeColor = System.Drawing.Color.White;
-            this.btnSignup.Location = new System.Drawing.Point(104, 310);
+            this.btnSignup.Location = new System.Drawing.Point(102, 351);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(121, 45);
             this.btnSignup.TabIndex = 43;
@@ -358,6 +374,17 @@ namespace CaroGame
             this.txtUsername.Size = new System.Drawing.Size(259, 26);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.textBox1.Location = new System.Drawing.Point(102, 314);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(261, 26);
+            this.textBox1.TabIndex = 48;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // FormCaro
             // 
@@ -411,5 +438,7 @@ namespace CaroGame
         private Button btnSignup;
         private TextBox txtPassword;
         private TextBox txtUsername;
+        private Label Email;
+        private TextBox textBox1;
     }
 }
