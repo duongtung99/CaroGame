@@ -60,7 +60,12 @@ namespace CaroGameServer
                         break;
                     case "join":
                         HandleClient.JoinRoom(code[1], code[2], clientEP);
-
+                        break;
+                    case "online":
+                        HandleClient.UserOnline(code[1], clientEP);
+                        break;
+                    case "offline":
+                        HandleClient.UserOffline(code[1]);
                         break;
                 }
             }

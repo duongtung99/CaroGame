@@ -168,9 +168,6 @@
     <None Include="Resources\phaohoa.gif" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\bghome.jpg" />
   </ItemGroup>
   <ItemGroup>

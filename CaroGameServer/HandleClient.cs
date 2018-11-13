@@ -11,6 +11,9 @@ namespace CaroGameServer
         // danh sách phòng chơi
         private static List<Room> roomList = new List<Room>();
 
+        // danh sách người chơi online
+        private static List<Online> onlineList = new List<Online>();
+
 
         #region Login
 
@@ -206,7 +209,6 @@ namespace CaroGameServer
             {
                 Server.SendData("login:true");
                 Status(user_id);
-                Console.WriteLine("User " + user_id + " online");
             }
             else
             {
@@ -270,6 +272,9 @@ namespace CaroGameServer
             Console.WriteLine("User " + user_id + " create room");
         }
 
+
+
+
         public static void JoinRoom(string user_id, string room_no, IPEndPoint userEP)
         {
             bool check_room = false;
@@ -309,6 +314,37 @@ namespace CaroGameServer
             if (!check_room)
             {
                 Server.SendData("join:false");
+            }
+        }
+
+
+
+        public static void UserOnline(string user_id, IPEndPoint userEP)
+        {
+            Online userOnline = new Online
+            {
+                user_id = user_id,
+                userEP = userEP
+            };
+
+            // thêm user vào online list
+            onlineList.Add(userOnline);
+
+            Console.WriteLine("User " + user_id + " online");
+        }
+
+
+        // xóa user khỏi online list
+        public static void UserOffline(string user_id)
+        {
+            foreach (Online userOnline in onlineList)
+            {
+                if (userOnline.user_id.Equals(user_id))
+                {
+                    onlineList.Remove(userOnline);
+                    Console.WriteLine("User " + user_id + " offline");
+                    break;
+                }
             }
         }
     }

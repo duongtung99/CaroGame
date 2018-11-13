@@ -78,6 +78,7 @@ namespace CaroGame
             {
                 //check login và chạy hàm load
                 processbartime.Enabled = true;
+                Client.UserOnline(Client.user_id);
             }
             else
             {
@@ -120,6 +121,7 @@ namespace CaroGame
         private void FormCaro_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Client.client.Close();
+            Client.UserOffline(Client.user_id);
         }
         
 
