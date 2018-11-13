@@ -52,7 +52,6 @@ namespace CaroGame
         {
             progressBar1.Visible = false;
             panelSignup.Visible = false;
-            lblCheck.Visible = false;
         }
 
         //Form đăng nhập
@@ -127,37 +126,25 @@ namespace CaroGame
         {
             panelSignup.Visible = false;
         }
-
-        //check nhập email
-        private void txtEmail_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            System.Text.RegularExpressions.Regex rEmail = new System.Text.RegularExpressions.Regex(@"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
-            if (txtEmail.Text.Length > 0 && txtEmail.Text.Trim().Length != 0)
-            {
-                if (!rEmail.IsMatch(txtEmail.Text.Trim()))
-                {
-                    lblCheck.Visible = true;
-                    lblCheck.Text = "*Sai định dạng Email";
-                }
-                else
-                {
-                    lblCheck.Text = "";
-                }
-            }
-        }
+       
 
         private async void btnSignup_Click(object sender, EventArgs e)
         {
-
-            bool check = await CaroAPI.SignUp(txtUsername.Text, txtFullname.Text, txtPassword.Text);
-            if (txtFullname.Text != "") Clipboard.SetText(txtFullname.Text);
-            if (check)
+            if(txtPassword.Text == password2.Text)
             {
-                MessageBox.Show("thanh cong");
+                bool check = await CaroAPI.SignUp(txtUsername.Text, txtFullname.Text, txtPassword.Text);
+                if (check)
+                {
+                    MessageBox.Show("Thành Công");
+                }
+                else
+                {
+                    MessageBox.Show("username đã tồn tại");
+                }
             }
             else
             {
-                MessageBox.Show("username trung");
+                MessageBox.Show("Mật khẩu không trùng nhau");
             }
         }
 
@@ -182,6 +169,11 @@ namespace CaroGame
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void password2_TextChanged(object sender, EventArgs e)
         {
 
         }
