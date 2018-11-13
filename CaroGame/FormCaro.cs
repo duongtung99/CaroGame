@@ -39,19 +39,17 @@ namespace CaroGame
                               ControlStyles.UserPaint |
                               ControlStyles.OptimizedDoubleBuffer,
                               true);
-            //hiệu úng mở bàn cờ
-            //this.Opacity = 0;
-            //opacityform.Start();
+            
 
             Client.InitClient();
             soundlogin.Play();
-
+            panelLogin.BackColor = Color.FromArgb(40, Color.Black);
+            panelSignup.BackColor = Color.FromArgb(40, Color.Black);
             txt_Log2.PasswordChar = '*';
         }
 
         private void FormCaro_Load(object sender, EventArgs e)
         {
-            txtChecklog.Visible = false;
             progressBar1.Visible = false;
             panelSignup.Visible = false;
             lblCheck.Visible = false;
@@ -69,19 +67,23 @@ namespace CaroGame
             txtChecklog.Text = "";
         }
 
-        private void opacityform_Tick(object sender, EventArgs e)
-        {
-            this.Opacity = this.Opacity + 0.05;
-            if (this.Opacity == 1)
-            {
-                opacityform.Stop();
-            }
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            processbartime.Enabled = true;
-            progressBar1.Visible = false;
+            Client.user_id = txt_Log1.Text;
+            string user_pass = txt_Log2.Text;
+            CaroAPI.Login(txt_Log1.Text, txt_Log2.Text);
+
+            if (CaroAPI.user != null)
+            {
+                //check login và chạy hàm load
+                processbartime.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("abc");
+                txtChecklog.Visible = true;
+                txtChecklog.Text = "*Sai user/password";
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -91,34 +93,26 @@ namespace CaroGame
 
         private void processbar_Tick(object sender, EventArgs e)
         {
-            Client.user_id = txt_Log1.Text;
-            string user_pass = txt_Log2.Text;
-            CaroAPI.Login(txt_Log1.Text, txt_Log2.Text);
-
-            if (CaroAPI.user != null)
-            {
-                soundlogin.Stop();
-                //không cho hành động khi load form 
-                progressBar1.Visible = true;
+             soundlogin.Stop();
+             //không cho hành động khi load form 
+             progressBar1.Visible = true;
+             progressBar1.Value = progressBar1.Value + 50;
+             if (progressBar1.Value >= 999)
+             {
+                //dừng thanh load
+                processbartime.Enabled = false;
+                //không cho hành động khi load form
                 txt_Log1.Enabled = false;
                 txt_Log2.Enabled = false;
                 btnLogin.Enabled = false;
-                progressBar1.Value = progressBar1.Value + 50;
-                if (progressBar1.Value == 100)
-                {
-                    processbartime.Enabled = false;
-                    panelLogin.Visible = false;
-                    Controls.Add(profile1);
-                    progressBar1.Visible = false;
-                }
-            }
-            else
-            {
-                txtChecklog.Visible = true;
-                txtChecklog.Text = "*Sai user/password";
-            }
+                panelLogin.Visible = false;
+                //mở trang home
+                progressBar1.Visible = false;
+                Controls.Add(profile1);
+             }
+           
         }
-
+        //mở form đăng ký
         private void txtSignup_Click(object sender, EventArgs e)
         {
             panelSignup.Visible = true;

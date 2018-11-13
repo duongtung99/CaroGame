@@ -33,8 +33,8 @@ namespace CaroGame
             this.components = new System.ComponentModel.Container();
             this.processbartime = new System.Windows.Forms.Timer(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.opacityform = new System.Windows.Forms.Timer(this.components);
             this.panelLogin = new System.Windows.Forms.Panel();
+            this.txtSignup = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.password = new System.Windows.Forms.Label();
             this.username = new System.Windows.Forms.Label();
@@ -43,8 +43,8 @@ namespace CaroGame
             this.btnLogin = new System.Windows.Forms.Button();
             this.txt_Log2 = new System.Windows.Forms.TextBox();
             this.txt_Log1 = new System.Windows.Forms.TextBox();
-            this.txtSignup = new System.Windows.Forms.Label();
             this.panelSignup = new System.Windows.Forms.Panel();
+            this.lblCheck = new System.Windows.Forms.Label();
             this.txtSignin = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -59,7 +59,6 @@ namespace CaroGame
             this.btnSignup = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.lblCheck = new System.Windows.Forms.Label();
             this.panelLogin.SuspendLayout();
             this.panelSignup.SuspendLayout();
             this.SuspendLayout();
@@ -73,14 +72,11 @@ namespace CaroGame
             this.progressBar1.BackColor = System.Drawing.Color.Red;
             this.progressBar1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.progressBar1.Location = new System.Drawing.Point(47, 620);
+            this.progressBar1.MarqueeAnimationSpeed = 1000;
+            this.progressBar1.Maximum = 1000;
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(1072, 23);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 31;
-            // 
-            // opacityform
-            // 
-            this.opacityform.Tick += new System.EventHandler(this.opacityform_Tick);
             // 
             // panelLogin
             // 
@@ -96,17 +92,28 @@ namespace CaroGame
             this.panelLogin.Controls.Add(this.btnLogin);
             this.panelLogin.Controls.Add(this.txt_Log2);
             this.panelLogin.Controls.Add(this.txt_Log1);
-            this.panelLogin.Location = new System.Drawing.Point(343, 194);
+            this.panelLogin.Location = new System.Drawing.Point(343, 96);
             this.panelLogin.Name = "panelLogin";
-            this.panelLogin.Size = new System.Drawing.Size(468, 318);
+            this.panelLogin.Size = new System.Drawing.Size(468, 320);
             this.panelLogin.TabIndex = 45;
+            // 
+            // txtSignup
+            // 
+            this.txtSignup.AutoSize = true;
+            this.txtSignup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtSignup.Location = new System.Drawing.Point(125, 281);
+            this.txtSignup.Name = "txtSignup";
+            this.txtSignup.Size = new System.Drawing.Size(163, 13);
+            this.txtSignup.TabIndex = 36;
+            this.txtSignup.Text = "click here to create new account";
+            this.txtSignup.Click += new System.EventHandler(this.txtSignup_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(93, 227);
+            this.btnCancel.Location = new System.Drawing.Point(242, 224);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(121, 45);
             this.btnCancel.TabIndex = 35;
@@ -142,7 +149,7 @@ namespace CaroGame
             this.formName.BackColor = System.Drawing.Color.Transparent;
             this.formName.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 21.75F, System.Drawing.FontStyle.Underline);
             this.formName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.formName.Location = new System.Drawing.Point(187, 0);
+            this.formName.Location = new System.Drawing.Point(176, 14);
             this.formName.Name = "formName";
             this.formName.Size = new System.Drawing.Size(116, 42);
             this.formName.TabIndex = 32;
@@ -152,19 +159,21 @@ namespace CaroGame
             // 
             this.txtChecklog.AutoSize = true;
             this.txtChecklog.BackColor = System.Drawing.Color.Transparent;
+            this.txtChecklog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChecklog.ForeColor = System.Drawing.Color.Red;
             this.txtChecklog.Location = new System.Drawing.Point(125, 197);
             this.txtChecklog.Name = "txtChecklog";
-            this.txtChecklog.Size = new System.Drawing.Size(23, 13);
+            this.txtChecklog.Size = new System.Drawing.Size(27, 15);
             this.txtChecklog.TabIndex = 30;
             this.txtChecklog.Text = "null";
+            this.txtChecklog.Visible = false;
             // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(220, 227);
+            this.btnLogin.Location = new System.Drawing.Point(104, 224);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(121, 45);
             this.btnLogin.TabIndex = 3;
@@ -192,19 +201,7 @@ namespace CaroGame
             this.txt_Log1.Name = "txt_Log1";
             this.txt_Log1.Size = new System.Drawing.Size(237, 26);
             this.txt_Log1.TabIndex = 1;
-            this.txt_Log1.TextChanged += new System.EventHandler(this.txt_Log1_TextChanged);
             this.txt_Log1.Enter += new System.EventHandler(this.txt_Log1_Enter);
-            // 
-            // txtSignup
-            // 
-            this.txtSignup.AutoSize = true;
-            this.txtSignup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtSignup.Location = new System.Drawing.Point(125, 281);
-            this.txtSignup.Name = "txtSignup";
-            this.txtSignup.Size = new System.Drawing.Size(163, 13);
-            this.txtSignup.TabIndex = 36;
-            this.txtSignup.Text = "click here to create new account";
-            this.txtSignup.Click += new System.EventHandler(this.txtSignup_Click);
             // 
             // panelSignup
             // 
@@ -226,10 +223,21 @@ namespace CaroGame
             this.panelSignup.Controls.Add(this.btnSignup);
             this.panelSignup.Controls.Add(this.txtPassword);
             this.panelSignup.Controls.Add(this.txtUsername);
-            this.panelSignup.Location = new System.Drawing.Point(343, 132);
+            this.panelSignup.Location = new System.Drawing.Point(343, 83);
             this.panelSignup.Name = "panelSignup";
-            this.panelSignup.Size = new System.Drawing.Size(468, 476);
+            this.panelSignup.Size = new System.Drawing.Size(468, 473);
             this.panelSignup.TabIndex = 47;
+            // 
+            // lblCheck
+            // 
+            this.lblCheck.AutoSize = true;
+            this.lblCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCheck.ForeColor = System.Drawing.Color.Red;
+            this.lblCheck.Location = new System.Drawing.Point(129, 365);
+            this.lblCheck.Name = "lblCheck";
+            this.lblCheck.Size = new System.Drawing.Size(41, 13);
+            this.lblCheck.TabIndex = 45;
+            this.lblCheck.Text = "label1";
             // 
             // txtSignin
             // 
@@ -247,10 +255,10 @@ namespace CaroGame
             this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(104, 383);
+            this.btnExit.Location = new System.Drawing.Point(242, 381);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(121, 45);
-            this.btnExit.TabIndex = 43;
+            this.btnExit.TabIndex = 44;
             this.btnExit.Text = "Cancel";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -296,7 +304,7 @@ namespace CaroGame
             this.textBox1.Location = new System.Drawing.Point(104, 259);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(261, 26);
-            this.textBox1.TabIndex = 39;
+            this.textBox1.TabIndex = 41;
             // 
             // txtFullname
             // 
@@ -347,7 +355,7 @@ namespace CaroGame
             this.Signup.BackColor = System.Drawing.Color.Transparent;
             this.Signup.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 21.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Signup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.Signup.Location = new System.Drawing.Point(155, 0);
+            this.Signup.Location = new System.Drawing.Point(158, 15);
             this.Signup.Name = "Signup";
             this.Signup.Size = new System.Drawing.Size(171, 42);
             this.Signup.TabIndex = 32;
@@ -358,10 +366,10 @@ namespace CaroGame
             this.btnSignup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnSignup.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignup.ForeColor = System.Drawing.Color.White;
-            this.btnSignup.Location = new System.Drawing.Point(242, 383);
+            this.btnSignup.Location = new System.Drawing.Point(104, 381);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(121, 45);
-            this.btnSignup.TabIndex = 3;
+            this.btnSignup.TabIndex = 43;
             this.btnSignup.Text = "Sign up";
             this.btnSignup.UseVisualStyleBackColor = false;
             this.btnSignup.Click += new System.EventHandler(this.btnSignup_Click);
@@ -374,7 +382,7 @@ namespace CaroGame
             this.txtPassword.Location = new System.Drawing.Point(104, 200);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(259, 26);
-            this.txtPassword.TabIndex = 2;
+            this.txtPassword.TabIndex = 40;
             // 
             // txtUsername
             // 
@@ -384,18 +392,7 @@ namespace CaroGame
             this.txtUsername.Location = new System.Drawing.Point(104, 146);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(259, 26);
-            this.txtUsername.TabIndex = 1;
-            // 
-            // lblCheck
-            // 
-            this.lblCheck.AutoSize = true;
-            this.lblCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCheck.ForeColor = System.Drawing.Color.Red;
-            this.lblCheck.Location = new System.Drawing.Point(129, 365);
-            this.lblCheck.Name = "lblCheck";
-            this.lblCheck.Size = new System.Drawing.Size(41, 13);
-            this.lblCheck.TabIndex = 45;
-            this.lblCheck.Text = "label1";
+            this.txtUsername.TabIndex = 39;
             // 
             // FormCaro
             // 
@@ -409,7 +406,9 @@ namespace CaroGame
             this.Controls.Add(this.progressBar1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(1171, 779);
             this.Name = "FormCaro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCaro";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCaro_FormClosing);
             this.Load += new System.EventHandler(this.FormCaro_Load);
@@ -424,7 +423,6 @@ namespace CaroGame
         #endregion
         private System.Windows.Forms.Timer processbartime;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Timer opacityform;
         private Panel panelLogin;
         private Label txtSignup;
         private Button btnCancel;
