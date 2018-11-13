@@ -50,7 +50,7 @@ namespace CaroGame
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.Email = new System.Windows.Forms.Label();
             this.repassword = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.password2 = new System.Windows.Forms.TextBox();
             this.txtFullname = new System.Windows.Forms.TextBox();
             this.fullname1 = new System.Windows.Forms.Label();
             this.password1 = new System.Windows.Forms.Label();
@@ -214,7 +214,7 @@ namespace CaroGame
             this.panelSignup.Controls.Add(this.txtEmail);
             this.panelSignup.Controls.Add(this.Email);
             this.panelSignup.Controls.Add(this.repassword);
-            this.panelSignup.Controls.Add(this.textBox1);
+            this.panelSignup.Controls.Add(this.password2);
             this.panelSignup.Controls.Add(this.txtFullname);
             this.panelSignup.Controls.Add(this.fullname1);
             this.panelSignup.Controls.Add(this.password1);
@@ -296,15 +296,15 @@ namespace CaroGame
             this.repassword.TabIndex = 40;
             this.repassword.Text = "Re-Password";
             // 
-            // textBox1
+            // password2
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textBox1.Location = new System.Drawing.Point(104, 259);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(261, 26);
-            this.textBox1.TabIndex = 41;
+            this.password2.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.password2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.password2.Location = new System.Drawing.Point(104, 259);
+            this.password2.Name = "password2";
+            this.password2.Size = new System.Drawing.Size(261, 26);
+            this.password2.TabIndex = 39;
             // 
             // txtFullname
             // 
@@ -392,7 +392,7 @@ namespace CaroGame
             this.txtUsername.Location = new System.Drawing.Point(104, 146);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(259, 26);
-            this.txtUsername.TabIndex = 39;
+            this.txtUsername.TabIndex = 1;
             // 
             // FormCaro
             // 
@@ -439,7 +439,7 @@ namespace CaroGame
         private TextBox txtEmail;
         private Label Email;
         private Label repassword;
-        private TextBox textBox1;
+        private TextBox password2;
         private TextBox txtFullname;
         private Label fullname1;
         private Label password1;
