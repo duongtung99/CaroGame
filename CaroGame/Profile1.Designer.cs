@@ -245,7 +245,7 @@
             this.panel2.Controls.Add(this.chat);
             this.panel2.Location = new System.Drawing.Point(3, 522);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(860, 212);
+            this.panel2.Size = new System.Drawing.Size(860, 205);
             this.panel2.TabIndex = 10;
             // 
             // btnChat

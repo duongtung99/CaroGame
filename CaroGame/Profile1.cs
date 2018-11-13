@@ -18,15 +18,6 @@ namespace CaroGame
         {
             InitializeComponent();
         }
-        //Controls.Remove(FormControl1);
-        // FormControl1.Visible = false;
-        //this.Size = new Size(1169, 760);
-        //var panel = new Profile1();
-        //panel.Size = FormControl1.Size;
-        //            panel.Location = FormControl1.Location;
-        //            Controls.Add(panel);
-        //            FormControl1 = panel;   
-       
 
         private void btnTao_Click(object sender, EventArgs e)
         {
@@ -50,9 +41,6 @@ namespace CaroGame
 
             if (Client.checkJoinRoom)
             {
-                btnTao.Visible = false;
-                btnVao.Visible = false;
-                txtSophong.Visible = false;
                 //mở map
                 panelhome.Visible = false;
                 Controls.Add(map);

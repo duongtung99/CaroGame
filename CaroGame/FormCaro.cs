@@ -4,6 +4,7 @@ using System.Threading;
 using Microsoft.VisualBasic;
 using System.Drawing;
 using System.Media;
+using System.Text.RegularExpressions;
 
 namespace CaroGame
 {
@@ -14,6 +15,7 @@ namespace CaroGame
         //khai báo usercontrol
         Map map = new Map();
         Profile1 profile1 = new Profile1();
+        Regex reg = new Regex(@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$", RegexOptions.IgnoreCase);
 
         #region force dublebuffer (giảm chớp nháy khi load ảnh)
         private const int WS_EX_COMPOSITED = 0x02000000;
@@ -39,22 +41,19 @@ namespace CaroGame
                               ControlStyles.UserPaint |
                               ControlStyles.OptimizedDoubleBuffer,
                               true);
-            //hiệu úng mở bàn cờ
-            //this.Opacity = 0;
-            //opacityform.Start();
+            
 
             Client.InitClient();
             soundlogin.Play();
-
+            panelLogin.BackColor = Color.FromArgb(40, Color.Black);
+            panelSignup.BackColor = Color.FromArgb(40, Color.Black);
             txt_Log2.PasswordChar = '*';
         }
 
         private void FormCaro_Load(object sender, EventArgs e)
         {
-            txtChecklog.Visible = false;
             progressBar1.Visible = false;
             panelSignup.Visible = false;
-            lblCheck.Visible = false;
         }
 
         //Form đăng nhập
@@ -69,19 +68,21 @@ namespace CaroGame
             txtChecklog.Text = "";
         }
 
-        private void opacityform_Tick(object sender, EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
-            this.Opacity = this.Opacity + 0.05;
-            if (this.Opacity == 1)
-            {
-                opacityform.Stop();
-            }
-        }
+            Client.user_id = txt_Log1.Text;
+            string user_pass = txt_Log2.Text;
+            bool check = await CaroAPI.Login(txt_Log1.Text, txt_Log2.Text);
 
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            processbartime.Enabled = true;
-            progressBar1.Visible = false;
+            if (check)
+            {
+                //check login và chạy hàm load
+                processbartime.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Sai Mật Khẩu");
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -91,34 +92,26 @@ namespace CaroGame
 
         private void processbar_Tick(object sender, EventArgs e)
         {
-            Client.user_id = txt_Log1.Text;
-            string user_pass = txt_Log2.Text;
-            CaroAPI.Login(txt_Log1.Text, txt_Log2.Text);
-
-            if (CaroAPI.user != null)
-            {
-                soundlogin.Stop();
-                //không cho hành động khi load form 
-                progressBar1.Visible = true;
+             soundlogin.Stop();
+             //không cho hành động khi load form 
+             progressBar1.Visible = true;
+             progressBar1.Value = progressBar1.Value + 50;
+             if (progressBar1.Value >= 999)
+             {
+                //dừng thanh load
+                processbartime.Enabled = false;
+                //không cho hành động khi load form
                 txt_Log1.Enabled = false;
                 txt_Log2.Enabled = false;
                 btnLogin.Enabled = false;
-                progressBar1.Value = progressBar1.Value + 50;
-                if (progressBar1.Value == 100)
-                {
-                    processbartime.Enabled = false;
-                    panelLogin.Visible = false;
-                    Controls.Add(profile1);
-                    progressBar1.Visible = false;
-                }
-            }
-            else
-            {
-                txtChecklog.Visible = true;
-                txtChecklog.Text = "*Sai user/password";
-            }
+                panelLogin.Visible = false;
+                //mở trang home
+                progressBar1.Visible = false;
+                Controls.Add(profile1);
+             }
+           
         }
-
+        //mở form đăng ký
         private void txtSignup_Click(object sender, EventArgs e)
         {
             panelSignup.Visible = true;
@@ -135,28 +128,43 @@ namespace CaroGame
         {
             panelSignup.Visible = false;
         }
+       
 
-        //check nhập email
-        private void txtEmail_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private async void btnSignup_Click(object sender, EventArgs e)
         {
-            System.Text.RegularExpressions.Regex rEmail = new System.Text.RegularExpressions.Regex(@"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$");
-            if (txtEmail.Text.Length > 0 && txtEmail.Text.Trim().Length != 0)
+            if (txtFullname.Text == "")
             {
-                if (!rEmail.IsMatch(txtEmail.Text.Trim()))
+                MessageBox.Show("Chưa có full name");
+            }
+            else if (txtUsername.Text == "")
+            {
+                MessageBox.Show("Chưa có username");
+            }
+            else if (txtPassword.Text == "")
+            {
+                MessageBox.Show("Chưa có password");
+            }
+            else if (txtPassword.Text != password2.Text)
+            {
+                MessageBox.Show("Mật khẩu không trùng nhau");
+            }
+            else if(!reg.IsMatch(textBox1.Text))
+            {
+                MessageBox.Show("Email chưa đúng định dạng");
+            }
+            else
+            {
+                bool check = await CaroAPI.SignUp(txtUsername.Text, txtFullname.Text, txtPassword.Text, textBox1.Text);
+                if (check)
                 {
-                    lblCheck.Visible = true;
-                    lblCheck.Text = "*Sai định dạng Email";
+                    MessageBox.Show("Thành Công");
                 }
                 else
                 {
-                    lblCheck.Text = "";
+                    MessageBox.Show("username hoặc email đã tồn tại");
                 }
-            }
-        }
 
-        private void btnSignup_Click(object sender, EventArgs e)
-        {
-            if (txtFullname.Text != "") Clipboard.SetText(txtFullname.Text);
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -167,6 +175,31 @@ namespace CaroGame
         private void txt_Log1_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void txtFullname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void password2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
