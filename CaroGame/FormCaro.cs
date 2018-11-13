@@ -67,22 +67,20 @@ namespace CaroGame
             txtChecklog.Text = "";
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
             Client.user_id = txt_Log1.Text;
             string user_pass = txt_Log2.Text;
-            CaroAPI.Login(txt_Log1.Text, txt_Log2.Text);
+            bool check = await CaroAPI.Login(txt_Log1.Text, txt_Log2.Text);
 
-            if (CaroAPI.user != null)
+            if (check)
             {
                 //check login và chạy hàm load
                 processbartime.Enabled = true;
             }
             else
             {
-                MessageBox.Show("abc");
-                txtChecklog.Visible = true;
-                txtChecklog.Text = "*Sai user/password";
+                MessageBox.Show("Sai Mật Khẩu");
             }
         }
 
@@ -161,6 +159,11 @@ namespace CaroGame
         private void txt_Log1_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void txtFullname_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

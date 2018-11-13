@@ -315,6 +315,7 @@ namespace CaroGame
             this.txtFullname.Name = "txtFullname";
             this.txtFullname.Size = new System.Drawing.Size(261, 26);
             this.txtFullname.TabIndex = 38;
+            this.txtFullname.TextChanged += new System.EventHandler(this.txtFullname_TextChanged);
             // 
             // fullname1
             // 

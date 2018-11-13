@@ -70,18 +70,18 @@ namespace CaroGame
 
         // Login Bằng UserName và Password
         #region Login
-        public static async Task<UserModel> LoginAsync(UserLogin userLogin, HttpClient client)
+        public static async Task<bool> LoginAsync(UserLogin userLogin, HttpClient client)
         {
             HttpResponseMessage response = await client.PostAsJsonAsync(
        "api/login", userLogin);
             if (response.IsSuccessStatusCode)
             {
                 user = await response.Content.ReadAsAsync<UserModel>();
-                return user;
+                return true;
             }
             else
             {
-                return user = null;
+                return false;
             }
 
         }
@@ -92,7 +92,7 @@ namespace CaroGame
             client.BaseAddress = new Uri(baseAddress);
         }
 
-        public static async Task Login(string username, string password)
+        public static async Task<bool> Login(string username, string password)
         {
             var client = new HttpClient();
             SetupClientDefaults(client);
@@ -109,10 +109,19 @@ namespace CaroGame
                     userName = username,
                     password = password,
                 };
-                user = await LoginAsync(userlogin, client);
+                bool user = await LoginAsync(userlogin, client);
+                if (user)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception e)
             {
+                return false;
             }
             finally
             {
