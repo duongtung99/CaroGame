@@ -38,7 +38,7 @@ namespace CaroGame
                 panelhome.Visible = false;
                 Controls.Add(map);
             }
-            
+
         }
     }
 }

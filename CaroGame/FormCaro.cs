@@ -17,21 +17,6 @@ namespace CaroGame
         Profile1 profile1 = new Profile1();
         Regex reg = new Regex(@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$", RegexOptions.IgnoreCase);
 
-        //#region force dublebuffer (giảm chớp nháy khi load ảnh)
-        //private const int WS_EX_COMPOSITED = 0x02000000;
-
-        //protected override CreateParams CreateParams
-        //{
-        //    get
-        //    {
-        //        CreateParams cp = base.CreateParams;
-        //        cp.ExStyle |= WS_EX_COMPOSITED;
-        //        return cp;
-        //    }
-        //}
-        //#endregion
-
-
         public FormCaro()
         {
             InitializeComponent();
@@ -41,7 +26,7 @@ namespace CaroGame
                               ControlStyles.UserPaint |
                               ControlStyles.OptimizedDoubleBuffer,
                               true);
-            
+
 
             Client.InitClient();
             soundlogin.Play();
@@ -57,7 +42,7 @@ namespace CaroGame
         }
 
         //Form đăng nhập
-        
+
         private void txt_Log1_Enter(object sender, EventArgs e)
         {
             txtChecklog.Text = "";
@@ -93,12 +78,12 @@ namespace CaroGame
 
         private void processbar_Tick(object sender, EventArgs e)
         {
-             soundlogin.Stop();
-             //không cho hành động khi load form 
-             progressBar1.Visible = true;
-             progressBar1.Value = progressBar1.Value + 50;
-             if (progressBar1.Value >= 999)
-             {
+            soundlogin.Stop();
+            //không cho hành động khi load form 
+            progressBar1.Visible = true;
+            progressBar1.Value = progressBar1.Value + 50;
+            if (progressBar1.Value >= 999)
+            {
                 //dừng thanh load
                 processbartime.Enabled = false;
                 //không cho hành động khi load form
@@ -109,8 +94,8 @@ namespace CaroGame
                 //mở trang home
                 progressBar1.Visible = false;
                 Controls.Add(profile1);
-             }
-           
+            }
+
         }
         //mở form đăng ký
         private void txtSignup_Click(object sender, EventArgs e)
@@ -123,14 +108,14 @@ namespace CaroGame
             //Client.client.Close();
             Client.UserOffline(Client.user_id);
         }
-        
+
 
         //Form đăng ký
         private void txtSignin_Click(object sender, EventArgs e)
         {
             panelSignup.Visible = false;
         }
-       
+
 
         private async void btnSignup_Click(object sender, EventArgs e)
         {
@@ -176,7 +161,7 @@ namespace CaroGame
 
         private void txt_Log1_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtFullname_TextChanged(object sender, EventArgs e)

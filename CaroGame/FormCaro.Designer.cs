@@ -44,6 +44,10 @@ namespace CaroGame
             this.txt_Log2 = new System.Windows.Forms.TextBox();
             this.txt_Log1 = new System.Windows.Forms.TextBox();
             this.panelSignup = new System.Windows.Forms.Panel();
+<<<<<<< HEAD
+            this.textBox1 = new System.Windows.Forms.TextBox();
+=======
+>>>>>>> b3cbfc889299cce587f8038d7c4f251dda1dea9e
             this.Email = new System.Windows.Forms.Label();
             this.txtSignin = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
@@ -221,11 +225,25 @@ namespace CaroGame
             this.panelSignup.Controls.Add(this.btnSignup);
             this.panelSignup.Controls.Add(this.txtPassword);
             this.panelSignup.Controls.Add(this.txtUsername);
-            this.panelSignup.Location = new System.Drawing.Point(343, 83);
+            this.panelSignup.Location = new System.Drawing.Point(343, 96);
             this.panelSignup.Name = "panelSignup";
-            this.panelSignup.Size = new System.Drawing.Size(468, 473);
+            this.panelSignup.Size = new System.Drawing.Size(468, 460);
             this.panelSignup.TabIndex = 47;
             // 
+<<<<<<< HEAD
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.textBox1.Location = new System.Drawing.Point(102, 314);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(261, 26);
+            this.textBox1.TabIndex = 48;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+=======
+>>>>>>> b3cbfc889299cce587f8038d7c4f251dda1dea9e
             // Email
             // 
             this.Email.AutoSize = true;
