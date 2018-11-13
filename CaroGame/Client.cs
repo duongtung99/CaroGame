@@ -274,7 +274,7 @@ namespace CaroGame
                     Map.turn = 0;
 
                     // dừng worker
-                    break;
+                    workerWaitForPlayer.CancelAsync();
                 }
 
                 Thread.Sleep(100);
