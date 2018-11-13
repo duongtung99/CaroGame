@@ -86,11 +86,15 @@ namespace CaroGame
 
         }
 
+
+
         protected static void SetupClientDefaults(HttpClient client)
         {
             client.Timeout = TimeSpan.FromSeconds(30); //set your own timeout.
             client.BaseAddress = new Uri(baseAddress);
         }
+
+
 
         public static async Task Login(string username, string password)
         {
