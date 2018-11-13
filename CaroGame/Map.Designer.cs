@@ -286,7 +286,7 @@
             // 
             // timer2
             // 
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            //this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // label1
             // 

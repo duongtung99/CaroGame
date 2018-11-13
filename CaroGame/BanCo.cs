@@ -62,7 +62,7 @@ namespace CaroGame
             // lấy ảnh từ Resources
             Bitmap player_x = Resources.x;
             Bitmap player_o = Resources.o;
-            System.Media.SoundPlayer sound = new SoundPlayer(Properties.Resources.DanhCoSound);
+            SoundPlayer sound = new SoundPlayer(Resources.DanhCoSound);
             // tính toán vị trí đặt ảnh theo vị trí click chuột
             int new_x = 0;
             int new_y = 0;
