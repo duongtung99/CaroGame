@@ -56,9 +56,6 @@ namespace CaroGame
         public int id { get; set; }
         public string username { get; set; }
         public string name { get; set; }
-        public List<FriendList> friendlist = new List<FriendList>();
-        public List<LichSuDau> lichsudau = new List<LichSuDau>();
-        public List<ThongKe> thongke = new List<ThongKe>();
 
         public UserModel()
         {
@@ -68,6 +65,8 @@ namespace CaroGame
     {
 
         public static UserModel user;
+
+        public static FriendList friendList;
 
         public static UserReturn userReturn; 
 
@@ -133,6 +132,47 @@ namespace CaroGame
             catch (Exception e)
             {
                 return false;
+            }
+            finally
+            {
+            }
+
+        }
+
+
+        #endregion
+
+        #region friend list
+
+        public static async Task<FriendList> FriendListAsync(HttpClient client)
+        {
+            string url = baseAddress + "api/friendlist/" + user.id.ToString();
+            HttpResponseMessage response = await client.GetAsync(url);
+            if (response.IsSuccessStatusCode)
+            {
+                friendList = await response.Content.ReadAsAsync<FriendList>();
+            }
+            return friendList;
+
+        }
+
+
+        public static async Task FriendList()
+        {
+            var client = new HttpClient();
+            SetupClientDefaults(client);
+            client.Timeout = TimeSpan.FromSeconds(3000);
+            client.BaseAddress = new Uri(baseAddress);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+
+            try
+            {
+                friendList = await FriendListAsync(client);
+            }
+            catch (Exception e)
+            {
             }
             finally
             {
