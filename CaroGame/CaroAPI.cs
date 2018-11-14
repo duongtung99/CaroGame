@@ -29,11 +29,13 @@ namespace CaroGame
     }
     public class FriendList
     {
-        public int idfriendList { get; set; }
         public int idUser { get; set; }
         public string name { get; set; }
-        public int idFriend { get; set; }
         public int status { get; set; }
+    }
+    public class GetFriendList
+    {
+        public List<FriendList> data = new List<FriendList>();
     }
     public class UserLogin
     {
@@ -66,7 +68,7 @@ namespace CaroGame
 
         public static UserModel user;
 
-        public static FriendList friendList;
+        public static GetFriendList getFriendList;
 
         public static UserReturn userReturn; 
 
@@ -144,15 +146,15 @@ namespace CaroGame
 
         #region friend list
 
-        public static async Task<FriendList> FriendListAsync(HttpClient client)
+        public static async Task<GetFriendList> FriendListAsync(HttpClient client)
         {
             string url = baseAddress + "api/friendlist/" + user.id.ToString();
             HttpResponseMessage response = await client.GetAsync(url);
             if (response.IsSuccessStatusCode)
             {
-                friendList = await response.Content.ReadAsAsync<FriendList>();
+                getFriendList = await response.Content.ReadAsAsync<GetFriendList>();
             }
-            return friendList;
+            return getFriendList;
 
         }
 
@@ -169,7 +171,7 @@ namespace CaroGame
 
             try
             {
-                friendList = await FriendListAsync(client);
+                getFriendList = await FriendListAsync(client);
             }
             catch (Exception e)
             {
