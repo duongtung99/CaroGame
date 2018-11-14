@@ -47,6 +47,10 @@ namespace CaroGame
         public string password { get; set; }
         public string email { get; set; }
     }
+    public class UserReturn
+    {
+        public string checkuser { get; set; }
+    }
     public class UserModel
     {
         public int id { get; set; }
@@ -65,6 +69,7 @@ namespace CaroGame
 
         public static UserModel user;
 
+        public static UserReturn userReturn; 
 
         static string baseAddress = "http://159.89.193.234/";
 
@@ -82,6 +87,7 @@ namespace CaroGame
             }
             else
             {
+                userReturn = await response.Content.ReadAsAsync<UserReturn>();
                 return false;
             }
 
