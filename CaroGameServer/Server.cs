@@ -49,18 +49,23 @@ namespace CaroGameServer
                         int y = Convert.ToInt32(code[4]);
                         HandleClient.Play(user_id, room_no, x, y);
                         break;
-                    case "login":
-                        HandleClient.Login(code[1], code[2]);
-                        break;
-                    case "register":
-                        HandleClient.Register(code[1], code[2], code[3]);
-                        break;
+                    //case "login":
+                    //    HandleClient.Login(code[1], code[2]);
+                    //    break;
+                    //case "register":
+                    //    HandleClient.Register(code[1], code[2], code[3]);
+                    //    break;
                     case "create":
                         HandleClient.CreateRoom(code[1], code[2], clientEP);
                         break;
                     case "join":
                         HandleClient.JoinRoom(code[1], code[2], clientEP);
-
+                        break;
+                    case "online":
+                        HandleClient.UserOnline(code[1], clientEP);
+                        break;
+                    case "offline":
+                        HandleClient.UserOffline(code[1]);
                         break;
                 }
             }

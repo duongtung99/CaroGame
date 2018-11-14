@@ -45,9 +45,9 @@
             this.btnVao = new System.Windows.Forms.Button();
             this.txtSophong = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtChat = new System.Windows.Forms.TextBox();
             this.btnChat = new System.Windows.Forms.Button();
             this.chat = new System.Windows.Forms.ListBox();
-            this.txtChat = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listfriend)).BeginInit();
@@ -76,44 +76,44 @@
             // lblRank
             // 
             this.lblRank.AutoSize = true;
-            this.lblRank.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRank.ForeColor = System.Drawing.Color.Red;
             this.lblRank.Location = new System.Drawing.Point(133, 247);
             this.lblRank.Name = "lblRank";
-            this.lblRank.Size = new System.Drawing.Size(62, 24);
+            this.lblRank.Size = new System.Drawing.Size(64, 25);
             this.lblRank.TabIndex = 15;
             this.lblRank.Text = "1000";
             // 
             // lblLevel
             // 
             this.lblLevel.AutoSize = true;
-            this.lblLevel.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLevel.ForeColor = System.Drawing.Color.Red;
             this.lblLevel.Location = new System.Drawing.Point(133, 211);
             this.lblLevel.Name = "lblLevel";
-            this.lblLevel.Size = new System.Drawing.Size(36, 24);
+            this.lblLevel.Size = new System.Drawing.Size(38, 25);
             this.lblLevel.TabIndex = 14;
             this.lblLevel.Text = "30";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Lucida Bright", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(212)))), ((int)(((byte)(95)))));
             this.label3.Location = new System.Drawing.Point(15, 247);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 24);
+            this.label3.Size = new System.Drawing.Size(80, 25);
             this.label3.TabIndex = 13;
             this.label3.Text = "Rank :";
             // 
             // Level
             // 
             this.Level.AutoSize = true;
-            this.Level.Font = new System.Drawing.Font("Lucida Bright", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Level.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Level.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(212)))), ((int)(((byte)(95)))));
             this.Level.Location = new System.Drawing.Point(15, 211);
             this.Level.Name = "Level";
-            this.Level.Size = new System.Drawing.Size(80, 24);
+            this.Level.Size = new System.Drawing.Size(83, 25);
             this.Level.TabIndex = 12;
             this.Level.Text = "Level :";
             // 
@@ -131,11 +131,11 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Lucida Bright", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.Color.Red;
             this.lblUsername.Location = new System.Drawing.Point(94, 21);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(56, 31);
+            this.lblUsername.Size = new System.Drawing.Size(55, 31);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Zin";
             // 
@@ -184,11 +184,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(21, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(288, 49);
+            this.label1.Size = new System.Drawing.Size(306, 42);
             this.label1.TabIndex = 19;
             this.label1.Text = "C A R O G A M E";
             // 
@@ -248,6 +248,13 @@
             this.panel2.Size = new System.Drawing.Size(860, 205);
             this.panel2.TabIndex = 10;
             // 
+            // txtChat
+            // 
+            this.txtChat.Location = new System.Drawing.Point(12, 182);
+            this.txtChat.Name = "txtChat";
+            this.txtChat.Size = new System.Drawing.Size(732, 20);
+            this.txtChat.TabIndex = 21;
+            // 
             // btnChat
             // 
             this.btnChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(113)))), ((int)(((byte)(150)))));
@@ -268,13 +275,6 @@
             this.chat.Name = "chat";
             this.chat.Size = new System.Drawing.Size(841, 173);
             this.chat.TabIndex = 19;
-            // 
-            // txtChat
-            // 
-            this.txtChat.Location = new System.Drawing.Point(12, 182);
-            this.txtChat.Name = "txtChat";
-            this.txtChat.Size = new System.Drawing.Size(732, 20);
-            this.txtChat.TabIndex = 21;
             // 
             // Profile1
             // 

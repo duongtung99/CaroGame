@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 
@@ -31,10 +36,13 @@ namespace CaroGame
             InitializeComponent();
             bc = new BanCo(soDong, soCot);
             grs = pnlChess.CreateGraphics();
-            
+
+
+            timer1.Start();
             button1.Text = "Start";
             //đếm giờ
             da = DateTime.Now;
+            timer1.Start();
 
             Client.host_label = lblHost;
             Client.join_label = lblJoin;
@@ -92,7 +100,6 @@ namespace CaroGame
                     {
                         // hiển thị nếu mày là người chiến thắng
                         soundwin.Play();
-                        panel1.Enabled = false;
                         MessageBox.Show("wwin");
                     }
                 }
@@ -105,26 +112,29 @@ namespace CaroGame
             lblHost.Text = Client.host_id;
             lblJoin.Text = Client.join_id;
 
+            // thực thi nếu người chơi là host
             if (Client.host_id.Equals(Client.user_id))
             {
                 label7.Text = "Chờ người chơi...";
-                Client.workerWaitForPlayer.RunWorkerAsync();
-                //pnlChess.Enabled = false;
+
+                // chạy thread chờ người chơi join
+                if (!Client.workerWaitForPlayer.IsBusy)
+                {
+                    Client.workerWaitForPlayer.RunWorkerAsync();
+                }
             }
 
-            Client.workerChangeTurn.RunWorkerAsync();
+            // chạy thread đổi màu tên người chơi khi đến lượt
+            if (!Client.workerChangeTurn.IsBusy)
+            {
+                Client.workerChangeTurn.RunWorkerAsync();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             TimeSpan span = DateTime.Now.Subtract(da);
             Time.Text = span.Minutes.ToString() + " : " + span.Seconds.ToString();
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            grs.DrawImage(Properties.Resources.phaohoa, 200, 200, 400, 120);
-            //grs.DrawString("Nhấn Enter để tiếp tục", new Font("Arial", 16, FontStyle.Bold), new SolidBrush(Color.White), 200, 200);
         }
     }
 }

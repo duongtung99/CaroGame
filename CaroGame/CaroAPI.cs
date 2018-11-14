@@ -93,11 +93,15 @@ namespace CaroGame
 
         }
 
+
+
         protected static void SetupClientDefaults(HttpClient client)
         {
             client.Timeout = TimeSpan.FromSeconds(30); //set your own timeout.
             client.BaseAddress = new Uri(baseAddress);
         }
+
+
 
         public static async Task<bool> Login(string username, string password)
         {
@@ -158,8 +162,7 @@ namespace CaroGame
             SetupClientDefaults(client);
             client.BaseAddress = new Uri(baseAddress);
             client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             try
             {

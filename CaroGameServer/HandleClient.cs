@@ -11,6 +11,9 @@ namespace CaroGameServer
         // danh sách phòng chơi
         private static List<Room> roomList = new List<Room>();
 
+        // danh sách người chơi online
+        private static List<Online> onlineList = new List<Online>();
+
 
         #region Login
 
@@ -153,40 +156,42 @@ namespace CaroGameServer
             return false;
         }
 
-        // Đăng ký tài khoản
-        internal static bool DangKy(string userName, string name, string password)
-        {
-            if (!KiemTraUser(userName))
-            {
-                MySqlConnection conn = DBUtils.GetDBConnection();
-                MySqlCommand MyCommand;
-                MyCommand = conn.CreateCommand();
-                conn.Open();
-                try
-                {
-                    MyCommand.CommandText = "INSERT INTO user (userName, name, password)  VALUES (@userName, @name, @password) ";
-                    MyCommand.Parameters.AddWithValue("@userName", userName);
-                    MyCommand.Parameters.AddWithValue("@name", name);
-                    MyCommand.Parameters.AddWithValue("@password", password);
-                    MyCommand.ExecuteNonQuery();
-                    conn.Dispose();
-                    conn.Close();
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                finally
-                {
-                    conn.Dispose();
-                    conn.Close();
-                }
+        //// Đăng ký tài khoản
+        //internal static bool DangKy(string userName, string name, string password)
+        //{
+        //    if (!KiemTraUser(userName))
+        //    {
+        //        MySqlConnection conn = DBUtils.GetDBConnection();
+        //        MySqlCommand MyCommand;
+        //        MyCommand = conn.CreateCommand();
+        //        conn.Open();
+        //        try
+        //        {
+        //            MyCommand.CommandText = "INSERT INTO user (userName, name, password)  VALUES (@userName, @name, @password) ";
+        //            MyCommand.Parameters.AddWithValue("@userName", userName);
+        //            MyCommand.Parameters.AddWithValue("@name", name);
+        //            MyCommand.Parameters.AddWithValue("@password", password);
+        //            MyCommand.ExecuteNonQuery();
+        //            conn.Dispose();
+        //            conn.Close();
+        //            return true;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Console.WriteLine(ex.Message);
+        //        }
+        //        finally
+        //        {
+        //            conn.Dispose();
+        //            conn.Close();
+        //        }
 
-            }
-            return false;
-        }
+        //    }
+        //    return false;
+        //}
         #endregion
+
+
         // tim ten doi thu 
         private static bool SearchUser(string userName)
         {
@@ -196,40 +201,39 @@ namespace CaroGameServer
         }
 
 
-        // chạy hàm cho login
-        public static void Login(string user_id, string user_pass)
-        {
-            // kiểm tra username và pass có trong db
-            bool validate = CheckUser(user_id, user_pass);
+        //// chạy hàm cho login
+        //public static void Login(string user_id, string user_pass)
+        //{
+        //    // kiểm tra username và pass có trong db
+        //    bool validate = CheckUser(user_id, user_pass);
 
-            if (validate)
-            {
-                Server.SendData("login:true");
-                Status(user_id);
-                Console.WriteLine("User " + user_id + " online");
-            }
-            else
-            {
-                Server.SendData("login:false");
-                Console.WriteLine("sai");
-            }
-        }
-
+        //    if (validate)
+        //    {
+        //        Server.SendData("login:true");
+        //        Status(user_id);
+        //    }
+        //    else
+        //    {
+        //        Server.SendData("login:false");
+        //        Console.WriteLine("sai");
+        //    }
+        //}
 
 
-        public static void Register(string user_id, string user_name, string user_pass)
-        {
-            bool validate = DangKy(user_id, user_name, user_pass);
 
-            if (validate)
-            {
-                Server.SendData("register:true");
-            }
-            else
-            {
-                Server.SendData("register:false");
-            }
-        }
+        //public static void Register(string user_id, string user_name, string user_pass)
+        //{
+        //    bool validate = DangKy(user_id, user_name, user_pass);
+
+        //    if (validate)
+        //    {
+        //        Server.SendData("register:true");
+        //    }
+        //    else
+        //    {
+        //        Server.SendData("register:false");
+        //    }
+        //}
 
         
         public static void Play(string user_id, string room_no, int x, int y)
@@ -270,6 +274,9 @@ namespace CaroGameServer
             Console.WriteLine("User " + user_id + " create room");
         }
 
+
+
+
         public static void JoinRoom(string user_id, string room_no, IPEndPoint userEP)
         {
             bool check_room = false;
@@ -309,6 +316,37 @@ namespace CaroGameServer
             if (!check_room)
             {
                 Server.SendData("join:false");
+            }
+        }
+
+
+        // thêm user vào online list
+        public static void UserOnline(string user_id, IPEndPoint userEP)
+        {
+            Online userOnline = new Online
+            {
+                user_id = user_id,
+                userEP = userEP
+            };
+
+            // thêm user vào online list
+            onlineList.Add(userOnline);
+
+            Console.WriteLine("User " + user_id + " online");
+        }
+
+
+        // xóa user khỏi online list
+        public static void UserOffline(string user_id)
+        {
+            foreach (Online userOnline in onlineList)
+            {
+                if (userOnline.user_id.Equals(user_id))
+                {
+                    onlineList.Remove(userOnline);
+                    Console.WriteLine("User " + user_id + " offline");
+                    break;
+                }
             }
         }
     }
