@@ -49,7 +49,7 @@ namespace CaroGame
     }
     public class UserReturn
     {
-        public string checkuser { get; set; }
+        public string statuscode { get; set; }
     }
     public class UserModel
     {

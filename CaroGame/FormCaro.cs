@@ -67,14 +67,8 @@ namespace CaroGame
             }
             else
             {
-                if(CaroAPI.userReturn.checkuser == "")
-                {
-                    MessageBox.Show("Sai Mật Khẩu");
-                }
-                else
-                {
-                    MessageBox.Show("Tài khoản đã có người đăng nhập");
-                }
+                MessageBox.Show(CaroAPI.userReturn.statuscode);
+                CaroAPI.userReturn = null;
             }
         }
 
