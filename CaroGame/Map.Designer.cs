@@ -247,8 +247,8 @@
             this.pnlChess.Name = "pnlChess";
             this.pnlChess.Size = new System.Drawing.Size(672, 528);
             this.pnlChess.TabIndex = 27;
-            this.pnlChess.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlChess_Paint);
-            this.pnlChess.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlChess_MouseClick);
+            //this.pnlChess.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlChess_Paint);
+            //this.pnlChess.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnlChess_MouseClick);
             // 
             // TenPhong
             // 
@@ -365,7 +365,7 @@
         private System.Windows.Forms.Label lblHost;
         private System.Windows.Forms.Label lblSophong;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel pnlChess;
+        public System.Windows.Forms.Panel pnlChess;
         private System.Windows.Forms.Panel TenPhong;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;

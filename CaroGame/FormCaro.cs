@@ -63,7 +63,7 @@ namespace CaroGame
             {
                 //check login và chạy hàm load
                 processbartime.Enabled = true;
-                Client.UserOnline(Client.user_id);
+                //Client.UserOnline(Client.user_id);
             }
             else
             {

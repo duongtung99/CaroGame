@@ -22,7 +22,8 @@ namespace CaroGame
         private static int serverPort = 12345;
 
         // tạo endpoint(điểm cuối giao tiếp) gồm ip và port của server
-        private static IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(serverIp), serverPort);
+        //private static IPEndPoint serverEP = new IPEndPoint(IPAddress.Parse(serverIp), serverPort);
+        private static TcpClient client = new TcpClient(serverIp, serverPort);
 
         // kiểm tra
         public static bool checkLogin = false;
@@ -44,18 +45,19 @@ namespace CaroGame
         public static Label waiting_label;
         
         // khai báo kết nối
-        public static UdpClient client = null;
+        //public static UdpClient client = null;
         //private static IPEndPoint serverEP = null;
 
         // khai báo worker
         public static BackgroundWorker workerListener = null;
         public static BackgroundWorker workerWaitForPlayer = null;
         public static BackgroundWorker workerChangeTurn = null;
+        public static BackgroundWorker workerRefreshRoom = null;
 
         public static void InitClient()
         {
             // tạo udpclient
-            client = new UdpClient();
+            //client = new UdpClient();
 
             // cho phép cancel worker
             workerListener = new BackgroundWorker
@@ -73,10 +75,16 @@ namespace CaroGame
                 WorkerSupportsCancellation = true
             };
 
+            workerRefreshRoom = new BackgroundWorker
+            {
+                WorkerSupportsCancellation = true
+            };
+
             // thêm công việc cho worker
             workerListener.DoWork += DoReceiver;
             workerWaitForPlayer.DoWork += DoWaitForPlayer;
             workerChangeTurn.DoWork += DoChangeTurn;
+            workerRefreshRoom.DoWork += DoRefreshRoom;
 
             // start worker
             workerListener.RunWorkerAsync();
@@ -136,18 +144,104 @@ namespace CaroGame
         }
 
 
+        private static void RefreshRoom()
+        {
+            string message = "refreshroom";
+            SendData(message);
+        }
+
 
         private static void SendData(string message)
         {
-            // gửi api lên server
-            byte[] messageEncode = Encoding.ASCII.GetBytes(message);
-            //try
+            // gửi dữ liệu lên server
+            // chuyển dữ liệu từ string thành bytes
+            byte[] data = Encoding.ASCII.GetBytes(message);
+
+            // tạo 1 stream để để đọc ghi
+            NetworkStream stream = client.GetStream();
+
+            // gửi
+            stream.Write(data, 0, data.Length);
+            //client.Send(messageEncode, messageEncode.Length);
+
+            //// nhận dữ liệu từ server
+            //// tạo buffer lưu trữ dữ liệu nhận đc
+            //data = new byte[256];
+
+            //// đọc dữ liệu nhận về
+            //string response = string.Empty;
+            //int bytes = stream.Read(data, 0, data.Length);
+            //response = Encoding.ASCII.GetString(data, 0, bytes);
+
+            //// xử lý dữ liệu nhận về
+            //string[] rp = response.Split(':');
+            //switch (rp[0])
             //{
-                client.Send(messageEncode, messageEncode.Length);
-            //} catch (Exception ex)
-            //{
-            //    MessageBox.Show("cant connect to server");
+            //    case "play":
+            //        int x = Convert.ToInt32(rp[1]);
+            //        int y = Convert.ToInt32(rp[2]);
+
+            //        if (Map.player_turn == 1)
+            //        {
+            //            BanCo.DanhCo(x, y, 2, Map.grs);
+            //        }
+            //        else if (Map.player_turn == 2)
+            //        {
+            //            BanCo.DanhCo(x, y, 1, Map.grs);
+            //        }
+
+            //        Map.turn++;
+            //        //MessageBox.Show(Convert.ToString(Map.turn));
+            //        break;
+            //    case "login":
+            //        if (rp[1].Equals("true"))
+            //        {
+            //            checkLogin = true;
+            //        }
+            //        break;
+            //    case "register":
+            //        if (rp[1].Equals("true"))
+            //        {
+            //            checkRegister = true;
+            //        }
+            //        break;
+            //    case "create":
+            //        if (rp[1].Equals("true"))
+            //        {
+            //            checkCreateRoom = true;
+            //        }
+            //        break;
+            //    case "join":
+            //        if (rp[1].Equals("true"))
+            //        {
+            //            host_id = rp[2];
+
+            //            // set player turn
+            //            Map.player_turn = Convert.ToInt32(rp[3]);
+
+            //            // set turn = 0 (bắt đầu game)
+            //            Map.turn = 0;
+
+            //            checkJoinRoom = true;
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("Phòng không tồn tại");
+            //        }
+            //        break;
+            //    case "host":
+            //        if (rp[1].Equals(user_id))
+            //        {
+            //            join_id = rp[2];
+
+            //            // set player turn
+            //            Map.player_turn = Convert.ToInt32(rp[3]);
+            //        }
+            //        break;
             //}
+
+            // đóng stream
+            //stream.Close();
         }
 
 
@@ -155,7 +249,7 @@ namespace CaroGame
         {
             // connect to server
             // try catch to check server on/off
-            client.Connect(serverEP);
+            //client.Connect(serverEP);
 
             while (true)
             {
@@ -166,9 +260,16 @@ namespace CaroGame
                     return;
                 }
 
-                // xử lý data nhận được từ server
-                byte[] data = client.Receive(ref serverEP);
-                string response = Encoding.ASCII.GetString(data);
+                // nhận dữ liệu từ server
+                // tạo buffer lưu trữ dữ liệu nhận đc
+                byte[] data = new byte[256];
+
+                NetworkStream stream = client.GetStream();
+
+                // đọc dữ liệu nhận về
+                string response = string.Empty;
+                int bytes = stream.Read(data, 0, data.Length);
+                response = Encoding.ASCII.GetString(data, 0, bytes);
                 string[] rp = response.Split(':');
 
                 /// <summary>
@@ -181,13 +282,14 @@ namespace CaroGame
                     case "play":
                         int x = Convert.ToInt32(rp[1]);
                         int y = Convert.ToInt32(rp[2]);
-                        
+
                         if (Map.player_turn == 1)
                         {
-                            BanCo.DanhCo(x, y, 2, Map.grs);
-                        } else if (Map.player_turn == 2)
+                            //BanCo.DanhCo(x, y, 2, Map.grs);
+                        }
+                        else if (Map.player_turn == 2)
                         {
-                            BanCo.DanhCo(x, y, 1, Map.grs);
+                            //BanCo.DanhCo(x, y, 1, Map.grs);
                         }
 
                         Map.turn++;
@@ -223,7 +325,8 @@ namespace CaroGame
                             Map.turn = 0;
 
                             checkJoinRoom = true;
-                        } else
+                        }
+                        else
                         {
                             MessageBox.Show("Phòng không tồn tại");
                         }
@@ -358,9 +461,29 @@ namespace CaroGame
                     }
                 }
 
+                // chạy kiểm tra mỗi 0.1s
                 Thread.Sleep(100);
             }
         }
+
+
+
+        private static void DoRefreshRoom(object sender, DoWorkEventArgs e)
+        {
+            while (true)
+            {
+                // cancel worker nếu có tín hiệu cancel gửi đến
+                if (workerRefreshRoom.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+
+                // do something to refresh roomlist here
+            }
+        }
+
+
 
     }
 }

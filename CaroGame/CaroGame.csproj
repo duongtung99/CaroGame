@@ -54,7 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BanCo.cs" />
     <Compile Include="CaroAPI.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="FormCaro.cs">

@@ -8,22 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using CaroGame.Properties;
 
 namespace CaroGame
 {
     public partial class Map : UserControl
     {
-        private static BanCo bc;
-        public static Graphics grs;
-
         // xac dinh so dong so cot
-        private int soDong = 28;
-        private int soCot = 22;
+        private const int CHESS_WIDTH = 24;
+        private const int CHESS_HEIGHT = 24;
+
+        private const int BOARD_HEIGHT = 20;
+        private const int BOARD_WIDTH = 20;
 
         // player turn
         public static int turn = -1;
         public static int player_turn = 0;
-        public List<int> KeHuyDiet = new List<int>();
+
+        private static List<int> playerX = new List<int>();
+        private static List<int> playerO = new List<int>();
+
 
         //nhacnen
         SoundPlayer soundwin = new SoundPlayer(Properties.Resources.WinSound);
@@ -34,8 +38,10 @@ namespace CaroGame
         public Map()
         {
             InitializeComponent();
-            bc = new BanCo(soDong, soCot);
-            grs = pnlChess.CreateGraphics();
+
+            DrawChessBoard();
+
+          
 
 
             timer1.Start();
@@ -49,62 +55,123 @@ namespace CaroGame
             Client.waiting_label = label7;
         }
 
-        private void pnlChess_Paint(object sender, PaintEventArgs e)
+
+        public void DrawChessBoard()
         {
-            bc.VeBanCo(grs);
-            // gán số 1 cho tất cả các ô khi bắt đầu game
-            bc.check(soDong, soCot);
-        }
-
-        private void pnlChess_MouseClick(object sender, MouseEventArgs e)
-        {
-            // Debug
-            if ((turn % 2 == 0) && (player_turn == 1)) //if turn is even
+            for (int i = 0; i < BOARD_WIDTH; i++)
             {
-                // hiển thị nước đánh
-                Point point = e.Location;
-                int vi_tri = BanCo.DanhCo(point.X, point.Y, player_turn, grs);
-
-                // kiểm tra win
-                if (vi_tri != 0)
+                for (int j = 0; j < BOARD_HEIGHT; j++)
                 {
-                    // gửi thông tin cho người chơi còn lại biết mày vừa đánh ở đâu
-                    Client.Play(Client.user_id, Client.room_no, point.X, point.Y);
-
-                    bool win = BanCo.CheckWin(player_turn, vi_tri);
-                    KeHuyDiet.Add(vi_tri);
-                    turn++;
-
-                    if (win)
+                    Button btn = new Button()
                     {
-                        // hiển thị nếu mày là người chiến thắng
-                        soundwin.Play();
-                    }
-                }
-            }
-            else if ((turn % 2 != 0) && (player_turn == 2))
-            {
-                Point point = e.Location;
-                int vi_tri = BanCo.DanhCo(point.X, point.Y, player_turn, grs);
+                        Width = CHESS_WIDTH,
+                        Height = CHESS_HEIGHT,
+                        Location = new Point(i * CHESS_WIDTH, j * CHESS_HEIGHT)
+                    };
 
-                if (vi_tri != 0)
-                {
-                    // gửi thông tin cho người chơi còn lại biết mày vừa đánh ở đâu
-                    Client.Play(Client.user_id, Client.room_no, point.X, point.Y);
+                    btn.Click += btn_Click;
 
-                    bool win = BanCo.CheckWin(player_turn, vi_tri);
-                    KeHuyDiet.Add(vi_tri);
-                    turn++;
-
-                    if (win)
-                    {
-                        // hiển thị nếu mày là người chiến thắng
-                        soundwin.Play();
-                        MessageBox.Show("wwin");
-                    }
+                    pnlChess.Controls.Add(btn);
                 }
             }
         }
+
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+
+            if (btn.BackgroundImage != null)
+            {
+                return;
+            }
+
+            SoundPlayer sound = new SoundPlayer(Resources.DanhCoSound);
+
+            // lưu vị trí theo thứ tự 1-> 81 vào List
+            int vi_tri = (btn.Location.X + btn.Location.Y * BOARD_WIDTH + CHESS_WIDTH) / CHESS_HEIGHT;
+
+            if ((turn % 2 == 0) && (player_turn == 1))
+            {
+                btn.BackgroundImage = Resources.x;
+                playerX.Add(vi_tri);
+                sound.Play();
+
+                bool win = CheckWin(playerX, vi_tri);
+                if (win)
+                {
+                    MessageBox.Show("Player " + player_turn + " won");
+                }
+
+                turn++;
+            }
+            else if ((turn % 2 > 0) && (player_turn == 2))
+            {
+                btn.BackgroundImage = Resources.o;
+                playerO.Add(vi_tri);
+                sound.Play();
+
+                bool win = CheckWin(playerO, vi_tri);
+                if (win)
+                {
+                    MessageBox.Show("Player " + player_turn + " won");
+                }
+
+                turn++;
+            }
+        }
+
+
+        // check thắng
+        public static bool CheckWin(List<int> checkPlayer, int vi_tri)
+        {
+            for (int i = -4; i < 1; i++)
+            {
+                // check hàng checkPlayer
+                if (checkPlayer.Contains(vi_tri + i) &&
+                checkPlayer.Contains(vi_tri + i + 1) &&
+                checkPlayer.Contains(vi_tri + i + 2) &&
+                checkPlayer.Contains(vi_tri + i + 3) &&
+                checkPlayer.Contains(vi_tri + i + 4))
+                {
+                    return true;
+                }
+
+                // check hàng chéo phải sang trái
+                if (checkPlayer.Contains(vi_tri + i * (BOARD_WIDTH - 1)) &&
+                checkPlayer.Contains(vi_tri + (i + 1) * (BOARD_WIDTH - 1)) &&
+                checkPlayer.Contains(vi_tri + (i + 2) * (BOARD_WIDTH - 1)) &&
+                checkPlayer.Contains(vi_tri + (i + 3) * (BOARD_WIDTH - 1)) &&
+                checkPlayer.Contains(vi_tri + (i + 4) * (BOARD_WIDTH - 1)))
+                {
+                    return true;
+                }
+
+                // check hàng dọc
+                if (checkPlayer.Contains(vi_tri + i * BOARD_WIDTH) &&
+                checkPlayer.Contains(vi_tri + (i + 1) * BOARD_WIDTH) &&
+                checkPlayer.Contains(vi_tri + (i + 2) * BOARD_WIDTH) &&
+                checkPlayer.Contains(vi_tri + (i + 3) * BOARD_WIDTH) &&
+                checkPlayer.Contains(vi_tri + (i + 4) * BOARD_WIDTH))
+                {
+                    return true;
+                }
+
+                // check hàng chéo trái sang phải
+                if (checkPlayer.Contains(vi_tri + i * (BOARD_WIDTH + 1)) &&
+                checkPlayer.Contains(vi_tri + (i + 1) * (BOARD_WIDTH + 1)) &&
+                checkPlayer.Contains(vi_tri + (i + 2) * (BOARD_WIDTH + 1)) &&
+                checkPlayer.Contains(vi_tri + (i + 3) * (BOARD_WIDTH + 1)) &&
+                checkPlayer.Contains(vi_tri + (i + 4) * (BOARD_WIDTH + 1)))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
 
         private void Map_Load(object sender, EventArgs e)
         {
