@@ -67,7 +67,8 @@ namespace CaroGame
             }
             else
             {
-                MessageBox.Show("Sai Mật Khẩu");
+                MessageBox.Show(CaroAPI.userReturn.statuscode);
+                CaroAPI.userReturn = null;
             }
         }
 

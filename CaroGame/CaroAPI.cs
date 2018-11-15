@@ -29,11 +29,13 @@ namespace CaroGame
     }
     public class FriendList
     {
-        public int idfriendList { get; set; }
         public int idUser { get; set; }
         public string name { get; set; }
-        public int idFriend { get; set; }
         public int status { get; set; }
+    }
+    public class GetFriendList
+    {
+        public List<FriendList> data = new List<FriendList>();
     }
     public class UserLogin
     {
@@ -47,14 +49,15 @@ namespace CaroGame
         public string password { get; set; }
         public string email { get; set; }
     }
+    public class UserReturn
+    {
+        public string statuscode { get; set; }
+    }
     public class UserModel
     {
         public int id { get; set; }
         public string username { get; set; }
         public string name { get; set; }
-        public List<FriendList> friendlist = new List<FriendList>();
-        public List<LichSuDau> lichsudau = new List<LichSuDau>();
-        public List<ThongKe> thongke = new List<ThongKe>();
 
         public UserModel()
         {
@@ -65,6 +68,9 @@ namespace CaroGame
 
         public static UserModel user;
 
+        public static GetFriendList getFriendList;
+
+        public static UserReturn userReturn; 
 
         static string baseAddress = "http://159.89.193.234/";
 
@@ -82,6 +88,7 @@ namespace CaroGame
             }
             else
             {
+                userReturn = await response.Content.ReadAsAsync<UserReturn>();
                 return false;
             }
 
@@ -127,6 +134,47 @@ namespace CaroGame
             catch (Exception e)
             {
                 return false;
+            }
+            finally
+            {
+            }
+
+        }
+
+
+        #endregion
+
+        #region friend list
+
+        public static async Task<GetFriendList> FriendListAsync(HttpClient client)
+        {
+            string url = baseAddress + "api/friendlist/" + user.id.ToString();
+            HttpResponseMessage response = await client.GetAsync(url);
+            if (response.IsSuccessStatusCode)
+            {
+                getFriendList = await response.Content.ReadAsAsync<GetFriendList>();
+            }
+            return getFriendList;
+
+        }
+
+
+        public static async Task FriendList()
+        {
+            var client = new HttpClient();
+            SetupClientDefaults(client);
+            client.Timeout = TimeSpan.FromSeconds(3000);
+            client.BaseAddress = new Uri(baseAddress);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json"));
+
+            try
+            {
+                getFriendList = await FriendListAsync(client);
+            }
+            catch (Exception e)
+            {
             }
             finally
             {

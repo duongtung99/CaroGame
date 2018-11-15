@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace CaroGame
 {
@@ -11,6 +12,20 @@ namespace CaroGame
         {
             InitializeComponent();
         }
+
+        // Hàm tạo và lấy friend list
+        //private async void btnGetFriendlist_Click(object sender, EventArgs e)
+        //{
+
+        //    await Task.Run(() =>
+        //    {
+        //        CaroAPI.FriendList().GetAwaiter().GetResult();
+        //    });
+        //    foreach (FriendList manh in CaroAPI.getFriendList.data)
+        //    {
+        //        MessageBox.Show(manh.idUser.ToString() + " " + manh.name + " " + manh.status.ToString());
+        //    }
+        //}
 
         private void btnTao_Click(object sender, EventArgs e)
         {
