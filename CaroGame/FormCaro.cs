@@ -10,8 +10,6 @@ namespace CaroGame
 {
     public partial class FormCaro : Form
     {
-        //nhạc nền đăng nhập
-        SoundPlayer soundlogin = new SoundPlayer(Properties.Resources.NhacNen);
         //khai báo usercontrol
         Map map = new Map();
         Profile1 profile1 = new Profile1();
@@ -29,7 +27,6 @@ namespace CaroGame
 
 
             Client.InitClient();
-            soundlogin.Play();
             panelLogin.BackColor = Color.FromArgb(40, Color.Black);
             panelSignup.BackColor = Color.FromArgb(40, Color.Black);
             txt_Log2.PasswordChar = '*';
@@ -79,7 +76,6 @@ namespace CaroGame
 
         private void processbar_Tick(object sender, EventArgs e)
         {
-            soundlogin.Stop();
             //không cho hành động khi load form 
             progressBar1.Visible = true;
             progressBar1.Value = progressBar1.Value + 50;

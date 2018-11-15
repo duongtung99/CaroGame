@@ -28,10 +28,7 @@ namespace CaroGame
         private static List<int> playerX = new List<int>();
         private static List<int> playerO = new List<int>();
 
-
-        //nhacnen
-        SoundPlayer soundwin = new SoundPlayer(Properties.Resources.WinSound);
-        SoundPlayer soundlose = new SoundPlayer(Properties.Resources.LoseSound);
+        
         //dem gio
         DateTime da;
 
@@ -95,7 +92,6 @@ namespace CaroGame
             {
                 btn.BackgroundImage = Resources.x;
                 playerX.Add(vi_tri);
-                sound.Play();
 
                 bool win = CheckWin(playerX, vi_tri);
                 if (win)
@@ -109,7 +105,6 @@ namespace CaroGame
             {
                 btn.BackgroundImage = Resources.o;
                 playerO.Add(vi_tri);
-                sound.Play();
 
                 bool win = CheckWin(playerO, vi_tri);
                 if (win)
