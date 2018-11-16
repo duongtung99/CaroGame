@@ -27,6 +27,16 @@ namespace CaroGame
         //    }
         //}
 
+        // Hàm log out tài khoản
+        //private async void btnLogOut_Click(object sender, EventArgs e)
+        //{
+
+        //    await Task.Run(() =>
+        //    {
+        //        CaroAPI.LogOut();
+        //    });
+        //}
+
         private void btnTao_Click(object sender, EventArgs e)
         {
             Client.host_id = Client.user_id;
