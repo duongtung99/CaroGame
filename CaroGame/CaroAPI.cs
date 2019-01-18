@@ -72,7 +72,7 @@ namespace CaroGame
 
         public static UserReturn userReturn; 
 
-        static string baseAddress = "http://159.89.193.234/";
+        static string baseAddress = "http://206.189.146.238/";
 
 
         // Login Bằng UserName và Password
